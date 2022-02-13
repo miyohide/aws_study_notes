@@ -15,3 +15,50 @@
 - All at once
     - すべてのサーバーで同時にIn-Place更新をする
 
+# AWS CodeCommit
+
+Gitリポジトリを提供するサービス。AWSCodeCommitPowerUserという権限がある。ソースコードが更新されたなどのタイミングでAmazon SNSやAWS Chatbotに通知を飛ばしたりAWS Lambdaの関数を実行するイベントを設定できる。
+
+# AWS CodeBuild
+
+ビルドプロセスを提供。`buildspec.yml`に処理内容を記載する。
+
+ソースはS3やCodeCommit、GitHub（含むEnterprise）、Bitbucket。
+
+ローカルえージョンとをインストールすることで実行することが可能。
+
+# AWS CodeDeploy
+
+S3やGitHubからEC2、オンプレ、ECS、Lambdaにリビジョンをデプロイする。`appspec.yml`に記載する。
+
+# AWS CodePipeline
+
+コードが変更されるたびにビルド・テスト・デプロイを実施する。CodeCommit、CodeBuild、CodeDeployを組み合わせてフローを作るもの。
+
+# AWS CodeStar
+
+プロジェクトテンプレートを選択して名前を決めるとCI/CDパイプラインを自動的に作成してくれるサービス。
+
+# AWS CodeArtifact
+
+ソフトウェアパッケージを保存して配信できるサービス。
+
+# Amazon CodeGuru
+
+以下の2つの機能からなる。
+
+- CodeGuru Profiler
+    - JavaやJVM言語で開発されたアプリのパフォーマンスを可視化し、パフォーマンスの問題の原因を診断する。
+- CodeGuru Reviewer
+    - Javaのコードの自動レビュー。
+
+# AWS CloudFormation
+
+JSON/YAML形式で記述されたテンプレートをもとにスタックと呼ばれるAWSリソースの集合体を自動構築する。
+
+AWSTemplateFormatVersion、Parameters、Resources、Mappings、Conditions、Outputsなどのセクションが存在する。
+
+# AWS OpsWorks
+
+Chef/Puppetを使用できるマネージドサービス。Chef用のAWS OpsWorks for Chef Automate、Puppet用のAWS OpsWorks for Puppet Enterpriseがある。
+
