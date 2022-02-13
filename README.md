@@ -62,3 +62,30 @@ AWSTemplateFormatVersion、Parameters、Resources、Mappings、Conditions、Outp
 
 Chef/Puppetを使用できるマネージドサービス。Chef用のAWS OpsWorks for Chef Automate、Puppet用のAWS OpsWorks for Puppet Enterpriseがある。
 
+# AWS Elastic Beanstalk
+
+アプリのコード以外の環境をAWSが構築するサービス。CloudFormationスタック、起動設定、オートスケーリンググループ、スケーリングポリシーとCloudWatchアラーム、セキュリティグループ、Application Load Balancer。
+
+対応プラットフォームは、.NET、Docker、GlassFish、Go、Java、Node.js、PHP、Python、Ruby、Tomcat。
+
+各リソースを管理するためにサービスロールと呼ばれるIAMロールが必要。デフォルトではaws-elasticbeanstalk-service-roleがあり、以下のAWS管理ポリシーがアタッチされている。
+
+- AWSElasticBeanstalkEnhancedHealth
+    - インスタンスや環境の正常性確認のためのポリシー
+- AWSElasticBeanstalkService
+    - 環境を作成、更新するためのポリシー
+
+## EB CLI
+
+Elastic Beanstalk用のCLI。以下のコマンドがある。
+
+- eb init
+    - アプリケーションを作成。実行すると`.elasticbeanstalk/config.yml`ファイルが作成される。
+- eb create
+    - アプリケーションの環境を作成する。
+- eb deploy
+    - 環境の更新デプロイを実行する。
+
+## .ebextensions
+
+Elastic Beanstalk設定ファイルを格納しているディレクトリ。`.ebextensions`以下に拡張子`.config`なJSON/YAMLファイルを作成しておくと環境のカスタマイズが可能。
