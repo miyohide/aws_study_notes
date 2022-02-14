@@ -98,3 +98,20 @@ Elastic Beanstalk用のCLI。以下のコマンドがある。
 ## .ebextensions
 
 Elastic Beanstalk設定ファイルを格納しているディレクトリ。`.ebextensions`以下に拡張子`.config`なJSON/YAMLファイルを作成しておくと環境のカスタマイズが可能。
+
+# [AWS SAM](https://www.slideshare.net/AmazonWebServicesJapan/20190814-aws-black-belt-online-seminar-aws-serverless-application-model-165314501)
+
+CloudFormationの拡張機能。Lambda/API Gateway/DynamoDB/S3/Step Functionsなどを組み合わせたサーバーレスアプリの構築を自動化する。専用のCLIを使用する。
+
+シンプルな例としては、以下の3ステップ。
+
+1. `sam init`
+    - サーバーレスアプリの初期処理。プロジェクトの初期ファイルと`template.yaml`を作成する
+2. `sam build`
+    - デプロイするための準備をする。ローカルでのテストも実行できるようになる。
+3. `sam deploy`
+    - AWSリソースを構築する。CloudFormationが実行される。
+
+`sam local start-api`でローカルでサーバーレスアプリのテストができる。
+
+
