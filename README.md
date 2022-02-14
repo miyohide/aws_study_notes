@@ -25,7 +25,7 @@ Gitリポジトリを提供するサービス。AWSCodeCommitPowerUserという�
 
 ソースはS3やCodeCommit、GitHub（含むEnterprise）、Bitbucket。
 
-ローカルえージョンとをインストールすることで実行することが可能。
+ローカルエージェントをインストールすることで実行することが可能。
 
 # [AWS CodeDeploy](https://www.slideshare.net/AmazonWebServicesJapan/20210126-aws-black-belt-online-seminar-aws-codedeploy)
 
