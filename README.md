@@ -15,6 +15,15 @@
 - All at once
     - すべてのサーバーで同時にIn-Place更新をする
 
+| 方式 | 失敗時の影響 | 時間 | ダウンタイム | ELB暖気 | DNS切替 | ロールバック | デプロイ先 |
+| ---- | ---------- | --- | ---------- | ------ | ------- | ---------- | --------- |
+| All at once | ダウンタイム発生 | ● | ダウンタイム発生 | 不要 | なし | 再デプロイ | 既存 |
+| Rolling | 1バッチ分だけサービスアウト | ●● | なし | 不要 | なし | 再デプロイ | 既存 |
+| Rolling with additional batch | 最初のバッチであれば最小 | ●●● | なし | 不要 | なし | 再デプロイ | 新規＋既存 |
+| Immutable | 最小 | ●●●● | なし | 不要 | なし | 再デプロイ | 新規 |
+| URL swap | 最小 | ●●●● | なし | 必要 | あり | URL swap | 新規 |
+| Route53による切替 | 最小 | ●●●● | なし | 必要 | あり | URL swap | 新規 |
+
 # [AWS CodeCommit](https://www.slideshare.net/AmazonWebServicesJapan/20201020-aws-black-belt-online-seminar-aws-codecommit-aws-codeartifact)
 
 Gitリポジトリを提供するサービス。AWSCodeCommitPowerUserという権限がある。ソースコードが更新されたなどのタイミングでAmazon SNSやAWS Chatbotに通知を飛ばしたりAWS Lambdaの関数を実行するイベントを設定できる。
