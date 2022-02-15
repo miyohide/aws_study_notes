@@ -171,3 +171,57 @@ $ aws configure --profile prod
 $ aws s3 ls --profile prod
 ```
 
+# [IAM](https://www.slideshare.net/AmazonWebServicesJapan/20190129-aws-black-belt-online-seminar-aws-identity-and-access-management-iam-part1)、[IAM Part2](https://www.slideshare.net/AmazonWebServicesJapan/20190130-aws-black-belt-online-seminar-aws-identity-and-access-management-aws-iam-part2)
+
+## IAMポリシー
+
+アクセス権限を設定するドキュメント。JSON形式。
+
+AWS Policy generatorを使うことでブラウザ上でJSONを書かなくても作成することができる。
+
+以下のようなもの。
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject"
+            ],
+            "Resource": "arn:aws:s3:::foobar/*"
+        }
+    ]
+}
+```
+
+Action/Resourceには`*`を指定することが可能。
+
+以下の三種類が存在する。
+
+- AWS管理ポリシー
+    - AWSが作成して管理しているポリシー
+- カスタマー管理ポリシー
+    - ユーザーが作成して管理するポリシー
+- インラインポリシー
+    - 他のグループ、ユーザー、ロールにアタッチする必要のない場合、ポリシー単体としては作成せず、埋め込む形で利用する。
+
+以下のロジックで判定される。
+
+- 拒否されていなければ、許可されているかどうかが評価される
+- 許可されていなければ拒否される。
+
+## ARN（Amazon Resource Name）
+
+AWSリソースを一意に識別するもの。以下の書式。
+
+```
+arn:aws:サービス名:リージョンコード:アカウントID:リソースID
+```
+
+## ポリシー変数
+
+ポリシーを記述する時にリソースや条件キーの正確な値がわからない時、プレースホルダーを指定できる機能のことを指す。
+
+
