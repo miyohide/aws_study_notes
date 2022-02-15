@@ -151,4 +151,23 @@ VPCエンドポイントを使うことで、インターネットゲートウ�
 
 上記二つ以外と覚えれば良い。
 
+# AWS CLI
+
+## `aws configure`
+
+AWSの認証情報やデフォルトリージョンを設定する。認証情報は以下に格納される。
+
+- Linux/macOS : ~/.aws/credentials
+- Windows : C:¥Users¥USERNAME¥.aws¥credentials
+
+リージョンコードは`.aws/config`に保存される。
+
+環境などを示すプロファイルを指定することができる。
+
+```
+# 設定時
+$ aws configure --profile prod
+# 実行時
+$ aws s3 ls --profile prod
+```
 
