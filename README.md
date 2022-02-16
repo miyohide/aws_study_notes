@@ -242,5 +242,25 @@ S3バケットポリシーでPrincipalとしてOAIを指定するには以下の
 
 EC2インスタンスにIAMロールをアタッチするIAMユーザに対してもAPIアクションへの許可が必要。そのAPIアクションがGetRole/PassRole。
 
+# Amazon Cognito
 
+Webアプリやモバイルアプリに安全に認証を提供するサービス。
+
+## ユーザープール
+
+Cognitoのサービスリソースの一つ。以下のことができる。
+
+- サインアップ、サインインを簡単にアプリに実装
+- カスタマイズ可能な組み込みサインインUI
+- ユーザープロファイルの管理
+- MFA、本人確認などにユーザー認証に一般的な機能
+- Lambdaトリガー
+- Web IDフェデレーション（Facebook, Google, Amazonなど）
+
+## IDプール
+
+Cognitoのサービスリソースの一つ。外部ユーザーなどがAWSサービスを使えるように一時的なAWS credentialsを発行してくれる。
+
+1. GetIDでCognito ID PoolからCognito IDを取得
+2. GetCredentials ForIdentityによってIAMロールに対してAssumeRoleがリクエストされる。これで一時的なアクセスキーID、シークレットアクセスキー、トークンがアプリに渡される。
 
