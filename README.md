@@ -264,3 +264,11 @@ Cognitoのサービスリソースの一つ。外部ユーザーなどがAWSサ�
 1. GetIDでCognito ID PoolからCognito IDを取得
 2. GetCredentials ForIdentityによってIAMロールに対してAssumeRoleがリクエストされる。これで一時的なアクセスキーID、シークレットアクセスキー、トークンがアプリに渡される。
 
+# Amazon Systems Managerパラメータストア
+
+パラメータストアにパラメータを書き込み、GetParameterで取得して使用する。暗号化のタイプはSecureString。
+
+# AWS Secrets Manager
+
+シークレット情報のローテーションが必要なケースなどで使う。設定された周期でLambda関数を自動実行し、データベースのパスワードを変更してSecrets Managerのシークレット情報を更新する。
+
