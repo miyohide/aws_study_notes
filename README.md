@@ -224,4 +224,23 @@ arn:aws:サービス名:リージョンコード:アカウントID:リソースI
 
 ポリシーを記述する時にリソースや条件キーの正確な値がわからない時、プレースホルダーを指定できる機能のことを指す。
 
+## CloudFrontのOrigin Access Identity（OAI）
+
+S3を公開状態にすることなく、S3へのアクセスをCloudFrontからのリクエストに絞るための仕組み。
+
+参考：[CloudFormation で OAI を使った CloudFront + S3 の静的コンテンツ配信インフラを作る](https://dev.classmethod.jp/articles/s3-cloudfront-with-oai-by-cloudformation/)
+
+S3バケットポリシーでPrincipalとしてOAIを指定するには以下のような記述をする。
+
+```
+"Principal": {
+    "AWS": "arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity OAIのID"
+}
+```
+
+## GetRole/PassRole
+
+EC2インスタンスにIAMロールをアタッチするIAMユーザに対してもAPIアクションへの許可が必要。そのAPIアクションがGetRole/PassRole。
+
+
 
