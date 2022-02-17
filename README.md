@@ -320,3 +320,78 @@ KMSと連携して行う。
 3. .aws/credentials
 4. EC2のIAMロール（インスタンスプロファイル）
 
+# [Amazon Elastic Block Store](https://www.slideshare.net/AmazonWebServicesJapan/20190320-aws-black-belt-online-seminar-amazon-ebs/)
+
+- EC2インスタンスにアタッチして使用するブロックレベルのストレージサービス
+- アタッチするEC2インスタンスと同じAZに作成する
+- EC2は複数のEBSを接続することは可能。EBSを複数のインスタンスで共有することはできない
+
+# [Amazon Elastic File System](https://www.slideshare.net/AmazonWebServicesJapan/2018070420190520-renewed-aws-black-belt-online-seminar-amazon-elastic-file-system-amazon-efs)
+
+- NFSアクセスを提供する分散ストレージ。
+- 複数のEC2からNFSを使ってネットワーク経由でアクセス
+- `amazon-efs-utils`パッケージを使用することでマウントヘルパーを使って簡単にマウントコマンドを実行することが可能。
+
+# [Amazon Simple Storage Service（S3）](https://www.slideshare.net/AmazonWebServicesJapan/20190220-aws-black-belt-online-seminar-amazon-s3-glacier)
+
+- ユーザーがシンプルに使うことができる、インターネット対応のストレージサービス。
+
+S3の特徴。
+
+- オブジェクトストレージ
+    - S3バケットに格納されているデータをそのまま編集することはできない。
+    - 更新する場合は上書き更新する必要がある。
+    - 頻繁に更新するデータを扱うケースには向いていない
+- インターネット対応
+    - HTTP／HTTPSプロトコルでAPIリクエストを実行することでオブジェクトをアップロードしたりダウンロードしたりする。
+- 無制限にデータを保存
+- 柔軟なセキュリティ設定
+
+データレイクのサービスのデータ元としてS3が利用される。データレイクのサービスは以下のものがある。
+
+- AWS Glue
+    - データ加工、データカタログの作成を行う
+- Amazon EMR
+    - Apache Hadoop/Sparkなどの分析やデータ加工処理用のOSSをマネージドサービスとして提供
+- Amazon Redshift
+    - マネージドデータウェアハウスサービス
+- Amazon SageMaker
+    - S3に蓄積したデータを使って、継続的に推論モデルを作成することができる
+- Amazon Athena
+    - S3に築成したデータについて、直接SQLクエリでの分析ができる
+- Amazon QuickSight
+    - さまざまなデータソースのデータをグラフなどで可視化できるBIサービス
+- AWS Lake Formation
+    - S3とGlueやAthenaを使用したデータレイクを素早く構築することができる
+
+## S3 Select
+
+S3に格納したデータに対してSQL文を発行して必要なデータだけを取得できるようにする
+
+## バージョニングとオブジェクトロック
+
+S3バケット内のバージョン管理ができるのがバージョニング。バージョニングはバケット単位で有効にできる。
+
+バージョンを指定してのダウンロードや削除操作は`GetObjectVersion`、`DeleteObjectVersion`アクションへの許可が必要。
+
+オブジェクトロックは削除や上書きを禁止するために用いる機能。バージョニングが有効である必要あり。
+
+オブジェクトロックは以下の二種類がある。
+
+- コンプライアンスモード
+    - 保持期間を設定したオブジェクトは全てのユーザーからの削除を拒否する
+- ガバナンスモード
+
+## Amazon S3 Glacier
+
+保存しておくことが主目的、アプリなどからアクセスする必要があまりないものはGlacierを使って保管コストを下げることが可能。
+
+取り出しには以下三種類ある。
+
+- 迅速
+    - 通常1〜5分で取り出される
+- 標準
+    - 通常3〜5時間で取り出される
+- 大容量
+    - 通常5〜12時間で取り出される。
+
