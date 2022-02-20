@@ -400,6 +400,53 @@ S3バケット内のバージョン管理ができるのがバージョニング
 
 1つのサイズが大きいオブジェクトをアップロードするとき、効率化を図るために複数のパーツに分散にして並列アップデートをすること。
 
+## アクセスコントロールリスト（ACL）
+
+被付与者にバケットやオブジェクトへのアクセスを許可するもの。
+
+よくあるのは、パブリックアスセスの許可
+
+```shell
+$ aws s3 cp sample.txt s3://bucketname/sample.txt --acl public-read
+```
+
+## バケットポリシー
+
+アクセスコントロールリストよりより詳細なアクセス権限を設定したい場合に使用。
+
+## 署名付きURL
+
+特定の人にだけS3のオブジェクトをダウンロードして欲しいときに使用。オブジェクトのURLにAWSAccessKeyId、Signature、Expiresが付与されている。
+
+## CORS
+
+一つのドメインでロードされ、他のドメインにあるリソースと相互作用するときに使用。こんな感じで設定する。
+
+```json
+[
+    {
+        "AllowedHeaders": [
+            "Authorization"
+        ],
+        "AllowedMethods": [
+            "GET"
+        ],
+        "AllowedOrigins": [
+            "http://hogehoge.s3-web-ap-aaaa.amazonaws.com"
+        ],
+        "ExposeHeaders": [],
+        "MaxAgeSeconds": 3000
+    }
+]
+```
+
+## [整合性](https://aws.amazon.com/jp/premiumsupport/knowledge-center/data-integrity-s3/)
+
+オブジェクトが正しくアップロードできたかチェック。ETagが利用できそうだけれども、利用すべきではない。
+
+1. `openssl md5 -binary hoge.txt | base64`でMD5を取得
+2. `aws s3api put-object`の`--content-md5`で上記1.で設定した値を指定する。
+
 # [AWS Storage Gateway](https://www.slideshare.net/AmazonWebServicesJapan/aws-black-belt-online-seminar-2017-aws-storage-gateway)
 
 オンプレに仮想マシンをデプロイして、保存したデータが自動的にS3を使用するようにする。以下の三種類がある。
