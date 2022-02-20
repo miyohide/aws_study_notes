@@ -407,4 +407,7 @@ S3バケット内のバージョン管理ができるのがバージョニング
 - テープゲートウェイ
     - 仮想テープライブラリとして接続できる
 
+# [Amazon CloudFront](https://www.slideshare.net/AmazonWebServicesJapan/20190730-aws-black-belt-online-seminar-amazon-cloudfront)
+
+世界中にあるエッジロケーションを使用してコンテンツをキャッシュしたり配信するためのサービス。S3と組み合わせたり、静的コンテンツはS3、動的コンテンツはその他からというような複数のオリジンにも対応している。
 
