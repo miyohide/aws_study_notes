@@ -396,3 +396,15 @@ S3バケット内のバージョン管理ができるのがバージョニング
 - 大容量
     - 通常5〜12時間で取り出される。
 
+# [AWS Storage Gateway](https://www.slideshare.net/AmazonWebServicesJapan/aws-black-belt-online-seminar-2017-aws-storage-gateway)
+
+オンプレに仮想マシンをデプロイして、保存したデータが自動的にS3を使用するようにする。以下の三種類がある。
+
+- ファイルゲートウェイ
+    - NFS/SMBプロトコルで接続できる
+- ボリュームゲートウェイ
+    - iSCISプロトコルで接続できる
+- テープゲートウェイ
+    - 仮想テープライブラリとして接続できる
+
+
