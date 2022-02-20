@@ -396,6 +396,10 @@ S3バケット内のバージョン管理ができるのがバージョニング
 - 大容量
     - 通常5〜12時間で取り出される。
 
+## マルチパートアップロードAPI
+
+1つのサイズが大きいオブジェクトをアップロードするとき、効率化を図るために複数のパーツに分散にして並列アップデートをすること。
+
 # [AWS Storage Gateway](https://www.slideshare.net/AmazonWebServicesJapan/aws-black-belt-online-seminar-2017-aws-storage-gateway)
 
 オンプレに仮想マシンをデプロイして、保存したデータが自動的にS3を使用するようにする。以下の三種類がある。
