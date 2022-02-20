@@ -474,4 +474,13 @@ $ aws s3 cp sample.txt s3://bucketname/sample.txt --acl public-read
 
 リードレプリカを追加で5つまで作成することができ、他のリージョンにも作成することができる。
 
+# [Amazon Aurora with MySQL Compatibility](https://www.slideshare.net/AmazonWebServicesJapan/20190424-aws-black-belt-online-seminar-amazon-aurora-mysql)、[Amazon Aurora with PostgreSQL Compatibility](https://www.slideshare.net/AmazonWebServicesJapan/20190828-aws-black-belt-online-seminar-amazon-aurora-with-postgresql-compatibility-168930538)
+
+データーベースサービスだが、AWSがユーザーのニーズを満たすために開発し、MySQLの5倍のスループット、PostgreSQLの3倍のスループットがある。
+
+リードレプリカを最大15個まで作成可能。
+
+## Aurora Serverless
+
+Auroraキャパシティユニット（ACU）に応じて時間課金が発生。1ACUあたり2GBのメモリとそれに応じたCPU性能が提供。負荷に応じて自動的にスケーリング。オプションで、アイドル状態が続いたときには停止して時間課金を停止することも可能。
 
