@@ -462,3 +462,16 @@ $ aws s3 cp sample.txt s3://bucketname/sample.txt --acl public-read
 
 世界中にあるエッジロケーションを使用してコンテンツをキャッシュしたり配信するためのサービス。S3と組み合わせたり、静的コンテンツはS3、動的コンテンツはその他からというような複数のオリジンにも対応している。
 
+# [Amazon RDS](https://www.slideshare.net/AmazonWebServicesJapan/20180425-aws-black-belt-online-seminar-amazon-relational-database-service-amazon-rds-96509889)
+
+データーベースサービス。以下のエンジンを利用可能。
+
+- MySQL
+- PostgreSQL
+- MariaDB
+- Oracle
+- Microsoft SQL Server
+
+リードレプリカを追加で5つまで作成することができ、他のリージョンにも作成することができる。
+
+
