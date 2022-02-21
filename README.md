@@ -484,3 +484,9 @@ $ aws s3 cp sample.txt s3://bucketname/sample.txt --acl public-read
 
 Auroraキャパシティユニット（ACU）に応じて時間課金が発生。1ACUあたり2GBのメモリとそれに応じたCPU性能が提供。負荷に応じて自動的にスケーリング。オプションで、アイドル状態が続いたときには停止して時間課金を停止することも可能。
 
+# [Amazon ElastiCache](https://www.slideshare.net/AmazonWebServicesJapan/aws-black-belt-online-seminar-2017-amazon-elasticache-84060910)
+
+AWSクラウドでの分散インメモリキャッシュ環境のセットアップ、管理、およびスケーリング、冗長構成等を容易に構築することができるサービス。MemcachedとRedisが存在。
+
+Memcachedはマルチスレッド、RedisはレプリケーションやPub/Subをサポートしている。
+
