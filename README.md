@@ -593,3 +593,25 @@ DynamoDB Accelerator（DAX）はインメモリキャッシュを使ってDynamo
 
 特定のLambda関数のバージョンに対するポインタのようなものがエイリアス。バージョンに対する名前をつけることができる。
 
+# [API Gateway](https://www.slideshare.net/AmazonWebServicesJapan/20190514-aws-black-belt-online-seminar-amazon-api-gateway-230113575)
+
+REST、HTTP、WebSocket APIを作成、公開、維持、モニタリング、及びセキュア化するためのAWSサービス。
+
+以下の機能を有する。
+
+- 認証
+- SSL証明書の設定
+- リソースポリシー（API実行の許可／拒否）
+- メソッド許可
+    - APIに対してリクエストを実行できるユーザーを制御できる。IAM認証やCognitoオーソライザーやLambdaオーソライザー
+- スロットリング
+    - APIの実行数はデフォルトでリージョンごとに10,000回/秒まで。
+- 使用量プラン
+    - リクエスト数に応じた課金請求や顧客ごとに制御回数を設けたいときに使用
+- APIキーの管理
+- メッセージの変換
+- マッピングテンプレート
+- GETリクエストのキャッシュ
+- ログの記録
+- APIのインポート、エクスポート
+- ステージ変数
