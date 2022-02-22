@@ -544,3 +544,52 @@ DynamoDBストリームはDynamoDBグローバルテーブルの作成時に有�
 
 DynamoDB Accelerator（DAX）はインメモリキャッシュを使ってDynamoDBテーブルへのレイテンシーを短縮する機能。
 
+# [AWS Lambda](https://www.slideshare.net/AmazonWebServicesJapan/20190402-aws-black-belt-online-seminar-lets-dive-deep-into-aws-lambda-part1-part2/)
+
+イベントの発生に応じてプログラムを実行する環境を提供するクラウドサービス。以下の特徴がある。
+
+- 実行環境はNode、Java、Python、.NET、Go、Ruby、＋カスタムランタイム（独自定義）
+- メモリは128MB〜10GBまで。CPUはメモリに応じて割り当て。
+- タイムアウトはデフォルト3秒、最長15分。
+- 以下のイベントがある。
+    - Alexa
+    - API Gateway
+    - S3
+    - CloudWatchイベント
+    - CloudWatch Logs
+    - CloudFormation
+    - CodeCommit
+    - Cognito
+    - Config
+    - DynamoDB
+    - Application Load Balancer
+    - AWS IoT
+    - Kinesis Data Streams
+    - Simple Email Service
+    - Simple Notifications Service
+    - SQS
+    - Step Functions
+- 以下のような制限がある。
+    - 同時実行数はリージョンごとに1,000
+    - 関数とレイヤーの合計容量は75GB
+    - 関数ごとのデプロイパッケージはZIPで50MB、解凍後で250MB
+    - /tmpディレクトリは512MB
+
+イベントにはプッシュイベントとプルイベントがある。
+
+- プッシュイベント
+    - Lambdaに対してイベントが送信され、送信元のイベントがLambdaを実行
+    - 送信元からのInvokeFunctionアクションの許可が必要
+    - 例えばS3イベントやAPI Managementイベント
+- プルイベント
+    - Lambaがイベント元になっているリソースにデータを取りに行く
+    - 例えばDynamoDBイベントやSQSイベント
+
+## Lambdaレイヤー
+
+外部ライブラリなどの依存関係を他のLambda関数と共有化できる。最大5つのレイヤー。
+
+## バージョニングとエイリアス
+
+特定のLambda関数のバージョンに対するポインタのようなものがエイリアス。バージョンに対する名前をつけることができる。
+
