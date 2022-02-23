@@ -507,16 +507,22 @@ Memcachedはマルチスレッド、RedisはレプリケーションやPub/Sub�
 
 - GetItem
     - パーティションキーを条件として指定し1件のアイテムを取得
+    - ProjectionExpressionで取得する属性を指定する
+    - ConsistentReadで強力な整合性を指定できる
 - TransactGetItems
     - トランザクションにて最大25件取得
 - PutItem
     - 1件のアイテムを書き込む
-- Update
+- UpdateItem
     - 1件のアイテムを更新
+    - 属性の指定はExpressionAttributeNames、更新する値はExpressionAttributeValuesを使う。
+    - ConditionExpressionを使用すると条件付きのUpdateItemが可能
+        - これを利用することでオプティミスティックロックも実装可能
 - TransactWriteItems
     - トランザクションにてCreate、Update、Delete制御
-- Delete
+- DeleteItem
     - 1件のアイテムを削除
+    - ReturnValuesで削除前の項目を取得することができる
 - Query
     - パーティションキーとソートキーの複合条件にマッチするアイテム群を取得
     - 最大1MBのデータを取得可能
@@ -526,8 +532,9 @@ Memcachedはマルチスレッド、RedisはレプリケーションやPub/Sub�
     - 最大25件のバッチ処理（入力／削除）。最大1MB
 - Scan
     - テーブルを総ナメする
+    - FilterExpressionでフィルタリングが可能
     - 最大1MBのデータを取得可能
-        - 1MBを超えたらLastEvaluatedKeyを再読み取りが必要
+        - 1MBを超えたらLastEvaluatedKeyにNull以外が返る。ExclusiveStartKeyにLastEvaluatedKeyを指定して再読み取りすることで再度Scanを行う必要がある。
 
 請求モードは以下2つのパターン。
 
