@@ -577,6 +577,8 @@ DynamoDBストリームはDynamoDBグローバルテーブルの作成時に有�
 
 DynamoDB Accelerator（DAX）はインメモリキャッシュを使ってDynamoDBテーブルへのレイテンシーを短縮する機能。
 
+項目データへのアクセスに対するセキュリティはIAMポリシーで制御可能。
+
 # [AWS Lambda](https://www.slideshare.net/AmazonWebServicesJapan/20190402-aws-black-belt-online-seminar-lets-dive-deep-into-aws-lambda-part1-part2/)
 
 イベントの発生に応じてプログラムを実行する環境を提供するクラウドサービス。以下の特徴がある。
