@@ -528,8 +528,10 @@ Memcachedはマルチスレッド、RedisはレプリケーションやPub/Sub�
     - 最大1MBのデータを取得可能
 - BatchGetItem
     - 最大100アイテム（ただし16MBを超えないアイテム数）を並列で取得
+    - UnprocessedItemsに読み込めなかったアイテムの情報が含まれる
 - BachWriteItem
     - 最大25件のバッチ処理（入力／削除）。最大1MB
+    - UnprocessedItemsに書き込めなかったアイテムの情報が含まれる
 - Scan
     - テーブルを総ナメする
     - FilterExpressionでフィルタリングが可能
