@@ -616,11 +616,26 @@ DynamoDB Accelerator（DAX）はインメモリキャッシュを使ってDynamo
 
 - プッシュイベント
     - Lambdaに対してイベントが送信され、送信元のイベントがLambdaを実行
-    - 送信元からのInvokeFunctionアクションの許可が必要
+    - Lambda関数のリソースポリシーで送信元からのInvokeFunctionアクションの許可が必要
+        - Actionに`lambda:InvokeFunction`
     - 例えばS3イベントやAPI Managementイベント
 - プルイベント
     - Lambaがイベント元になっているリソースにデータを取りに行く
+    - Lambdaに割り当てるIAMロールにアタッチするIAMポリシーでイベントリソースに対しての権限を許可する必要がある
     - 例えばDynamoDBイベントやSQSイベント
+
+## [IAMポリシーとリソースポリシー](https://dev.classmethod.jp/articles/policies-for-lambda/)
+
+- IAMポリシー
+    - 信頼ポリシー
+        - AWS LambdaにLambda関数の実行を任せるためのもの
+        - CloudWatch Logsにログを出力するためのlogs:CreateLogGroup、logs:CreateLogStream、logs:PutLogEvents
+        - lambda.amazonaws.comに対してsts:AssumeRoleするための信頼性ポリシーも必要
+        - 管理ポリシーAWSLambdaBasicExecutionRoleも用意されている
+    - アクセスポリシー
+        - Lambda関数が他のAWSリソースにアクセスすることを許可するためのもの
+- リソースポリシー
+    - 誰がそのLambda関数を呼び出せるかを定義する
 
 ## Lambdaレイヤー
 
