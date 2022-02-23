@@ -507,20 +507,27 @@ Memcachedはマルチスレッド、RedisはレプリケーションやPub/Sub�
 
 - GetItem
     - パーティションキーを条件として指定し1件のアイテムを取得
+- TransactGetItems
+    - トランザクションにて最大25件取得
 - PutItem
     - 1件のアイテムを書き込む
 - Update
     - 1件のアイテムを更新
+- TransactWriteItems
+    - トランザクションにてCreate、Update、Delete制御
 - Delete
     - 1件のアイテムを削除
 - Query
     - パーティションキーとソートキーの複合条件にマッチするアイテム群を取得
     - 最大1MBのデータを取得可能
-- BatchGet
-    - 複数のプライマリキーを指定してマッチするアイテム群を取得
+- BatchGetItem
+    - 最大100アイテム（ただし16MBを超えないアイテム数）を並列で取得
+- BachWriteItem
+    - 最大25件のバッチ処理（入力／削除）。最大1MB
 - Scan
     - テーブルを総ナメする
     - 最大1MBのデータを取得可能
+        - 1MBを超えたらLastEvaluatedKeyを再読み取りが必要
 
 請求モードは以下2つのパターン。
 
