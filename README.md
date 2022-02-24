@@ -684,3 +684,81 @@ REST、HTTP、WebSocket APIを作成、公開、維持、モニタリング、�
         - サービス : タスク実行コピー数を定義。ELBと連携したり起動タイプ（EC2/Fargate）を設定
 - [EKS](https://www.slideshare.net/AmazonWebServicesJapan/202110-aws-black-belt-online-seminar-amazon-elastic-kubernetes-service-amazon-eks) : AWSが提供しているKubernetes環境のマネージドサービス
 - [Fargate](https://www.slideshare.net/AmazonWebServicesJapan/202108-aws-black-belt-online-seminar-ecs-fargate) : コンテナ環境をサーバーレスに実現する
+
+# [Amazon Simple Queue Service （SQS)](https://www.slideshare.net/AmazonWebServicesJapan/20190717-aws-black-belt-online-seminar-amazon-simple-queue-service)
+
+ほぼ無制限のスケーラビリティを備えたフルマネージドな分散メッセージキュー。以下の構成要素からなる。
+
+- プロデューサー : キューにメッセージを送信するアプリケーション
+- コンシューマ : キューのメッセージを取得するアプリケーション
+- メッセージ : プロデューサーが生成するデータ。最大256KB。
+    - このサイズを超えたい場合は、Amazon SQL Extended Client Libraryを利用する
+    - Extended Client Libraryを利用することで以下のことが簡単にできる
+        - メッセージを常にS3に保存するか、256KBを超えた場合にのみS3に保存するかを選べる
+        - S3バケットを介したメッセージのやりとり
+- キュー : メッセージをキューイングする。最大14日間保存可能。
+
+キューにはスタンダードキューとFIFOキューの二種類が存在。
+
+| -          | スタンダードキュー | FIFOキュー |
+| ---------- | --------------- | --------- |
+| スループット | ほぼ無制限         | max 300 件 / 秒 |
+| 配信方式     | 少なくとも1回の配信 | 1回のみ配信 |
+| 配信順序     | ベストエフォート   | 順序性を保つ | 
+
+キューのメッセージ取得方法は以下二つがある。
+
+- ショートポーリング
+    - 即応答。メッセージがない場合は「空」を応答
+- ロングポーリング
+    - 最大20秒(ReceiveMessageWaitTimeSecondsで指定）メッセージの受信を待つ。
+    - メッセージがない場合はタイムアウトとなり「空」を応答
+
+以下の機能がある
+
+- 可視性タイムアウト
+    - コンシューマが取得したメッセージに対して指定された期間（デフォルト30s）他のコンシューマからの同一メッセージへのアクセスをブロック
+    - 同一メッセージの処理を防ぐ
+    - VisibilityTimeoutで指定
+- 遅延キューとメッセージタイマー
+    - メッセージをキューに送信してから一定時間経過後に利用可能になる
+    - 遅延キューはキュー全体に、メッセージタイマーは特定のメッセージに対して指定するもの
+    - DelaySecondsで指定
+- Dead Letter Queue(DLQ)
+    - 正しく処理できないメッセージの分離先として利用されるキュー
+    - 同一リージョン、同一アカウント、同一タイプ（スタンダードキュー/FIFOキュー）で作成する必要あり。
+- サーバーサイド暗号化を利用したメッセージの暗号化
+    - AWS Key Management Serviceで管理されているキーを使用してSQSキュー内のメッセージの内容を保護
+- キューのアクセス制御
+    - IAMポリシーとAmazon SQSポリシーのいずれか、または両方でアクセス制御を実現。
+    - IAMポリシーはIAMユーザー、IAMロールに対して適用、Amazon SQSポリシーはキューに対して適用。
+- メッセージ属性を利用したメタ情報の格納
+    - メッセージ本文とは別にメタデータ等を保持することができる。max 10個。
+    - メッセージ属性の暗号化は対象外。
+
+主なAPI
+
+- CreateQueue
+    - キューを新規作成する
+- SetQueueAttributes
+    - 既存のキューの属性を変更する
+- GetQueueAttributes
+    - 既存のキューの属性を取得して確認する
+- GetQueueUrl
+    - キューにAPIリクエストを実行するときにエンドポイントを取得
+- ListQueues
+    - 指定したリージョンのキューURLの一覧を取得できる
+    - QueuenamePrefixを使って名前でフィルタリングも可能
+- DeleteQueue
+    - キューを削除する。メッセージがあってもお構いなし。
+- SendMessage
+    - プロデューサーがメッセージを送信する
+- ReceiveMessage
+    - コンシューマがメッセージを受信、ポーリングする
+- DeleteMessage
+    - コンシューマが処理を終了したらメッセージを削除する。
+    - メッセージを削除する際に使うのは受信ハンドル（ReceiptHandle）
+- DeleteMessageBatch
+    - 複数の（最大10個）のメッセージを削除する
+- PurgeQueue
+    - キューのメッセージを全て削除するが、キュー自身は残す。
