@@ -667,3 +667,20 @@ REST、HTTP、WebSocket APIを作成、公開、維持、モニタリング、�
 - ログの記録
 - APIのインポート、エクスポート
 - ステージ変数
+
+# コンテナの実行
+
+- [Amazon Elastic Container Registry（ECR）](https://www.slideshare.net/AmazonWebServicesJapan/202112-aws-black-belt-online-seminar-elastic-container-registory) : コンテナイメージの保存場所
+    - ECRレジストリにログインする方法のポイントは`aws ecr get-login-password`を利用する
+    - 具体的には`aws ecr get-login-password --region xxxx | docker login --username AWS --password-stdin 123456789012.dkr.ecr.xxxx.amazonaws.com`でログインする
+- [ECS](https://www.slideshare.net/AmazonWebServicesJapan/202112-aws-black-belt-online-seminar-elastic-container-registory) : クラウドでコンテナを本番ん環境利用するためのオーケストレーター
+    - EC2タイプとFargateタイプが存在する
+        - EC2タイプはEC2インスタンスのクラスターを起動させてコンテナを実行する
+        - Fargateタイプはコンテナ環境をサーバーレスに実現する。EC2インスタンスのメンテナンスをユーザーが行う必要がない。
+    - 主な構成要素は以下のもの
+        - タスク定義 : タスクを構成するコンテナ群定義（イメージとかCPU、メモリ、IAMロールなど）
+        - クラスター : 実行環境の境界、IAM権限の境界
+        - タスク : タスク定義に基づき起動されるコンテナ群
+        - サービス : タスク実行コピー数を定義。ELBと連携したり起動タイプ（EC2/Fargate）を設定
+- [EKS](https://www.slideshare.net/AmazonWebServicesJapan/202110-aws-black-belt-online-seminar-amazon-elastic-kubernetes-service-amazon-eks) : AWSが提供しているKubernetes環境のマネージドサービス
+- [Fargate](https://www.slideshare.net/AmazonWebServicesJapan/202108-aws-black-belt-online-seminar-ecs-fargate) : コンテナ環境をサーバーレスに実現する
