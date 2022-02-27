@@ -797,3 +797,18 @@ REST、HTTP、WebSocket APIを作成、公開、維持、モニタリング、�
 EFSを利用することでAmazon MQの可用性を高めることが可能。
 
 # [Amazon Kinesis](https://www.slideshare.net/AmazonWebServicesJapan/aws-black-belt-online-seminar-2017-amazon-kinesis)
+
+ストリームデータを収集・処理するためのフルマネージドサービス群。以下のものがある。
+
+- Amazon Kinesis Video Streams
+    - AWSへ動画をビデオストリーミングする。
+- Amazon Kinesis Data Streams
+    - ストリームデータを処理するためのアプリを独自に構築
+- Amazon Kinesis Data Firehose
+    - ストリームデータをS3やRedshift、Elasticserarch Serviceなどへ配信
+- Amazon Kinesis Data Analytics
+    - ストリームデータをSQLクエリやApache Flinkでリアルタイムに分析
+
+Kinesisにデータを送信する側をプロデューサー、Kinesisのデータを受信して処理する側をコンシューマーと呼ぶ。
+
+プロデューサー側の開発にはKinesis Producer Library（KPL）を、コンシューマー側の開発にはKinesis Client Library（KCL）を使用することができる。
