@@ -762,3 +762,31 @@ REST、HTTP、WebSocket APIを作成、公開、維持、モニタリング、�
     - 複数の（最大10個）のメッセージを削除する
 - PurgeQueue
     - キューのメッセージを全て削除するが、キュー自身は残す。
+
+# [Amazon Simple Notification Service(SNS)](https://www.slideshare.net/AmazonWebServicesJapan/20190604-aws-black-belt-online-seminar-amazon-simple-notification-service-sns)
+
+パブリッシャー（CloudWatch AlarmやRDS Eventなど）が送信したメッセージをあらかじめサブスクリプション設定済みのサブスクライバー（Lambda関数やメール、モバイルアプリ、HTTPリクエストなど）にプッシュする。
+
+1つのメッセージを複数のサブスクライバーにプッシュし並列処理をする設計をファンアウトと呼ぶ。
+
+サブスクリプションを設定するとき、rawメッセージを有効にするとSNSにパブリッシュされたメッセージをそのまま送信する。無効の場合は属性情報と合わせてJSONエンコードされる。
+
+サブスクリプションごとにフィルターポリシーを設定することが可能。メッセージ属性に指定したフィルター条件を含んでいる場合のみそのサブスクリプションにメッセージが送信される。
+
+主なAPI
+
+- CreateTopic
+    - 新規Topicの作成
+- Delete Topic
+    - Topicの削除
+- ListTopic
+    - Topicのリスト
+- Subscribe
+    - 特定のTopicに新規Subscriptionを登録
+- ConfirmSubscriptin
+    - Subscription確認メッセージへの応答
+- UnSubscribe
+    - 登録済みのSubscriptionの解除
+- Publish
+    - Topicに新しいmessageをpublish
+
