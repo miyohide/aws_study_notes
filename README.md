@@ -790,3 +790,10 @@ REST、HTTP、WebSocket APIを作成、公開、維持、モニタリング、�
 - Publish
     - Topicに新しいmessageをpublish
 
+# [Amazon MQ](https://www.slideshare.net/AmazonWebServicesJapan/20210317-aws-black-belt-online-seminar-amazon-mq)
+
+オープンソースメッセージブローカー（Apache ActieMQ/RabbitMQ）向け完全マネージド型サービス。
+
+EFSを利用することでAmazon MQの可用性を高めることが可能。
+
+# [Amazon Kinesis](https://www.slideshare.net/AmazonWebServicesJapan/aws-black-belt-online-seminar-2017-amazon-kinesis)
