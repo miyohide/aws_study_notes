@@ -812,3 +812,73 @@ EFSを利用することでAmazon MQの可用性を高めることが可能。
 Kinesisにデータを送信する側をプロデューサー、Kinesisのデータを受信して処理する側をコンシューマーと呼ぶ。
 
 プロデューサー側の開発にはKinesis Producer Library（KPL）を、コンシューマー側の開発にはKinesis Client Library（KCL）を使用することができる。
+
+# [AWS Step Functions](https://www.slideshare.net/AmazonWebServicesJapan/20190522-aws-black-belt-online-seminar-aws-step-functions)
+
+ワークフローを作成・制御することができるサービス。ASL（Amazon States Language）と呼ばれるJSON形式の言語でワークフローを定義する。
+
+ASLには以下のものを設定することができる。
+
+- Comment
+    - コメントを入力できる
+- StarAt
+    - 一番最初に実行するStateを指定する
+- TimeoutSeconds
+    - 秒数を指定する。ステートマシン全体の実行時間がこの秒数を超えるとタイムアウトエラーとなり実行が終了する
+- Version
+    - ASLのバージョンを指定
+- States
+    - ステートマシンを構成するStateを指定する
+
+ステートマシンの実行方法としては以下のものが利用可能。
+
+- Amazon CloudWatch Events
+- Amazon API Gateway
+- マネジメントコンソール
+- AWS CLI
+- 各種SDK
+
+ステートマシンから呼び出し可能なAWSサービスは以下のもの。
+
+- Lambda
+- DynamoDB
+- Batch
+- ECS
+- SNS
+- SQS
+- Glue
+- SageMaker
+- etc
+- Activity
+    - 自身で定義したサービスを紐付けることができる
+
+データの入出力は以下の方法を取る。
+
+- データの入力（InputPath）
+    - 定義内のInputPathフィールドでStateに引き渡す内容を指定。
+    - 例えば`"InputPath": "$.numbers"`と定義内で記述。`$.numbers`はJsonPath構文。平たく言うとJSON内の項目。
+- データの入力（Parameters）
+    - 定義内のParametersフィールドでStateに引き渡す内容を指定。
+    - InputPathと異なりJSONが構成される。
+- 処理結果の受け取り（ResultPath）
+    - 定義内のResultPathフィールドで結果を受け取るフィールド名を指定
+- データの出力（OutputPath）
+    - 次のStateに対して引き渡す（出力する）データを指定。
+    - 定義内のOutputPathフィールドで次のStateに引き渡す内容を指定。
+
+State Typeは以下のものがある。
+
+- Task
+    - 単一の処理を行う
+- Wait
+    - 指定した時間の間、処理をストップする
+- Pass
+    - 入力をそのまま出力へ渡す
+- Parallel
+    - 並列に処理を実行する
+- Choice
+    - 一定の条件により分岐する
+- Fail
+    - 実行結果を失敗として終了する
+- Succeed
+    - 実行結果を成功として終了する
