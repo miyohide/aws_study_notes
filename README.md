@@ -325,6 +325,10 @@ KMSと連携して暗号化する。バックアップスナップショット�
 
 KMSと連携して行う。
 
+# [AWS Encryption SDK](https://aws.amazon.com/jp/blogs/news/how-to-use-the-new-aws-encryption-sdk-to-simplify-data-encryption-and-improve-ap/)
+
+大容量のデータを暗号化するために利用する。エンベロープ暗号化が特徴。
+
 # 認証情報の優先順位
 
 1. コードのオプションやパラメータで指定されたアクセスキー情報
