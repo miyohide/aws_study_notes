@@ -270,6 +270,12 @@ Cognitoのサービスリソースの一つ。外部ユーザーなどがAWSサ�
 1. GetIDでCognito ID PoolからCognito IDを取得
 2. GetCredentials ForIdentityによってIAMロールに対してAssumeRoleがリクエストされる。これで一時的なアクセスキーID、シークレットアクセスキー、トークンがアプリに渡される。
 
+# Amazon Cognito Sync
+
+複数のデバイスで同じアプリを利用しているとき、アプリ関連のユーザーデータをデバイス間で同期することができる。
+
+現状ではAWS AppSyncを利用することが推奨される。
+
 # Amazon Systems Managerパラメータストア
 
 パラメータストアにパラメータを書き込み、GetParameterで取得して使用する。暗号化のタイプはSecureString。
