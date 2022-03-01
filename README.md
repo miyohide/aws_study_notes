@@ -464,6 +464,11 @@ $ aws s3 cp sample.txt s3://bucketname/sample.txt --acl public-read
 
 世界中にあるエッジロケーションを使用してコンテンツをキャッシュしたり配信するためのサービス。S3と組み合わせたり、静的コンテンツはS3、動的コンテンツはその他からというような複数のオリジンにも対応している。
 
+ビューアとCloudFront間においてHTTPS通信を設定するには以下の設定のいずれかが必要。
+
+- CloudFrontのビューアプロトコルポリシーにRedirect HTTP to HTTPSを設定
+- CloudFrontのビューアプロトコルポリシーにHTTPS Onlyを設定
+
 # [Amazon RDS](https://www.slideshare.net/AmazonWebServicesJapan/20180425-aws-black-belt-online-seminar-amazon-relational-database-service-amazon-rds-96509889)
 
 データーベースサービス。以下のエンジンを利用可能。
