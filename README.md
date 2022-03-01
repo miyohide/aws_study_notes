@@ -107,6 +107,10 @@ Elastic Beanstalk設定ファイルを格納しているディレクトリ。`.e
 
 ワーカー環境のキューに定期ジョブを自動的に設定するための設定ファイル。
 
+## env.yaml
+
+アプリケーション環境の環境名、ソリューションスタック、環境リンクを設定するためのファイル。
+
 # [AWS SAM](https://www.slideshare.net/AmazonWebServicesJapan/20190814-aws-black-belt-online-seminar-aws-serverless-application-model-165314501)
 
 CloudFormationの拡張機能。Lambda/API Gateway/DynamoDB/S3/Step Functionsなどを組み合わせたサーバーレスアプリの構築を自動化する。専用のCLIを使用する。
