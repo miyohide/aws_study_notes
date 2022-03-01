@@ -67,6 +67,8 @@ JSON/YAML形式で記述されたテンプレートをもとにスタックと�
 
 AWSTemplateFormatVersion、Parameters、Resources、Mappings、Conditions、Outputsなどのセクションが存在する。
 
+CloudFormationではAWSアカウントごとにエクスポート名はリージョン内で一意である必要がある。
+
 # [AWS OpsWorks](https://www.slideshare.net/AmazonWebServicesJapan/aws-black-belt-online-seminar-2017-aws-opsworks)
 
 Chef/Puppetを使用できるマネージドサービス。Chef用のAWS OpsWorks for Chef Automate、Puppet用のAWS OpsWorks for Puppet Enterpriseがある。
