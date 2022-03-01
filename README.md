@@ -678,6 +678,10 @@ REST、HTTP、WebSocket APIを作成、公開、維持、モニタリング、�
 - ログの記録
 - APIのインポート、エクスポート
 - ステージ変数
+    - ステージごとに異なる値を設定でき、`${stageVariables.xxxx}`で利用することができる。
+    - [[API Gateway + Lambda]ステージとエイリアスを使ってバージョン管理してみた](https://dev.classmethod.jp/articles/version-management-with-api-gateway-and-lambda/)を参照
+
+API GatewayはHTTPエンドポイントをサポートしていない。
 
 # コンテナの実行
 
