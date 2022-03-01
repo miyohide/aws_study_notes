@@ -254,6 +254,10 @@ S3バケットポリシーでPrincipalとしてOAIを指定するには以下の
 
 EC2インスタンスにIAMロールをアタッチするIAMユーザに対してもAPIアクションへの許可が必要。そのAPIアクションがGetRole/PassRole。
 
+## [AWS IAMユーザーに対して一時的な認証情報をリクエストする(STS:GetSessionToken)](https://dev.classmethod.jp/articles/temp-credentials-request-against-iam-user/)
+
+AWS IAMユーザーに対して一時的な認証情報をリクエストする
+
 # Amazon Cognito
 
 Webアプリやモバイルアプリに安全に認証を提供するサービス。
