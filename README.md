@@ -86,6 +86,8 @@ Chef/Puppetを使用できるマネージドサービス。Chef用のAWS OpsWork
 - AWSElasticBeanstalkService
     - 環境を作成、更新するためのポリシー
 
+ライフサイクルポリシーを設定することができ、Elastic Beanstalk上に保存される。Elastic Beanstalkはバージョンアップのたびに古いバージョンは別途保管される。使用しなくなったバージョンは削除しないと制限に到達して新しいバージョンを作成できなくなる。ライフサイクルポリシーを設定すると、使用されていない古いバージョンを定期的に削除してアプリの新しいバージョンを作成するということが可能。
+
 ## EB CLI
 
 Elastic Beanstalk用のCLI。以下のコマンドがある。
