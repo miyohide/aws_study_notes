@@ -804,6 +804,7 @@ EFSを利用することでAmazon MQの可用性を高めることが可能。
     - AWSへ動画をビデオストリーミングする。
 - Amazon Kinesis Data Streams
     - ストリームデータを処理するためのアプリを独自に構築
+    - ストリーミングデータを処理するためのKinesisシャードが不十分な場合にはシャードを分割するか、インスタンスサイズの増強を実施する。
 - Amazon Kinesis Data Firehose
     - ストリームデータをS3やRedshift、Elasticserarch Serviceなどへ配信
 - Amazon Kinesis Data Analytics
