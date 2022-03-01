@@ -101,6 +101,10 @@ Elastic Beanstalk用のCLI。以下のコマンドがある。
 
 Elastic Beanstalk設定ファイルを格納しているディレクトリ。`.ebextensions`以下に拡張子`.config`なJSON/YAMLファイルを作成しておくと環境のカスタマイズが可能。
 
+## cron.yaml
+
+ワーカー環境のキューに定期ジョブを自動的に設定するための設定ファイル。
+
 # [AWS SAM](https://www.slideshare.net/AmazonWebServicesJapan/20190814-aws-black-belt-online-seminar-aws-serverless-application-model-165314501)
 
 CloudFormationの拡張機能。Lambda/API Gateway/DynamoDB/S3/Step Functionsなどを組み合わせたサーバーレスアプリの構築を自動化する。専用のCLIを使用する。
