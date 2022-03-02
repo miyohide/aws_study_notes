@@ -918,3 +918,50 @@ State Typeは以下のものがある。
     - 実行結果を失敗として終了する
 - Succeed
     - 実行結果を成功として終了する
+
+# [Amazon CloudWatch](https://www.slideshare.net/AmazonWebServicesJapan/20190326-aws-black-belt-online-seminar-amazon-cloudwatch)
+
+AWSのモニタリングサービス。
+
+## CloudWatch Metrics
+
+AWSの各サービスの数値情報をモニタリングできる。カスタムメトリックスとして独自の数値情報を送信することも可能。その際は、PutMetricDataを使用する。
+
+基本は1分、カスタムメトリックスの高解像度を利用して最短で1秒でメトリックスデータを生成する。
+
+## CloudWatch Alarms
+
+CloudWatch Metricsをモニタリングしてアラームを発行可能。条件を指定して自動アクションの実行が可能。
+
+アラームの状態は`OK`（定義された閾値を下回っている）、`ALARM`（定義された閾値を上回っている）、`INSUFFICIENT_DATA`（判定不能。データ不足のため状態を判定できない）の三種類。
+
+## CloudWatch Logs
+
+AWSおよび構築したシステムのログファイルの監視、保存、アクセス。エージェント経由でログメッセージをCloudWatchエンドポイントに転送。S3へのログのエクスポートが可能。
+
+エージェント経由でログを送信する場合、IAMロールには以下二つのAWS管理ポリシーのアタッチが必要。
+
+- CloudWatchAgentAdminPolicy
+    - セットアップが終わった後はCloudWatchAgentServerPolicyに変更する
+- AmazonSSMManagedInstanceCore
+
+# VPCフローログ
+
+VPCないのElastic Network Interface（ENI）を通過するIPトラフィックに関する情報（送信元IPアドレス・ポート、送信先IPアドレス・ポート、プロトコル、転送パケット数、バイト数、許可／拒否）をキャプチャできる機能。
+S3やCloudWatch Logsへ出力することができる。
+
+# [AWS CloudTrail](https://www.slideshare.net/AmazonWebServicesJapan/20210119-aws-black-belt-online-seminar-aws-cloudtrail)
+
+AWSアカウント上で行われたAPIアクションのほとんどを記録。ログをS3バケットに保存する。
+
+# [AWS X-Ray](https://www.slideshare.net/AmazonWebServicesJapan/20200526-aws-black-belt-online-seminar-aws-xray)
+
+アプリケーションの潜在的なバグを特定したり、パフォーマンスのボトルネックを特定できる。
+
+Lambdaにおいては、アクティブトレースを有効にすることではじめられる。必要なIAMロールは以下2つのアクション。
+
+- xray:PutTraceSegments
+- xray:PutTelemetryRecords
+
+X-Ray SDKがあり、これを埋め込むことで、AWSの各サービスの呼び出しやHTTP/HTTPSリクエスト、データベースへのリクエストなどがトレースされる。
+
