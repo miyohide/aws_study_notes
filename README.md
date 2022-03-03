@@ -771,6 +771,13 @@ API GatewayはHTTPエンドポイントをサポートしていない。
         - クラスター : 実行環境の境界、IAM権限の境界
         - タスク : タスク定義に基づき起動されるコンテナ群
         - サービス : タスク実行コピー数を定義。ELBと連携したり起動タイプ（EC2/Fargate）を設定
+    - タスク配置戦略は以下のものがある
+        - binpack
+            - CPUまたはメモリの最小利用可能量に基づいてタスクを配置する
+        - random
+            - タスクをランダムに配置する
+        - spread
+            - 指定された値に基づいてタスクを均等に配置する。値はinstanceIdまたはコンテナインスタンスに適用される任意のプラットフォームまたはカスタム属性
 - [EKS](https://www.slideshare.net/AmazonWebServicesJapan/202110-aws-black-belt-online-seminar-amazon-elastic-kubernetes-service-amazon-eks) : AWSが提供しているKubernetes環境のマネージドサービス
 - [Fargate](https://www.slideshare.net/AmazonWebServicesJapan/202108-aws-black-belt-online-seminar-ecs-fargate) : コンテナ環境をサーバーレスに実現する
 
