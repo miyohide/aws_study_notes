@@ -40,6 +40,27 @@ Gitリポジトリを提供するサービス。AWSCodeCommitPowerUserという�
 
 S3やGitHubからEC2、オンプレ、ECS、Lambdaにリビジョンをデプロイする。`appspec.yml`に記載する。仕様は[リファレンス](https://docs.aws.amazon.com/ja_jp/codedeploy/latest/userguide/application-specification-files.html)を参照。
 
+フックの仕組みがあり、以下のタイミングで処理を実行可能。[CodeDeployフックのベストプラクティス](https://dev.classmethod.jp/articles/best-practice-of-code-deploy-hooks/)がわかりやすい。
+
+1. ApplicationStop
+    - デプロイ対象のアプリケーションを正常に停止するなどを行う。
+        - ミドルウェアの再起動はBeforeInstall/AfterInstallで行う
+    - 初回デプロイ時には実行されない。
+1. DownloadBundle
+    - リビジョンファイルをコピーする
+1. BeforeInstall
+    - ファイルの暗号化やバックアップの作成などを行う
+    - ミドルウェアの停止を行う
+1. Install
+    - リビジョンファイルを最終的な送信先フォルダにコピーする
+1. AfterInstall
+    - アプリの設定やファイルの許可の変更に使用
+    - ミドルウェアの起動を行う
+1. ApplicationStart
+    - ApplicationStopで停止したサービスを再起動
+1. ValidateService
+    - デプロイが正常に完了したことを検証
+
 # [AWS CodePipeline](https://www2.slideshare.net/AmazonWebServicesJapan/20201111-aws-black-belt-online-seminar-aws-codestar-aws-codepipeline)
 
 コードが変更されるたびにビルド・テスト・デプロイを実施する。CodeCommit、CodeBuild、CodeDeployを組み合わせてフローを作るもの。
