@@ -65,6 +65,8 @@ S3やGitHubからEC2、オンプレ、ECS、Lambdaにリビジョンをデプロ
 
 コードが変更されるたびにビルド・テスト・デプロイを実施する。CodeCommit、CodeBuild、CodeDeployを組み合わせてフローを作るもの。
 
+Amazon SNSと連携することで、パイプラインのステージに対して承認アクションを追加することができる。
+
 # [AWS CodeStar](https://www2.slideshare.net/AmazonWebServicesJapan/20201111-aws-black-belt-online-seminar-aws-codestar-aws-codepipeline)
 
 プロジェクトテンプレートを選択して名前を決めるとCI/CDパイプラインを自動的に作成してくれるサービス。
