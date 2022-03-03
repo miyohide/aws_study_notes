@@ -307,7 +307,7 @@ Cognitoのサービスリソースの一つ。外部ユーザーなどがAWSサ�
 
 現状ではAWS AppSyncを利用することが推奨される。
 
-# Amazon Systems Managerパラメータストア
+# [Amazon Systems Managerパラメータストア](https://www.slideshare.net/AmazonWebServicesJapan/20200212-aws-black-belt-online-seminar-aws-systems-manager)
 
 パラメータストアにパラメータを書き込み、GetParameterで取得して使用する。暗号化のタイプはSecureString。
 
