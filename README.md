@@ -325,9 +325,19 @@ Cognitoのサービスリソースの一つ。外部ユーザーなどがAWSサ�
 
 暗号化に使用するキーの管理に専用ハードウェアが必要となる場合に使用。
 
-# AWS Key Management Service（KMS）
+# [AWS Key Management Service（KMS）](https://www.slideshare.net/AmazonWebServicesJapan/aws-black-belt-online-seminar-aws-key-management-service-kms)
 
-暗号化するためのキーを作成し、管理する。暗号化に使用したデータキーはCMK（Customer Master Key）によって暗号化される。この方法をエンベロープ暗号化という。
+暗号鍵の作成、管理、運用のためのサービス。AWSサービスと統合。SDKとの連携で独自アプリデータも暗号化できる。最大4KBのデータ暗号化。
+
+- Customer Master Key（CMK）
+    - KMS上のAES256ビットの鍵
+    - 最大4KBのデータを暗号化
+- Envelope Encryption
+    - マスターキーをデータ暗号化に直接利用するのではなく、マスターキーで暗号化した暗号キーで対象オブジェクトを暗号化／復号化する。
+    - 暗号化したデータとCMKで暗号化されたデータキーを一緒に保管する
+    - 大量のデータの暗号化が可能
+- Customer Data Key（CDK）
+    - 実際の暗号化対象オブジェクトの暗号化／復号化に使用されるAES256ビットの鍵
 
 # S3オブジェクトの暗号化の種類
 
