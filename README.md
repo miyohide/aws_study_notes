@@ -998,3 +998,13 @@ Lambdaにおいては、アクティブトレースを有効にすることで�
 
 X-Ray SDKがあり、これを埋め込むことで、AWSの各サービスの呼び出しやHTTP/HTTPSリクエスト、データベースへのリクエストなどがトレースされる。
 
+## Lambdaデバッグに必要な環境変数
+
+以下の3つの環境変数。[ドキュメントはこちら](https://docs.aws.amazon.com/ja_jp/ja_jp/lambda/latest/dg/configuration-envvars.html#configuration-envvars-runtime)。
+
+- _X_AMZN_TRACE_ID
+    - X-Rayトレースヘッダー
+- AWS_XRAY_CONTEXT_MISSING
+    - X-Rayトレースの場合、LambdaはX-Ray SDKからランタイムエラーがスローされ内容にLOG_ERRORに設定する。
+- AWS_XRAY_DAEMON_ADDRESS
+    - X-Rayトレーシングの場合、X-RayデーモンのIPアドレスとポート
