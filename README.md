@@ -38,7 +38,7 @@ Gitリポジトリを提供するサービス。AWSCodeCommitPowerUserという�
 
 # [AWS CodeDeploy](https://www.slideshare.net/AmazonWebServicesJapan/20210126-aws-black-belt-online-seminar-aws-codedeploy)
 
-S3やGitHubからEC2、オンプレ、ECS、Lambdaにリビジョンをデプロイする。`appspec.yml`に記載する。
+S3やGitHubからEC2、オンプレ、ECS、Lambdaにリビジョンをデプロイする。`.appspec.yml`に記載する。
 
 # [AWS CodePipeline](https://www2.slideshare.net/AmazonWebServicesJapan/20201111-aws-black-belt-online-seminar-aws-codestar-aws-codepipeline)
 
