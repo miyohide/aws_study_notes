@@ -762,7 +762,7 @@ API GatewayはHTTPエンドポイントをサポートしていない。
 - [Amazon Elastic Container Registry（ECR）](https://www.slideshare.net/AmazonWebServicesJapan/202112-aws-black-belt-online-seminar-elastic-container-registory) : コンテナイメージの保存場所
     - ECRレジストリにログインする方法のポイントは`aws ecr get-login-password`を利用する
     - 具体的には`aws ecr get-login-password --region xxxx | docker login --username AWS --password-stdin 123456789012.dkr.ecr.xxxx.amazonaws.com`でログインする
-- [ECS](https://www.slideshare.net/AmazonWebServicesJapan/202112-aws-black-belt-online-seminar-elastic-container-registory) : クラウドでコンテナを本番ん環境利用するためのオーケストレーター
+- [ECS](https://www.slideshare.net/AmazonWebServicesJapan/202112-aws-black-belt-online-seminar-elastic-container-registory) : クラウドでコンテナを本番環境利用するためのオーケストレーター
     - EC2タイプとFargateタイプが存在する
         - EC2タイプはEC2インスタンスのクラスターを起動させてコンテナを実行する
         - Fargateタイプはコンテナ環境をサーバーレスに実現する。EC2インスタンスのメンテナンスをユーザーが行う必要がない。
