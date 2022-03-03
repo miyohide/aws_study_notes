@@ -145,7 +145,24 @@ CloudFormationの拡張機能。Lambda/API Gateway/DynamoDB/S3/Step Functionsな
 3. `sam deploy`
     - AWSリソースを構築する。CloudFormationが実行される。
 
-`sam local start-api`でローカルでサーバーレスアプリのテストができる。
+コマンドは他にも以下のものがある。
+
+- sam validate
+    - SAMテンプレートの検証
+- sam local invoke
+    - Lambda関数のローカル実行
+- sam local generate-event
+    - テスト用イベントの生成
+- sam local start-lambda
+    - ローカルエンドポイントの作成
+- sam local start-api
+    - APIエンドポイントの作成
+- sam package
+    - アプリをZip形式にパッケージングしS3にアップロードする
+- sam logs
+    - AWSにデプロイしたLambda関数のログを出力
+- sam publish
+    - 完成したアプリの保管
 
 # [VPC](https://www.slideshare.net/AmazonWebServicesJapan/20201021-aws-black-belt-online-seminar-amazon-vpc)
 
