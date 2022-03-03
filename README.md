@@ -757,6 +757,23 @@ REST、HTTP、WebSocket APIを作成、公開、維持、モニタリング、�
 
 API GatewayはHTTPエンドポイントをサポートしていない。
 
+統合タイプは以下のものがある
+
+- AWS
+    - AWSのサービスアクションを公開する
+    - 統合リクエスト・統合レスポンスを設定
+- AWS_PROXY
+    - 統合リクエスト・統合レスポンスの設定は不要
+    - リクエストをLambda関数へ渡す
+- HTTP
+    - バックエンドのHTTPエンドポイントを公開
+    - 統合リクエスト・統合レスポンスを設定
+- HTTP_PROXY
+    - 統合リクエスト・統合レスポンスの設定は不要
+    - リクエストをHTTPエンドポイントに渡し、レスポンスをクライアントへ返す
+- MOCK
+    - リクエストをバックエンドに送信することなくレスポンスを返す
+
 # コンテナの実行
 
 - [Amazon Elastic Container Registry（ECR）](https://www.slideshare.net/AmazonWebServicesJapan/202112-aws-black-belt-online-seminar-elastic-container-registory) : コンテナイメージの保存場所
