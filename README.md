@@ -1083,6 +1083,8 @@ Lambdaにおいては、アクティブトレースを有効にすることで�
 
 X-Ray SDKがあり、これを埋め込むことで、AWSの各サービスの呼び出しやHTTP/HTTPSリクエスト、データベースへのリクエストなどがトレースされる。
 
+トレースの構成要素であり、個々のサービスに対応するものを「セグメント」と呼ぶ。また、セグメントの構成要素であり、ここのリモートコールやローカル処理に対応するのを「サブセグメント」と呼ぶ。
+
 ## Lambdaデバッグに必要な環境変数
 
 以下の3つの環境変数。[ドキュメントはこちら](https://docs.aws.amazon.com/ja_jp/ja_jp/lambda/latest/dg/configuration-envvars.html#configuration-envvars-runtime)。
