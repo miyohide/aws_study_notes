@@ -1085,6 +1085,8 @@ X-Ray SDKがあり、これを埋め込むことで、AWSの各サービスの�
 
 トレースの構成要素であり、個々のサービスに対応するものを「セグメント」と呼ぶ。また、セグメントの構成要素であり、ここのリモートコールやローカル処理に対応するのを「サブセグメント」と呼ぶ。
 
+AWS X-RayデーモンはUDPポート2000でトラフィックをリッスンし、未加工のセグメントデータを収集して、AWS X-Ray APIに中継するソフトウェアアプリです。
+
 ## Lambdaデバッグに必要な環境変数
 
 以下の3つの環境変数。[ドキュメントはこちら](https://docs.aws.amazon.com/ja_jp/ja_jp/lambda/latest/dg/configuration-envvars.html#configuration-envvars-runtime)。
