@@ -166,6 +166,31 @@ CloudFormationの拡張機能。Lambda/API Gateway/DynamoDB/S3/Step Functionsな
 - sam publish
     - 完成したアプリの保管
 
+## テンプレートについて
+
+CloudFormationテンプレートのAWS::Serverless TransformセクションにAWS SAMのバージョンを指定する。
+
+```yaml
+Transform: AWS::Serverless-2016-10-31
+
+Globals:
+  set of globals
+Description:
+  String
+Metadata:
+  template metadata
+Parameters:
+  set of parameters
+Mappings:
+  set of mappings
+Conditions:
+  set of conditions
+Resources:
+  set of resources
+Outputs:
+  set of outputs
+```
+
 # [VPC](https://www.slideshare.net/AmazonWebServicesJapan/20201021-aws-black-belt-online-seminar-amazon-vpc)
 
 押さえておきたい用語。
