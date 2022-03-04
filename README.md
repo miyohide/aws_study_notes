@@ -791,6 +791,9 @@ REST、HTTP、WebSocket APIを作成、公開、維持、モニタリング、�
 - ステージ変数
     - ステージごとに異なる値を設定でき、`${stageVariables.xxxx}`で利用することができる。
     - [[API Gateway + Lambda]ステージとエイリアスを使ってバージョン管理してみた](https://dev.classmethod.jp/articles/version-management-with-api-gateway-and-lambda/)を参照
+- Cross-origin resource sharing(CORS)の有効化
+    - ブラウザで実行sれているスクリプトから開始されるクロスオリジンHTTPリクエストを制限するブラウザのセキュリティ機能。
+    - REST APIのリソースが非シンプルクロスオリジンのHTTPリクエストを受け取る場合に有効にする必要がある。
 
 API GatewayはHTTPエンドポイントをサポートしていない。
 
