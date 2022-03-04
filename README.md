@@ -362,6 +362,8 @@ Systems Managerパラメータストアと同じような機能だが、Secrets 
 
 # S3オブジェクトの暗号化の種類
 
+[Amazon S3の暗号化について調べてみた。](https://dev.classmethod.jp/articles/lim-s3-sse-2021/)が詳しい。
+
 - クライアントサイド暗号化
     - CSE-KMS
         - クライアントで暗号化してからアップロードする方法。KMSで管理しているCMKを使用して暗号化する。
@@ -370,8 +372,10 @@ Systems Managerパラメータストアと同じような機能だが、Secrets 
 - サーバーサイド暗号化
     - SSE-S3
         - S3が管理するキーによるサーバー側暗号化を行う。
+        - `"x-amz-server-side-encryption": "AES256"`ヘッダーを設定して利用する
     - SSE-KMS
         - KMSが管理しているキーを使ったサーバー側暗号化。
+        - `"x-amz-server-side-encryption": "aws:kms"`ヘッダーを設定して利用する
     - SSE-C
         - ユーザー指定キーによるサーバー側暗号化。
 
