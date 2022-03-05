@@ -92,6 +92,17 @@ AWSTemplateFormatVersion、Parameters、Resources、Mappings、Conditions、Outp
 
 CloudFormationではAWSアカウントごとにエクスポート名はリージョン内で一意である必要がある。
 
+ヘルパースクリプトは以下4種類。[AWS CloudFormationで使える4種類のヘルパースクリプトについて使い方と機能をまとめてみた](https://dev.classmethod.jp/articles/cfn-helper-scripts/)を参照。
+
+- cfn-init
+    - リソースメタデータの取得と解釈、パッケージのインストール、ファイルの作成、サービスの開始で利用
+- cfn-signal
+    - CreationPolicyまたはWaitConditionでシグナルを送信するために使用し、前提となるリソースやアプリの巡撫ができたときにスタックの他のリソースを同期できるようにする
+- cfn-get-metadata
+    - 特定のキーへのリソースまたはパスのメタデータを取得するために使用する
+- cfn-hup
+    - メタデータへの更新を確認し、変更が検出されたt機にカスタムフックを実行するために使用する
+
 # [AWS OpsWorks](https://www.slideshare.net/AmazonWebServicesJapan/aws-black-belt-online-seminar-2017-aws-opsworks)
 
 Chef/Puppetを使用できるマネージドサービス。Chef用のAWS OpsWorks for Chef Automate、Puppet用のAWS OpsWorks for Puppet Enterpriseがある。
