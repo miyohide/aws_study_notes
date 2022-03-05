@@ -1098,6 +1098,8 @@ X-Ray SDKがあり、これを埋め込むことで、AWSの各サービスの�
 
 AWS X-RayデーモンはUDPポート2000でトラフィックをリッスンし、未加工のセグメントデータを収集して、AWS X-Ray APIに中継するソフトウェアアプリです。
 
+Annotation（注釈）をつけることができる。文字列、数値、ブール値を持つキーとアタイのペアで、フィルター式で使用するためにインデックスをつけることができる。
+
 ## Lambdaデバッグに必要な環境変数
 
 以下の3つの環境変数。[ドキュメントはこちら](https://docs.aws.amazon.com/ja_jp/ja_jp/lambda/latest/dg/configuration-envvars.html#configuration-envvars-runtime)。
