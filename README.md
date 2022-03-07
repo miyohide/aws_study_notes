@@ -879,6 +879,7 @@ API Gatewayのタイムアウトの上限は29秒。引き上げできない。
             - タスクをランダムに配置する
         - spread
             - 指定された値に基づいてタスクを均等に配置する。値はinstanceIdまたはコンテナインスタンスに適用される任意のプラットフォームまたはカスタム属性
+            - field値に`attribute: ecs.availability-zone`を設定することで、複数AZに均等に配置することができる。
 - [EKS](https://www.slideshare.net/AmazonWebServicesJapan/202110-aws-black-belt-online-seminar-amazon-elastic-kubernetes-service-amazon-eks) : AWSが提供しているKubernetes環境のマネージドサービス
 - [Fargate](https://www.slideshare.net/AmazonWebServicesJapan/202108-aws-black-belt-online-seminar-ecs-fargate) : コンテナ環境をサーバーレスに実現する
 
