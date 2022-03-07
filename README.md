@@ -834,6 +834,8 @@ API GatewayはHTTPエンドポイントをサポートしていない。
 - Private
     - VPC内
 
+API Gatewayのタイムアウトの上限は29秒。引き上げできない。
+
 # コンテナの実行
 
 - [Amazon Elastic Container Registry（ECR）](https://www.slideshare.net/AmazonWebServicesJapan/202112-aws-black-belt-online-seminar-elastic-container-registory) : コンテナイメージの保存場所
