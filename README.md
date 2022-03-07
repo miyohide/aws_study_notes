@@ -90,6 +90,17 @@ JSON/YAML形式で記述されたテンプレートをもとにスタックと�
 
 AWSTemplateFormatVersion、Parameters、Resources、Mappings、Conditions、Outputsなどのセクションが存在する。
 
+組み込み関数としては以下のものがある。こちらを参考に（[その1](https://dev.classmethod.jp/articles/lim-cloudformation-function-1/)、[その2](https://dev.classmethod.jp/articles/lim-cloudformation-function-2/)）
+
+- `!Ref`
+    - 指定されたパラメータ、またはリソースの値を返す
+- `!Sub`
+    - 入力文字列の変数を指定した値に置き換える
+- `FindInMap`
+    - AMIをAWSリージョンに関連づける単一のマップRegionMapを含むMappingsセクションにて使用
+- `!GetAtt`
+    - テンプレート内のリソースから属性の値を返す
+
 CloudFormationではAWSアカウントごとにエクスポート名はリージョン内で一意である必要がある。
 
 ヘルパースクリプトは以下4種類。[AWS CloudFormationで使える4種類のヘルパースクリプトについて使い方と機能をまとめてみた](https://dev.classmethod.jp/articles/cfn-helper-scripts/)を参照。
