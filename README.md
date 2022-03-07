@@ -460,6 +460,7 @@ KMSと連携して行う。
 - NFSアクセスを提供する分散ストレージ。
 - 複数のEC2からNFSを使ってネットワーク経由でアクセス
 - `amazon-efs-utils`パッケージを使用することでマウントヘルパーを使って簡単にマウントコマンドを実行することが可能。
+    - 暗号化オプション「`-o tls`」を追加することで暗号化可能。
 
 # [Amazon Simple Storage Service（S3）](https://www.slideshare.net/AmazonWebServicesJapan/20190220-aws-black-belt-online-seminar-amazon-s3-glacier)
 
