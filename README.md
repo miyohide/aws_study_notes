@@ -779,6 +779,15 @@ REST、HTTP、WebSocket APIを作成、公開、維持、モニタリング、�
 以下の機能を有する。
 
 - 認証
+    - IAM
+        - Great fro users / roles already within your AWS account, + resource policy for cross account
+        - Leverages signature v4
+    - Custome Authorizer
+        - Great for 3rd party tokens
+        - use Lambda
+    - Cognito User Pool
+        - manage your own user pool
+        - must implement authorization in the backend
 - SSL証明書の設定
 - リソースポリシー（API実行の許可／拒否）
 - メソッド許可
