@@ -825,6 +825,15 @@ API GatewayはHTTPエンドポイントをサポートしていない。
 - MOCK
     - リクエストをバックエンドに送信することなくレスポンスを返す
 
+エンドポイント種類は以下の3つ。
+
+- Edge-Optimized(default)
+    - CloudFront Edgeを通してリクエストを受け付ける
+- Regional
+    - 同じリージョンからのクライアントに対して
+- Private
+    - VPC内
+
 # コンテナの実行
 
 - [Amazon Elastic Container Registry（ECR）](https://www.slideshare.net/AmazonWebServicesJapan/202112-aws-black-belt-online-seminar-elastic-container-registory) : コンテナイメージの保存場所
