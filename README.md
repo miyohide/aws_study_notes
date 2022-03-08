@@ -1148,6 +1148,10 @@ AWS X-RayデーモンはUDPポート2000でトラフィックをリッスンし�
 
 Annotation（注釈）をつけることができる。文字列、数値、ブール値を持つキーとアタイのペアで、フィルター式で使用するためにインデックスをつけることができる。
 
+1秒あたりのサンプリングされた要求の合計を計算する式
+
+サンプリングリクエスト数 = リザーバーサイズ + ( ( 1秒あたりの着信リクエスト - リザーバーサイズ) x 固定レート )
+
 ## Lambdaデバッグに必要な環境変数
 
 以下の3つの環境変数。[ドキュメントはこちら](https://docs.aws.amazon.com/ja_jp/ja_jp/lambda/latest/dg/configuration-envvars.html#configuration-envvars-runtime)。
