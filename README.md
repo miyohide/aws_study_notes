@@ -818,6 +818,10 @@ DynamoDBテーブルでTTLを有効にすると、テーブルの項目に対し
 
 特定のLambda関数のバージョンに対するポインタのようなものがエイリアス。バージョンに対する名前をつけることができる。
 
+## Lambda@Edge
+
+CloudFrontの機能で、アプリのユーザーに近いロケーションでコードを実行する。
+
 # [API Gateway](https://www.slideshare.net/AmazonWebServicesJapan/20190514-aws-black-belt-online-seminar-amazon-api-gateway-230113575)
 
 REST、HTTP、WebSocket APIを作成、公開、維持、モニタリング、及びセキュア化するためのAWSサービス。
