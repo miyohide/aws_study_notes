@@ -345,6 +345,26 @@ EC2インスタンスにIAMロールをアタッチするIAMユーザに対し�
 
 AWS IAMユーザーに対して一時的な認証情報をリクエストする
 
+## AWS Security Token Service (STS)
+
+- Allows to grant limited and temporary access to AWS resources (up to 1 hour)
+- AssumeRole
+    - IAMロールを使用して、他アカウントにAWSリソースのアクセス許可を委任する。信頼するAWSアカウントと他の信頼されるAWSアカウントとの信頼関係が確立される。
+    - Assume roles within your account or cross account
+- AssumeRoleWithSAML
+    - return credentials for users logged with SAML
+- AssumeRoleWithWebIdentity
+    - return credntials for users logged with an IdP (Facebook Login, Google Login, etc...)
+- GetSessionToken
+    - for MFA, from a user or AWS account root user
+    - aws:MultiFactorAuthPresent: true
+- GetFederationToken
+    - obtain temporary credentials for a federated user
+- GetCallerIdentity
+    - return details about the IAM user or role used in the API call
+- DecodeAuthorizationMessage
+    - decode error message when an AWS API is denied
+
 # Amazon Cognito
 
 Webアプリやモバイルアプリに安全に認証を提供するサービス。
