@@ -1159,6 +1159,101 @@ State Typeは以下のものがある。
 
 AWSのモニタリングサービス。
 
+代表的な標準メトリックスは以下の通り。
+
+- EC2
+    - CPUUtilization
+        - CPUの利用率
+    - NetworkIn
+        - インスタンスが受信したバイト数
+    - NetworkOut
+        - インスタンスから送信したバイト数
+    - StatusCheckFailed
+        - インスタンスのステータスチェックとシステムステータスチェックのいずれかが失敗した場合は1、それ以外は0
+- EBS
+    - VolumeReadOps
+        - ディスク読み取り回数
+    - VolumeWriteOps
+        - ディスク書き込み回数
+- RDS
+    - DatabaseConnections
+        - データベース接続数
+    - ReadIOPS
+        - ディスク読み取り回数
+    - WriteIOPS
+        - ディスク書き込み回数
+    - FreeableMemory
+        - 使用可能なメモリ容量
+- DynamoDB
+    - ProvisionedWriteCapacityUnits
+        - WCU数
+    - ProvisionedReadCapacityUnits
+        - RCU数
+    - ConsumedWriteCapacityUnits
+        - 消費されたWCU数
+    - ConsumedReadCapacityUnits
+        - 消費されたRCU数
+    - ThrottledRequests
+        - キャパシティユニットによって設定されたスループットの上限を超えて発生したリクエスト数
+    - ReadThrottleEvents
+        - スロットルのうちの読み込みリクエスト
+    - WriteThrottleEvents
+        - スロットルのうちの書き込みリクエスト
+- S3
+    - BucketSizeBytes
+        - 保存されているオブジェクトデータの量
+    - NumberOfObjects
+        - オブジェクトの合計数
+- Lambda
+    - Invocations
+        - 呼び出し実行数
+    - ConcurrentExecutions
+        - 実行された関数インスタンスの数
+    - Errors
+        - タイムアウトなどのランタイムエラーや例外処理したエラーの総数
+    - Throttles
+        - 同時実行数が上限に達した時に発生するリクエストが実行されなかった数
+    - Duration
+        - 関数が実行された時間
+- API Gateway
+    - Count
+        - APIリクエスト数
+    - 4XXError
+        - クライアント側のエラー数
+    - 5XXError
+        - サーバー側のエラー数
+    - IntegrationLatency
+        - API Gatewayがバックエンドにリクエストを送信してからレスポンスを受け取るまでの時間
+    - Latency
+        - API Gatewayがクライアントからリクエストを受け取ってからクライアントにレスポンスを返すまでの時間
+- SQS
+    - SendMessageSize
+        - キューに送信されたメッセージのサイズ
+    - NumberOfMessagesSent
+        - キューに送信されたメッセージ数
+    - NumberOfMessagesReceived
+        - キューへのReceiveMessge APIによって返されたメッセージ数
+    - NumberOfMessagesDeleted
+        - キューから削除されたメッセージ数
+    - NumberOfEmptyReceives
+        - メッセージを返さなかったReceiveMessageアクションの数
+    - ApproximateNumberOfMessagesVisible
+        - 取得可能なメッセージ数
+    - ApproixmateNumberOfMessagesNotVisible
+        - 処理中のメッセージ数
+- SNS
+    - NumberOfMessagesPublished
+    - NumberOfNotificationsDelivered
+    - NumberOfNotificationsFailed
+    - PublishSize
+- Step Functions
+    - ExecutionTime
+    - ExecutionThrottled
+    - ExecutionFailed
+    - ExecutionStarted
+    - ExecutionsSucceeded
+    - ExecutionsTimedOut
+
 ## CloudWatch Metrics
 
 AWSの各サービスの数値情報をモニタリングできる。カスタムメトリックスとして独自の数値情報を送信することも可能。その際は、PutMetricDataを使用する。
