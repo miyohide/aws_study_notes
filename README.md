@@ -783,6 +783,34 @@ DynamoDBテーブルでTTLを有効にすると、テーブルの項目に対し
     - 関数ごとのデプロイパッケージはZIPで50MB、解凍後で250MB
     - /tmpディレクトリは512MB
 
+Lambdaの種類は以下のものに分類される
+
+- 同期呼び出し
+    - ユーザー呼び出し
+        - Elastic Load Balancing(Application Load Balancer)
+        - Amazon API Gateway
+        - Amazon CloudFront(Lambda@Edge)
+        - Amazon S3 Batch
+    - サービス呼び出し
+        - Amazon Cognito
+        - AWS Step Functions
+    - その他のサービス
+        - Amazon Lex
+        - Amazon Alexa
+        - Amazon Kinesis Data Firehose
+- 非同期呼び出し
+    - Amazon Simple Storage Service(S3)
+    - Amazon Simple Notification Service(SNS)
+    - Amazon CloudWatch Events/EventBridge
+    - AWS CodeCommit
+    - AWS CodePipeline
+    - Amazon CloudWatch Logs
+    - Amazon Simple Email Service
+    - AWS CloudFormation
+    - AWS Config
+    - AWS IoT
+    - AWS IoT Events
+
 非同期呼び出し処理の試みが3回とも失敗した場合、LambdaはSQSキュー、またはSNSトピックにイベントを送信できる。DeadLetterConfig(DLQ)パラメーターにおいてSQSキューのARNを指定することで、処理できないイベントについてはSNSトピックやSQSキューに送信することができる。
 
 イベントにはプッシュイベントとプルイベントがある。
