@@ -810,6 +810,11 @@ Lambdaの種類は以下のものに分類される
     - AWS Config
     - AWS IoT
     - AWS IoT Events
+- ストリームベース
+    - DynamoDB
+        - 1秒間に4回のポーリング
+    - Amazon Kinesis Streams
+        - 1秒間に1回のポーリング
 
 非同期呼び出し処理の試みが3回とも失敗した場合、LambdaはSQSキュー、またはSNSトピックにイベントを送信できる。DeadLetterConfig(DLQ)パラメーターにおいてSQSキューのARNを指定することで、処理できないイベントについてはSNSトピックやSQSキューに送信することができる。
 
