@@ -788,6 +788,7 @@ DynamoDBテーブルでTTLを有効にすると、テーブルの項目に対し
 Lambdaの種類は以下のものに分類される
 
 - 同期呼び出し
+    - InvocationTypeをRequestResponseに設定する
     - ユーザー呼び出し
         - Elastic Load Balancing(Application Load Balancer)
         - Amazon API Gateway
@@ -801,17 +802,19 @@ Lambdaの種類は以下のものに分類される
         - Amazon Alexa
         - Amazon Kinesis Data Firehose
 - 非同期呼び出し
-    - Amazon Simple Storage Service(S3)
-    - Amazon Simple Notification Service(SNS)
-    - Amazon CloudWatch Events/EventBridge
-    - AWS CodeCommit
-    - AWS CodePipeline
-    - Amazon CloudWatch Logs
-    - Amazon Simple Email Service
-    - AWS CloudFormation
-    - AWS Config
-    - AWS IoT
-    - AWS IoT Events
+    - Invoke APIを使用してLambda関数を呼び出し、InvocationTypeをEventに設定する
+    - 以下のものが該当する
+        - Amazon Simple Storage Service(S3)
+        - Amazon Simple Notification Service(SNS)
+        - Amazon CloudWatch Events/EventBridge
+        - AWS CodeCommit
+        - AWS CodePipeline
+        - Amazon CloudWatch Logs
+        - Amazon Simple Email Service
+        - AWS CloudFormation
+        - AWS Config
+        - AWS IoT
+        - AWS IoT Events
 - ストリームベース
     - DynamoDB
         - 1秒間に4回のポーリング
