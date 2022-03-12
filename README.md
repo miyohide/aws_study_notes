@@ -36,6 +36,8 @@ Gitリポジトリを提供するサービス。AWSCodeCommitPowerUserという�
 
 ローカルエージェントをインストールすることで実行することが可能。
 
+CodeBuildに対してCloudTrailを有効化することでCodeBuildのログを取得することができる。また、S3とCloudWatchの統合を有効にするとCloudBuildによってS3にアップロードされた実行データへのログを確認することができる。
+
 # [AWS CodeDeploy](https://www.slideshare.net/AmazonWebServicesJapan/20210126-aws-black-belt-online-seminar-aws-codedeploy)
 
 S3やGitHubからEC2、オンプレ、ECS、Lambdaにリビジョンをデプロイする。`appspec.yml`に記載する。仕様は[リファレンス](https://docs.aws.amazon.com/ja_jp/codedeploy/latest/userguide/application-specification-files.html)を参照。
