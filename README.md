@@ -852,6 +852,7 @@ Lambdaの種類は以下のものに分類される
 ## [IAMポリシーとリソースポリシー](https://dev.classmethod.jp/articles/policies-for-lambda/)
 
 - IAMポリシー
+    - pull型のLambda関数呼び出しをする時に利用する
     - 信頼ポリシー
         - AWS LambdaにLambda関数の実行を任せるためのもの
         - CloudWatch Logsにログを出力するためのlogs:CreateLogGroup、logs:CreateLogStream、logs:PutLogEvents
@@ -861,6 +862,7 @@ Lambdaの種類は以下のものに分類される
         - Lambda関数が他のAWSリソースにアクセスすることを許可するためのもの
 - リソースポリシー
     - 誰がそのLambda関数を呼び出せるかを定義する
+    - あるAWSサービス（S3、CloudFront、SNSなど）からpush型のLambda関数を呼び出す場合に当てはまる
 
 ## Lambdaレイヤー
 
