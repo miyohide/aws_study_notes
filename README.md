@@ -92,7 +92,16 @@ Amazon SNSと連携することで、パイプラインのステージに対し�
 
 JSON/YAML形式で記述されたテンプレートをもとにスタックと呼ばれるAWSリソースの集合体を自動構築する。
 
-AWSTemplateFormatVersion、Parameters、Resources、Mappings、Conditions、Outputsなどのセクションが存在する。
+AWSTemplateFormatVersion、Parameters、Resources、Mappings、Conditions、Outputsなどのセクションが存在する。Resourceは必須。
+
+```yaml
+AWSTemplateFormatVersion: '2010-09-09'
+Resources:
+  FirstVPC:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: 10.0.0.0/16
+```
 
 組み込み関数としては以下のものがある。こちらを参考に（[その1](https://dev.classmethod.jp/articles/lim-cloudformation-function-1/)、[その2](https://dev.classmethod.jp/articles/lim-cloudformation-function-2/)）
 
