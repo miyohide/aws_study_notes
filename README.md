@@ -226,6 +226,8 @@ Outputs:
   set of outputs
 ```
 
+Resources以下のTypeは`AWS::Serverless::Api`、`AWS::Serverless::Application`、`AWS::Serverless::Function`、`AWS::Serverless::SimpleTable`などがある。
+
 # [VPC](https://www.slideshare.net/AmazonWebServicesJapan/20201021-aws-black-belt-online-seminar-amazon-vpc)
 
 押さえておきたい用語。
@@ -1341,3 +1343,12 @@ Annotation（注釈）をつけることができる。文字列、数値、ブ�
     - アプリケーションのトレースIDのリストを取得する
 - BatchGetTraces
     - トレースのリストを取得する
+
+# Perfect Forward Secrecy（PSF）
+
+鍵が危殆化（きたいか）した場合にも長期間にわたってデータを解読されないよう、暗号鍵（共通鍵）の元になる情報を使い捨てる方式。
+
+AWSサービスのすべてのサービスがPSFに対応しているが、カスタマイズして利用できるのは以下二つ。
+
+- Amazon Elastic Load Balancing
+- Amazon CloudFront
