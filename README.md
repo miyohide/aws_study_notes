@@ -1321,3 +1321,12 @@ Annotation（注釈）をつけることができる。文字列、数値、ブ�
     - X-Rayトレースの場合、LambdaはX-Ray SDKからランタイムエラーがスローされ内容にLOG_ERRORに設定する。
 - AWS_XRAY_DAEMON_ADDRESS
     - X-Rayトレーシングの場合、X-RayデーモンのIPアドレスとポート
+
+## API
+
+- PutTraceSgments
+    - トレースデータをX-Rayに送信する
+- GetTraceSummaries
+    - アプリケーションのトレースIDのリストを取得する
+- BatchGetTraces
+    - トレースのリストを取得する
