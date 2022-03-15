@@ -579,7 +579,31 @@ $ aws s3 cp sample.txt s3://bucketname/sample.txt --acl public-read
 
 ## バケットポリシー
 
-アクセスコントロールリストよりより詳細なアクセス権限を設定したい場合に使用。
+アクセスコントロールリストよりより詳細なアクセス権限を設定したい場合に使用。ポリシー変数を使って、ユーザ名ごとにアクセス制御することが可能。
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Action": ["s3:ListBucket"],
+      "Effect": "Allow",
+      "Resource": ["arn:aws:s3:::mybucket"],
+      "Condition": {"StringLike": {"s3:prefix": ["${aws:username}/*"]}}
+    },
+    {
+      "Action": [
+        "s3:GetObject",
+        "s3:PutObject"
+      ],
+      "Effect": "Allow",
+      "Resource": ["arn:aws:s3:::mybucket/${aws:username}/*"]
+    }
+  ]
+}
+```
+
+上の例では、`${aws:username}`がポリシー変数。IAMが実際の該当ユーザーのフレンドリ名に置き換える。
 
 ## 署名付きURL
 
