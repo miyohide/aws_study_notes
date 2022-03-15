@@ -671,7 +671,7 @@ Memcachedはマルチスレッド、RedisはレプリケーションやPub/Sub�
     - キャッシュミスした場合はデータの取得に時間がかかる
 - 書き込みスルー戦略
     - データがデータベースに書き込まれると常にデータを追加したりキャッシュのデータを更新する
-    - 社っしゅのデータが古くならず常に最新のデータ
+    - キャッシュのデータが古くならず常に最新のデータ
     - キャッシュがデータでいっぱいになりやすい
 
 # [Amazon DynamoDB](https://www.slideshare.net/AmazonWebServicesJapan/20170809-black-belt-dynamodb)
