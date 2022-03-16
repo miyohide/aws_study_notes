@@ -285,6 +285,19 @@ $ aws configure --profile prod
 $ aws s3 ls --profile prod
 ```
 
+## ページ分割オプション
+
+オプションとして以下のものがある。
+
+- `--no-paginate`
+    - クライアント側のページ分割トークンを無効にする
+- `--page-size`
+    - 1回で要求する項目数を変更することができる。デフォルトは1000項目返す
+- `--max-items`
+    - CLIの出力で一度に含める項目を少なくする
+- `--starting-token`
+    - 出力される項目数（`--max-items`）がAPI呼び出しによって返される合計項目数より少ない場合、出力には`NextToken`が含まれる。これを`--starting-token`の引数に指定して続きの項目のセットを取得する。
+
 # [IAM](https://www.slideshare.net/AmazonWebServicesJapan/20190129-aws-black-belt-online-seminar-aws-identity-and-access-management-iam-part1)、[IAM Part2](https://www.slideshare.net/AmazonWebServicesJapan/20190130-aws-black-belt-online-seminar-aws-identity-and-access-management-aws-iam-part2)
 
 ## IAMポリシー
