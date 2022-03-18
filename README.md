@@ -351,6 +351,29 @@ arn:aws:サービス名:リージョンコード:アカウントID:リソースI
 
 ポリシーを記述する時にリソースや条件キーの正確な値がわからない時、プレースホルダーを指定できる機能のことを指す。
 
+例えば`${aws:username}`を使用すると、実行時にIAMユーザーに置き換えてくれる。下のものはIAMユーザーのアクセスキー更新。
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "ManageOwnAccessKeys",
+            "Effect": "Allow",
+            "Action": [
+                "iam:CreateAccessKey",
+                "iam:DeleteAccessKey",
+                "iam:GetAccessKeyLastUsed",
+                "iam:GetUser",
+                "iam:ListAccessKeys",
+                "iam:UpdateAccessKey"
+            ],
+            "Resource": "arn:aws:iam::*:user/${aws:username}"
+        }
+    ]
+}
+```
+
 ## CloudFrontのOrigin Access Identity（OAI）
 
 S3を公開状態にすることなく、S3へのアクセスをCloudFrontからのリクエストに絞るための仕組み。
