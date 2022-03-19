@@ -339,12 +339,14 @@ Action/Resourceには`*`を指定することが可能。
 - 拒否されていなければ、許可されているかどうかが評価される
 - 許可されていなければ拒否される。
 
-## ARN（Amazon Resource Name）
+## [ARN（Amazon Resource Name）](https://docs.aws.amazon.com/ja_jp/general/latest/gr/aws-arns-and-namespaces.html)
 
 AWSリソースを一意に識別するもの。以下の書式。
 
 ```
-arn:aws:サービス名:リージョンコード:アカウントID:リソースID
+arn:partition:service:region:account-id:resource-id
+arn:partition:service:region:account-id:resource-type/resource-id
+arn:partition:service:region:account-id:resource-type:resource-id
 ```
 
 ## ポリシー変数
