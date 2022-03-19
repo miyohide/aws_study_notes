@@ -840,25 +840,7 @@ DynamoDBテーブルでTTLを有効にすると、テーブルの属性に対し
 - 実行環境はNode、Java、Python、.NET、Go、Ruby、＋カスタムランタイム（独自定義）
 - メモリは128MB〜10GBまで。CPUはメモリに応じて割り当て。
 - タイムアウトはデフォルト3秒、最長15分。
-- 以下のイベントがある。
-    - Alexa
-    - API Gateway
-    - S3
-    - CloudWatchイベント
-    - CloudWatch Logs
-    - CloudFormation
-    - CodeCommit
-    - Cognito
-    - Config
-    - DynamoDB
-    - Application Load Balancer
-    - AWS IoT
-    - Kinesis Data Streams
-    - Simple Email Service
-    - Simple Notifications Service
-    - SQS
-    - Step Functions
-- 以下のような制限がある。
+- 以下のような制限がある。[詳細はAWSのドキュメント](https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/gettingstarted-limits.html)を参照。
     - 同時実行数はリージョンごとに1,000
     - 関数とレイヤーの合計容量は75GB
     - 関数ごとのデプロイパッケージはZIPで50MB、解凍後で250MB
@@ -1181,7 +1163,7 @@ ASLには以下のものを設定することができる。
 
 - Comment
     - コメントを入力できる
-- StarAt
+- StartAt
     - 一番最初に実行するStateを指定する
 - TimeoutSeconds
     - 秒数を指定する。ステートマシン全体の実行時間がこの秒数を超えるとタイムアウトエラーとなり実行が終了する
