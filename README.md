@@ -831,7 +831,7 @@ DynamoDB Accelerator（DAX）はインメモリキャッシュを使ってDynamo
 
 項目データへのアクセスに対するセキュリティはIAMポリシーで制御可能。
 
-DynamoDBテーブルでTTLを有効にすると、テーブルの項目に対して有効期限を定義することができる。有効期限が切れると項目を自動的に削除することができる。
+DynamoDBテーブルでTTLを有効にすると、テーブルの属性に対して有効期限を定義することができる。有効期限が切れると項目を自動的に削除することができる。詳細は[AWSのドキュメント](https://docs.aws.amazon.com/ja_jp/amazondynamodb/latest/developerguide/howitworks-ttl.html)を参照。
 
 # [AWS Lambda](https://www.slideshare.net/AmazonWebServicesJapan/20190402-aws-black-belt-online-seminar-lets-dive-deep-into-aws-lambda-part1-part2/)
 
