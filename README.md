@@ -714,7 +714,7 @@ $ aws s3 cp sample.txt s3://bucketname/sample.txt --acl public-read
 
 リードレプリカを最大15個まで作成可能。
 
-## Aurora Serverless
+## [Aurora Serverless](https://aws.amazon.com/jp/rds/aurora/serverless/)
 
 Auroraキャパシティユニット（ACU）に応じて時間課金が発生。1ACUあたり2GBのメモリとそれに応じたCPU性能が提供。負荷に応じて自動的にスケーリング。オプションで、アイドル状態が続いたときには停止して時間課金を停止することも可能。
 
