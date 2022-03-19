@@ -308,7 +308,7 @@ AWS Policy generatorを使うことでブラウザ上でJSONを書かなくて�
 
 以下のようなもの。
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
