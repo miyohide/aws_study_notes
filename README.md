@@ -248,7 +248,7 @@ Resources以下のTypeは`AWS::Serverless::Api`、`AWS::Serverless::Application`
     - ステートレス。
     - デフォルトは全て許可
 
-## VPCエンドポイント
+## [VPCエンドポイント](https://docs.aws.amazon.com/ja_jp/vpc/latest/privatelink/vpc-endpoints.html)
 
 VPCエンドポイントを使うことで、インターネットゲートウェイを経ずにAWSの各サービスのAPIに直接リクエストを実行できる。
 
