@@ -19,3 +19,7 @@ AWS Certified Solutions Architect - Professionalを受験するに伴い、学�
 Kinesisにデータを送信する側をプロデューサー、Kinesisのデータを受信して処理する側をコンシューマーと呼ぶ。
 
 プロデューサー側の開発にはKinesis Producer Library（KPL）を、コンシューマー側の開発にはKinesis Client Library（KCL）を使用することができる。
+
+# [Amazon Application Migration Service（AWS MGN）](https://aws.amazon.com/jp/application-migration-service/)
+
+ソースサーバーを物理インフラ、仮想インフラ、クラウドインフラからAWSでネイティブに実行するように自動的に変換してアプリをクラウドに移行することを支援するツール。
