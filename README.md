@@ -43,8 +43,8 @@ S3の特徴。
 
 - AWS Glue
     - データ加工、データカタログの作成を行う
-- Amazon EMR
-    - Apache Hadoop/Sparkなどの分析やデータ加工処理用のOSSをマネージドサービスとして提供
+- [Amazon EMR](https://dev.classmethod.jp/articles/cm-advent-calendar-2015-getting-started-again-aws-emr/)
+    - Amazon Elastic MapReduceの略。Apache Hadoop/Sparkなどの分析やデータ加工処理用のOSSをマネージドサービスとして提供
 - Amazon Redshift
     - マネージドデータウェアハウスサービス
 - Amazon SageMaker
