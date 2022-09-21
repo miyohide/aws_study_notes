@@ -23,3 +23,35 @@ Kinesisにデータを送信する側をプロデューサー、Kinesisのデー
 # [Amazon Application Migration Service（AWS MGN）](https://aws.amazon.com/jp/application-migration-service/)
 
 ソースサーバーを物理インフラ、仮想インフラ、クラウドインフラからAWSでネイティブに実行するように自動的に変換してアプリをクラウドに移行することを支援するツール。
+
+# [Amazon Simple Storage Service（S3）](https://www.slideshare.net/AmazonWebServicesJapan/20190220-aws-black-belt-online-seminar-amazon-s3-glacier)
+
+- ユーザーがシンプルに使うことができる、インターネット対応のストレージサービス。
+
+S3の特徴。
+
+- オブジェクトストレージ
+    - S3バケットに格納されているデータをそのまま編集することはできない。
+    - 更新する場合は上書き更新する必要がある。
+    - 頻繁に更新するデータを扱うケースには向いていない
+- インターネット対応
+    - HTTP／HTTPSプロトコルでAPIリクエストを実行することでオブジェクトをアップロードしたりダウンロードしたりする。
+- 無制限にデータを保存
+- 柔軟なセキュリティ設定
+
+データレイクのサービスのデータ元としてS3が利用される。データレイクのサービスは以下のものがある。
+
+- AWS Glue
+    - データ加工、データカタログの作成を行う
+- Amazon EMR
+    - Apache Hadoop/Sparkなどの分析やデータ加工処理用のOSSをマネージドサービスとして提供
+- Amazon Redshift
+    - マネージドデータウェアハウスサービス
+- Amazon SageMaker
+    - S3に蓄積したデータを使って、継続的に推論モデルを作成することができる
+- Amazon Athena
+    - S3に築成したデータについて、直接SQLクエリでの分析ができる
+- Amazon QuickSight
+    - さまざまなデータソースのデータをグラフなどで可視化できるBIサービス
+- AWS Lake Formation
+    - S3とGlueやAthenaを使用したデータレイクを素早く構築することができる
