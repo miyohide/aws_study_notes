@@ -55,3 +55,18 @@ S3の特徴。
     - さまざまなデータソースのデータをグラフなどで可視化できるBIサービス
 - AWS Lake Formation
     - S3とGlueやAthenaを使用したデータレイクを素早く構築することができる
+
+## [S3のストレージクラス](https://dev.classmethod.jp/articles/should_i_choice_s3_storage_class/)
+
+- Standard
+    - 標準。
+- Standard-IA
+    - 存続時間が長く、あまり頻繁にアクセスされないデータ向け
+- Intelligent-Tiering
+    - 存続時間が長く、アクセスパターンが不明なデータ向け
+- One Zone-IA
+    - 重要度が低い、存続時間が長く、あまり頻繁にアクセスされないデータ向け。
+- Glacier
+    - 長期アーカイブデータ向け。取得時間は数分から数時間
+- Glacier Deep Archive
+    - 長期アーカイブデータ向け。取得時間は12時間
