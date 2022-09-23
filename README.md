@@ -70,3 +70,13 @@ S3の特徴。
     - 長期アーカイブデータ向け。取得時間は数分から数時間
 - Glacier Deep Archive
     - 長期アーカイブデータ向け。取得時間は12時間
+
+# [VPCとサブネットでIPv6を有効化する](https://docs.aws.amazon.com/ja_jp/vpc/latest/userguide/get-started-ipv6.html)
+
+1. IPv6 CIDRブロックをVPCとサブネットに紐づける
+2. ルートテーブルを更新する
+    - パブリックサブネットの場合はインターネットゲートウェイを設定する
+    - プライベートサブネットの場合はEgress-Onlyインターネットゲートウェイを設定する
+3. セキュリティグループ、ネットワークACLを設定する
+4. IPv6アドレスをEC2インスタンスに割り当てる
+
