@@ -9,12 +9,13 @@ AWS Certified Solutions Architect - Professionalを受験するに伴い、学�
 - Amazon Kinesis Video Streams
     - AWSへ動画をビデオストリーミングする。
 - Amazon Kinesis Data Streams
-    - ストリームデータを処理するためのアプリを独自に構築
-    - ストリーミングデータを処理するためのKinesisシャードが不十分な場合にはシャードを分割するか、インスタンスサイズの増強を実施する。
+    - ストリームデータを収集して順番通りにリアルタイム処理を実現するときに使用するサービス。
+    - ストリーミングデータを処理するために、シャードを使う。シャードは読み取りに対して最大5つのトランザクションをサポート。最大層データ読み取りレートは2MB/秒、書き込みは最大1,000レコード秒、最大1MB/秒。
+    - シャードが不十分な場合にはシャードを分割するか、インスタンスサイズの増強を実施する。
 - Amazon Kinesis Data Firehose
     - ストリームデータをS3やRedshift、Elasticserarch Serviceなどへ配信
 - Amazon Kinesis Data Analytics
-    - ストリームデータをSQLクエリやApache Flinkでリアルタイムに分析
+    - Kinesis Data Streams, Kinesis Data FirehoseのストリーミングデータをSQLクエリーやApache Flinkなどを使用して分析できる。
 
 Kinesisにデータを送信する側をプロデューサー、Kinesisのデータを受信して処理する側をコンシューマーと呼ぶ。
 
