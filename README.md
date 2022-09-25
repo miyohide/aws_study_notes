@@ -81,3 +81,10 @@ S3の特徴。
 3. セキュリティグループ、ネットワークACLを設定する
 4. IPv6アドレスをEC2インスタンスに割り当てる
 
+# [Systems Manager Automation](https://aws.amazon.com/jp/blogs/news/webinar-bb-aws-systems-manager-2020/)
+
+実施できる主なタスク
+
+- Amazon EventBridgeを使用して自動化タスクおよびワークフローに関する通知を受信
+- EC2またはSystems Managerコンソールを使用して自動化の進捗状況および実行の詳細を監視
+- Systems Managerオートメーションドキュメントで、マネージドインスタンスやAWSリソースで実行するアクション（オートメーションワークフロー）を定義する
