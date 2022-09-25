@@ -83,6 +83,8 @@ S3の特徴。
 
 # [Systems Manager Automation](https://aws.amazon.com/jp/blogs/news/webinar-bb-aws-systems-manager-2020/)
 
+EC2および他のAWSリソースの一般的なメンテナンスとデプロイのタスクを簡素化。
+
 実施できる主なタスク
 
 - Amazon EventBridgeを使用して自動化タスクおよびワークフローに関する通知を受信
