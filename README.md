@@ -48,6 +48,7 @@ S3の特徴。
     - Amazon Elastic MapReduceの略。Apache Hadoop/Sparkなどの分析やデータ加工処理用のOSSをマネージドサービスとして提供
 - Amazon Redshift
     - マネージドデータウェアハウスサービス
+    - シングルAZ配置のみをサポート
 - Amazon SageMaker
     - S3に蓄積したデータを使って、継続的に推論モデルを作成することができる
 - Amazon Athena
