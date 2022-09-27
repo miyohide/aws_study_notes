@@ -109,3 +109,13 @@ AWSリソースの設定を評価、監査、審査できるサービス。設�
     - 各パーティションにはラックが対応
 - スプレッドプレイスメントグループ
     - 物理ラックの単位でインスタンスを配置
+
+# [Amazon Systems Managerパラメータストア](https://www.slideshare.net/AmazonWebServicesJapan/20200212-aws-black-belt-online-seminar-aws-systems-manager)
+
+パラメータストアにパラメータを書き込み、GetParameterで取得して使用する。暗号化のタイプはSecureString。
+
+# AWS Secrets Manager
+
+シークレット情報のローテーションが必要なケースなどで使う。設定された周期でLambda関数を自動実行し、データベースのパスワードを変更してSecrets Managerのシークレット情報を更新する。
+
+Systems Managerパラメータストアと同じような機能だが、Secrets Managerシークレットの方が性能上限が高い。ただし有料。
