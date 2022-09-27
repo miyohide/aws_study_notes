@@ -119,3 +119,9 @@ AWSリソースの設定を評価、監査、審査できるサービス。設�
 シークレット情報のローテーションが必要なケースなどで使う。設定された周期でLambda関数を自動実行し、データベースのパスワードを変更してSecrets Managerのシークレット情報を更新する。
 
 Systems Managerパラメータストアと同じような機能だが、Secrets Managerシークレットの方が性能上限が高い。ただし有料。
+
+# AWS Certificate Manager
+
+独自ドメインのアプリでの証明書の管理、設定の機能を有する。ドメイン所有者の確認はメール認証かCNAME認証で行う。
+
+使い方のサンプルは[AWS Certificate Managerを利用してSSL/TLS認証書をリクエストしてCloudFrontに統合してみた。](https://dev.classmethod.jp/articles/lim-aws-certificate-manager/)を参照。
