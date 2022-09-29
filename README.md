@@ -179,3 +179,9 @@ Systems Managerパラメータストアと同じような機能だが、Secrets 
 
 テーブルマッピングをJSON形式で作成されるためそのファイルを利用して移行を実行することも可能。
 
+# AWS Snowファミリー
+
+| 項目 | Snowcone | Snowball edge storage optimized | Snowball edge compute optimized | Snowmobile |
+| ---- | ---- | ---- | ---- | ---- |
+| HDDストレージ | 8TB | 80TB | 42TB | 100PB |
+| SSDストレージ | 14TB | 1TB | 7.68TB | なし |
