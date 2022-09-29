@@ -185,3 +185,21 @@ Systems Managerパラメータストアと同じような機能だが、Secrets 
 | ---- | ---- | ---- | ---- | ---- |
 | HDDストレージ | 8TB | 80TB | 42TB | 100PB |
 | SSDストレージ | 14TB | 1TB | 7.68TB | なし |
+
+
+# AWS CloudFormation
+
+デフォルトでは、スタックの削除時にリソースとそのすべてのコンテンツを削除する。DeletionPolicyを指定した場合、その指示に従う。DeletionPolicyの値は以下の通り。
+
+- Retain
+    - スタックを削除する際に、リソースやコンテンツを削除せずに保持する。これはあらゆるリソースタイプに追加することができる。
+- Snapshot
+    - スタックを削除する際にリソースのスナップショットを作成する。スナップショットをサポートするのは以下のリソース。
+        - AWS::EC2::Volume
+        - AWS::ElastiCache::CacheCluster
+        - AWS::ElastiCache::ReplicationGroup
+        - AWS::Neptune::DBCluster
+        - AWS::RDS::DBCluster
+        - AWS::RDS::DBInstance
+        - AWS::Redshift::Cluster
+
