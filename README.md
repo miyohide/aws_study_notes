@@ -168,3 +168,14 @@ Systems Managerパラメータストアと同じような機能だが、Secrets 
         - `"x-amz-server-side-encryption": "aws:kms"`ヘッダーを設定して利用する
     - SSE-C
         - ユーザー指定キーによるサーバー側暗号化。
+
+# [AWS Database Migration Service](https://aws.amazon.com/jp/blogs/news/webinar-bb-awsdatabasemigrationservice-2021/)
+
+データベースのデータ連携を支援するサービス。異機種間のデータ連携も対応。テーブル定義を補助するツールも提供。
+
+テーブルマッピング機能を利用して、データソース、ソーススキーマ、データ、タスク実行中に必要な全ての変換を指定する複数のルールタイプを設定することが可能。
+
+また、AWS Database Migration Serviceコンソールから移行タスクを定義して実行する詳細設定も可能。
+
+テーブルマッピングをJSON形式で作成されるためそのファイルを利用して移行を実行することも可能。
+
