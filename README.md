@@ -168,6 +168,10 @@ Systems Managerパラメータストアと同じような機能だが、Secrets 
         - `"x-amz-server-side-encryption": "aws:kms"`ヘッダーを設定して利用する
     - SSE-C
         - ユーザー指定キーによるサーバー側暗号化。
+        - 以下の3つのHTTPリクエストヘッダーを全て含める必要がある
+            - x-amz-server-side-encryption-customer-algorithm
+            - x-amz-server-side-encryption-customer-key
+            - x-amz-server-side-encryption-customer-key-MD5
 
 # [AWS Database Migration Service](https://aws.amazon.com/jp/blogs/news/webinar-bb-awsdatabasemigrationservice-2021/)
 
