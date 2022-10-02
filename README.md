@@ -228,3 +228,9 @@ Systems Managerパラメータストアと同じような機能だが、Secrets 
 - 新しいEBSボリュームを作成して、インスタンスストアボリュームのデータをそのEBSボリュームにコピーする
 - EBSボリュームに保存されている個々のファイルをバックアップする
 
+# [Amazon Elastic File System](https://www.slideshare.net/AmazonWebServicesJapan/2018070420190520-renewed-aws-black-belt-online-seminar-amazon-elastic-file-system-amazon-efs)
+
+- NFSアクセスを提供する分散ストレージ。
+- 複数のEC2からNFSを使ってネットワーク経由でアクセス
+- `amazon-efs-utils`パッケージを使用することでマウントヘルパーを使って簡単にマウントコマンドを実行することが可能。
+    - 暗号化オプション「`-o tls`」を追加することで暗号化可能。
