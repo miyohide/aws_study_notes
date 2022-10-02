@@ -308,7 +308,9 @@ API GatewayはHTTPエンドポイントをサポートしていない。
 
 API Gatewayのタイムアウトの上限は29秒。引き上げできない。
 
-# Direct Connect Gateway
+# [Direct Connect](https://dev.classmethod.jp/articles/re-introduction-2020-direct-connect/)
+
+## Direct Connect Gateway
 
 Direct Connectの構成のうち、仮想インターフェース（VIF）とVPCの仮装プライベートゲートウェイ（VGW）の間に追加するコンポーネントで、以下の特徴を持ち、VIFとVGWは同一リージョンに1対1で設定するという制限を緩和することができる。
 
@@ -317,3 +319,11 @@ Direct Connectの構成のうち、仮想インターフェース（VIF）とVPC
 
 詳細は[[新機能] AWS Direct Connect Gatewayで世界中のAWSリージョンとプライベート接続する](https://dev.classmethod.jp/articles/direct-connect-gateway/)を参照のこと。
 
+## Link Aggregation Group（LAG）
+
+複数のConnectionを集約し一つの論理インタフェースとして提供する。以下の条件がある。
+
+- すべての接続は専用接続でなければならず、ポート速度は1Gbpsまたは10Gbps
+- LAGのすべての接続では同じ帯域幅を使用する
+- LAGでは最大４個の接続を行うことができる
+- LAGのすべての接続は同じDirect Connectエンドポイントで終了する必要がある
