@@ -234,3 +234,76 @@ Systems Managerパラメータストアと同じような機能だが、Secrets 
 - 複数のEC2からNFSを使ってネットワーク経由でアクセス
 - `amazon-efs-utils`パッケージを使用することでマウントヘルパーを使って簡単にマウントコマンドを実行することが可能。
     - 暗号化オプション「`-o tls`」を追加することで暗号化可能。
+
+# [API Gateway](https://www.slideshare.net/AmazonWebServicesJapan/20190514-aws-black-belt-online-seminar-amazon-api-gateway-230113575)
+
+REST、HTTP、WebSocket APIを作成、公開、維持、モニタリング、及びセキュア化するためのAWSサービス。
+
+以下の機能を有する。
+
+- 認証
+    - IAM
+        - Great fro users / roles already within your AWS account, + resource policy for cross account
+        - Leverages signature v4
+    - Custome Authorizer
+        - Great for 3rd party tokens
+        - use Lambda
+    - Cognito User Pool
+        - manage your own user pool
+        - must implement authorization in the backend
+- SSL証明書の設定
+- リソースポリシー（API実行の許可／拒否）
+- メソッド許可
+    - APIに対してリクエストを実行できるユーザーを制御できる。IAM認証やCognitoオーソライザーやLambdaオーソライザー
+- Lambdaオーソライザー
+    - Lambda関数を使用してAPIへのアクセスを制御する機能。以下の二種類がある。
+    - トークンベースのLambdaオーソライザー
+        - JWTやOAuthトークンなどのトークンで発信者IDを受け取る
+    - リクエストパラメータベースのLambdaオーソライザー
+        - ヘッダー、クエリ文字列パラメータ、stageVariables、$context変数の組み合わせで発信者IDを受け取る
+- スロットリング
+    - APIの実行数はデフォルトでリージョンごとに10,000回/秒まで。
+- 使用量プラン
+    - リクエスト数に応じた課金請求や顧客ごとに制御回数を設けたいときに使用
+- APIキーの管理
+- メッセージの変換
+- マッピングテンプレート
+- GETリクエストのキャッシュ
+- ログの記録
+- APIのインポート、エクスポート
+- ステージ変数
+    - ステージごとに異なる値を設定でき、`${stageVariables.xxxx}`で利用することができる。
+    - [[API Gateway + Lambda]ステージとエイリアスを使ってバージョン管理してみた](https://dev.classmethod.jp/articles/version-management-with-api-gateway-and-lambda/)を参照
+- Cross-origin resource sharing(CORS)の有効化
+    - ブラウザで実行sれているスクリプトから開始されるクロスオリジンHTTPリクエストを制限するブラウザのセキュリティ機能。
+    - REST APIのリソースが非シンプルクロスオリジンのHTTPリクエストを受け取る場合に有効にする必要がある。
+
+API GatewayはHTTPエンドポイントをサポートしていない。
+
+統合タイプは以下のものがある
+
+- AWS
+    - AWSのサービスアクションを公開する
+    - 統合リクエスト・統合レスポンスを設定
+- AWS_PROXY
+    - 統合リクエスト・統合レスポンスの設定は不要
+    - リクエストをLambda関数へ渡す
+- HTTP
+    - バックエンドのHTTPエンドポイントを公開
+    - 統合リクエスト・統合レスポンスを設定
+- HTTP_PROXY
+    - 統合リクエスト・統合レスポンスの設定は不要
+    - リクエストをHTTPエンドポイントに渡し、レスポンスをクライアントへ返す
+- MOCK
+    - リクエストをバックエンドに送信することなくレスポンスを返す
+
+エンドポイント種類は以下の3つ。
+
+- Edge-Optimized(default)
+    - CloudFront Edgeを通してリクエストを受け付ける
+- Regional
+    - 同じリージョンからのクライアントに対して
+- Private
+    - VPC内
+
+API Gatewayのタイムアウトの上限は29秒。引き上げできない。
