@@ -307,3 +307,13 @@ API GatewayはHTTPエンドポイントをサポートしていない。
     - VPC内
 
 API Gatewayのタイムアウトの上限は29秒。引き上げできない。
+
+# Direct Connect Gateway
+
+Direct Connectの構成のうち、仮想インターフェース（VIF）とVPCの仮装プライベートゲートウェイ（VGW）の間に追加するコンポーネントで、以下の特徴を持ち、VIFとVGWは同一リージョンに1対1で設定するという制限を緩和することができる。
+
+- Direct Connect GatewayをいずれかのAWSリージョンに作成すると、AWSの全リージョンに複製されて相互接続できる
+- 複数のCIFおよびVGWが接続できる。
+
+詳細は[[新機能] AWS Direct Connect Gatewayで世界中のAWSリージョンとプライベート接続する](https://dev.classmethod.jp/articles/direct-connect-gateway/)を参照のこと。
+
