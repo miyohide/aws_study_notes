@@ -43,7 +43,7 @@ S3の特徴。
 データレイクのサービスのデータ元としてS3が利用される。データレイクのサービスは以下のものがある。
 
 - AWS Glue
-    - データ加工、データカタログの作成を行う
+    - 抽出、変換、ロード（ETL）を行う完全マネージド型のサービス。分析用データの準備とロードを簡単にする。
 - [Amazon EMR](https://dev.classmethod.jp/articles/cm-advent-calendar-2015-getting-started-again-aws-emr/)
     - Amazon Elastic MapReduceの略。Apache Hadoop/Sparkなどの分析やデータ加工処理用のOSSをマネージドサービスとして提供
 - Amazon Redshift
