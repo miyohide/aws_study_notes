@@ -330,7 +330,7 @@ Direct Connectの構成のうち、仮想インターフェース（VIF）とVPC
 - LAGでは最大４個の接続を行うことができる
 - LAGのすべての接続は同じDirect Connectエンドポイントで終了する必要がある
 
-# Storage Gateway
+# [Storage Gateway](https://pages.awscloud.com/rs/112-TZM-766/images/20170125_AWS-BlackBelt-StorageGateway_20170223Update.pdf)
 
 | 種類 | サービス概要 |
 | ---- | --------- |
@@ -338,4 +338,3 @@ Direct Connectの構成のうち、仮想インターフェース（VIF）とVPC
 | ボリュームゲートウェイ（Gateway-Stored Volumes） | オンプレのデータのスナップショットを非同期にS3にバックアップする。データ全体への低テンシーアクセスが必要な場合に選択。 |
 | ボリュームゲートウェイ（Gateway-Cached Volumes） | データ全体をS3に保存し、頻繁にアクセスするもののコピーをオンプレ側に保存 |
 | テープゲートウェイ | 物理テープライブラリの代替として使用する。バックアップ先はS3およびGlacier |
-  
