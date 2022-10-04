@@ -321,6 +321,15 @@ Direct Connectの構成のうち、仮想インターフェース（VIF）とVPC
 
 詳細は[[新機能] AWS Direct Connect Gatewayで世界中のAWSリージョンとプライベート接続する](https://dev.classmethod.jp/articles/direct-connect-gateway/)を参照のこと。
 
+## 回復性レベル
+
+- 最大回復性
+    - ロケーションごとに複数のCustomer RouterやDX Routerを配置し、ロケーションを複数個持つ。デバイスの障害、接続の障害、ロケーションの障害があっても回復できる。
+- 高い回復性
+    - ロケーションごとには1つのCustomer RouterやDX Routerを配置し、ロケーションを複数個持つ。デバイスの障害、接続の障害があった場合は回復できる。
+- 開発とテスト
+    - ロケーションごとに複数のCustomer RouterやDX Routerを配置し、ロケーションは1つ。デバイスの障害、接続の障害があっても回復できる。
+
 ## Link Aggregation Group（LAG）
 
 複数のConnectionを集約し一つの論理インタフェースとして提供する。以下の条件がある。
