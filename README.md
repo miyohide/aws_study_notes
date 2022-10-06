@@ -396,3 +396,16 @@ VPCエンドポイントを使うことで、インターネットゲートウ�
     - 障害に対応するためのプレイスメントグループ。グループをパーティションと呼ばれる論理的なセグメントに分割する。
 - スプレッドプレイスメントグループ
     - それぞれ独自のネットワーク、電源がある異なるラックに1つ1つのインスタンスを分割する
+
+# [Amazon Elastic Block Store](https://www.slideshare.net/AmazonWebServicesJapan/20190320-aws-black-belt-online-seminar-amazon-ebs/)
+
+- EC2インスタンスにアタッチして使用するブロックレベルのストレージサービス
+- アタッチするEC2インスタンスと同じAZに作成する
+- EC2は複数のEBSを接続することは可能。EBSを複数のインスタンスで共有することはできない
+
+# [Amazon Elastic File System](https://www.slideshare.net/AmazonWebServicesJapan/2018070420190520-renewed-aws-black-belt-online-seminar-amazon-elastic-file-system-amazon-efs)
+
+- NFSアクセスを提供する分散ストレージ。
+- 複数のEC2からNFSを使ってネットワーク経由でアクセス
+- `amazon-efs-utils`パッケージを使用することでマウントヘルパーを使って簡単にマウントコマンドを実行することが可能。
+    - 暗号化オプション「`-o tls`」を追加することで暗号化可能。
