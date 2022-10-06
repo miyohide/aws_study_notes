@@ -402,6 +402,8 @@ VPCエンドポイントを使うことで、インターネットゲートウ�
 - EC2インスタンスにアタッチして使用するブロックレベルのストレージサービス
 - アタッチするEC2インスタンスと同じAZに作成する
 - EC2は複数のEBSを接続することは可能。EBSを複数のインスタンスで共有することはできない
+    - 複数のEC2インスタンスにアタッチすることができるマルチアタッチ機能が提供されるようになった。
+        - ボリュームタイプはプロビジョン度IOPS（io1）である必要があるなど、いくつかの制約がある
 
 # [Amazon Elastic File System](https://www.slideshare.net/AmazonWebServicesJapan/2018070420190520-renewed-aws-black-belt-online-seminar-amazon-elastic-file-system-amazon-efs)
 
