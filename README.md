@@ -404,6 +404,8 @@ VPCエンドポイントを使うことで、インターネットゲートウ�
 - EC2は複数のEBSを接続することは可能。EBSを複数のインスタンスで共有することはできない
     - 複数のEC2インスタンスにアタッチすることができるマルチアタッチ機能が提供されるようになった。
         - ボリュームタイプはプロビジョン度IOPS（io1）である必要があるなど、いくつかの制約がある
+- ボリュームの暗号化は作成時に決定する。既存のボリュームの暗号化の有効/無効化は変更できない。
+    - 暗号化されていないスナップショットからボリュームを作成するときは暗号化を有効化できる
 
 # [Amazon Elastic File System](https://www.slideshare.net/AmazonWebServicesJapan/2018070420190520-renewed-aws-black-belt-online-seminar-amazon-elastic-file-system-amazon-efs)
 
