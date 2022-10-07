@@ -425,3 +425,16 @@ AuroraのオンデマンドのAuto Scaling設定。アプリのニーズに応�
 - 開発およびテスト用データベース
 - マルチテナントアプリ
 
+# CloudFrontのOrigin Access Identity（OAI）
+
+S3を公開状態にすることなく、S3へのアクセスをCloudFrontからのリクエストに絞るための仕組み。CloudFrontに署名付きURLまたは署名付きCookieを作成してS3バケット内のファイルへのアクセスを制限してからOAIという特別なCloudFrontユーザーを作成してS3バケットポリシーに設定する。
+
+参考：[CloudFormation で OAI を使った CloudFront + S3 の静的コンテンツ配信インフラを作る](https://dev.classmethod.jp/articles/s3-cloudfront-with-oai-by-cloudformation/)
+
+S3バケットポリシーでPrincipalとしてOAIを指定するには以下のような記述をする。
+
+```
+"Principal": {
+    "AWS": "arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity OAIのID"
+}
+```
