@@ -438,3 +438,16 @@ S3バケットポリシーでPrincipalとしてOAIを指定するには以下の
     "AWS": "arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity OAIのID"
 }
 ```
+
+# Elastic Beanstalk
+
+## デプロイポリシーオプション
+
+- All at once
+    - 新しいバージョンを全てのインスタンスに同時に展開する
+- Rolling
+    - EC2インスタンスを複数のバッチに分割し、アプリの新しいバージョンを一度に1つのバッチにデプロイする。このことで、残りのインスタンスは古いアプリを実行した状態になる。
+- Rolling with additional batch
+    - 新しいバージョンをバッチで展開するが、最初にインスタンスの新しいバッチを起動して、展開プロセス中に完全な容量を確保する
+- Immutable
+    - 変更不可能な更新を実行して、古いバージョンを起動しているインスタンスと並行しながら別のAutoScallingグループにあるアプリの新しいバージョンを起動している新しいインスタンスのフルセットを起動する。
