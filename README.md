@@ -451,3 +451,62 @@ S3バケットポリシーでPrincipalとしてOAIを指定するには以下の
     - 新しいバージョンをバッチで展開するが、最初にインスタンスの新しいバッチを起動して、展開プロセス中に完全な容量を確保する
 - Immutable
     - 変更不可能な更新を実行して、古いバージョンを起動しているインスタンスと並行しながら別のAutoScallingグループにあるアプリの新しいバージョンを起動している新しいインスタンスのフルセットを起動する。
+
+# [AWS SAM](https://www.slideshare.net/AmazonWebServicesJapan/20190814-aws-black-belt-online-seminar-aws-serverless-application-model-165314501)
+
+CloudFormationの拡張機能。Lambda/API Gateway/DynamoDB/S3/Step Functionsなどを組み合わせたサーバーレスアプリの構築を自動化する。専用のCLIを使用する。
+
+シンプルな例としては、以下の3ステップ。
+
+1. `sam init`
+    - サーバーレスアプリの初期処理。プロジェクトの初期ファイルと`template.yaml`を作成する
+2. `sam build`
+    - デプロイするための準備をする。ローカルでのテストも実行できるようになる。
+3. `sam deploy`
+    - AWSリソースを構築する。CloudFormationが実行される。
+
+コマンドは他にも以下のものがある。
+
+- sam validate
+    - SAMテンプレートの検証
+- sam local invoke
+    - Lambda関数のローカル実行
+- sam local generate-event
+    - テスト用イベントの生成
+- sam local start-lambda
+    - ローカルエンドポイントの作成
+- sam local start-api
+    - APIエンドポイントの作成
+- sam package
+    - アプリをZip形式にパッケージングしS3にアップロードする
+- sam logs
+    - AWSにデプロイしたLambda関数のログを出力
+- sam publish
+    - 完成したアプリの保管
+
+## テンプレートについて
+
+CloudFormationテンプレートのAWS::Serverless TransformセクションにAWS SAMのバージョンを指定する。
+
+```yaml
+Transform: AWS::Serverless-2016-10-31
+
+Globals:
+  set of globals
+Description:
+  String
+Metadata:
+  template metadata
+Parameters:
+  set of parameters
+Mappings:
+  set of mappings
+Conditions:
+  set of conditions
+Resources:
+  set of resources
+Outputs:
+  set of outputs
+```
+
+Resources以下のTypeは`AWS::Serverless::Api`、`AWS::Serverless::Application`、`AWS::Serverless::Function`、`AWS::Serverless::SimpleTable`などがある。
