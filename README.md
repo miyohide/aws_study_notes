@@ -194,7 +194,7 @@ Systems Managerパラメータストアと同じような機能だが、Secrets 
 | SSDストレージ | 14TB | 1TB | 7.68TB | なし |
 
 
-# AWS CloudFormation
+# [AWS CloudFormation](https://pages.awscloud.com/rs/112-TZM-766/images/20200826_AWS-BlackBelt_AWS-CloudFormation.pdf)
 
 デフォルトでは、スタックの削除時にリソースとそのすべてのコンテンツを削除する。DeletionPolicyを指定した場合、その指示に従う。DeletionPolicyの値は以下の通り。
 
