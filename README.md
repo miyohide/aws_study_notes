@@ -510,3 +510,7 @@ Outputs:
 ```
 
 Resources以下のTypeは`AWS::Serverless::Api`、`AWS::Serverless::Application`、`AWS::Serverless::Function`、`AWS::Serverless::SimpleTable`などがある。
+
+# [Amazon Inspector](https://dev.classmethod.jp/articles/re-introduction-2020-inspector/)
+
+EC2インスタンスにAmazon Inspectorエージェントをインストールして、ネットワーク到達性やプラットフォームの脆弱性を診断し、潜在的なセキュリティ上の問題を発見するもの。
