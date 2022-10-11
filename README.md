@@ -129,6 +129,8 @@ Systems Managerパラメータストアと同じような機能だが、Secrets 
 
 使い方のサンプルは[AWS Certificate Managerを利用してSSL/TLS認証書をリクエストしてCloudFrontに統合してみた。](https://dev.classmethod.jp/articles/lim-aws-certificate-manager/)を参照。
 
+リージョンごとに証明書をリクエストあるいはインポートする必要がある。つまり、各リージョンごとに証明書の書くドメイン名を取得する必要がある。
+
 # [Amazon DynamoDB](https://www.slideshare.net/AmazonWebServicesJapan/20170809-black-belt-dynamodb)
 
 フルマネージドなNoSQLデータベースサービス。リージョンを選択してテーブルを作成する。パーティション（データの保存先）を分散させることで水平スケーリングを可能とする。
