@@ -537,3 +537,13 @@ AWS環境を分析して、環境を最適化するための推奨ベストプ�
 # AWS DataSync
 
 AWSの各種ストレージサービスとのデータ転送を簡単に、自動で高速に行えるサービス。S3以外にもEFSやFSxなど他のストレージサービスへの移行がサポートされていたり、帯域制御の設定も可能。
+
+# [DDoS対策](https://dev.classmethod.jp/articles/check-ddos-by-aws-shield/)
+
+- AWS Shieldの利用
+    - Standardでレイヤー3、レイヤー4のDDoSから自動で保護される。明示的な設定不要で無料。
+    - AdvancedでEC2、ELB、CloudFront。Global Accelerator、Route 53に対するアプリレベルの検出と緩和策の提供、SRTによる支援。月額3000ドルの有償機能。
+- CloudFrontやRoute 53等の世界中に分散配置されたエッジロケーションを活用する
+- WAFを活用してアプリ固有の高度なHTTPリクエストを一定のレベルで止めたり、リアルタイムで固有のルールを調整する
+- ALBやAutoScalingなどを組み合わせてリクエストを捌き切る
+- CloudWatchメトリックスでDDoSを検知する
