@@ -545,5 +545,6 @@ AWSの各種ストレージサービスとのデータ転送を簡単に、自�
     - AdvancedでEC2、ELB、CloudFront。Global Accelerator、Route 53に対するアプリレベルの検出と緩和策の提供、SRTによる支援。月額3000ドルの有償機能。
 - CloudFrontやRoute 53等の世界中に分散配置されたエッジロケーションを活用する
 - WAFを活用してアプリ固有の高度なHTTPリクエストを一定のレベルで止めたり、リアルタイムで固有のルールを調整する
+    - WAFはCloudFrontとALBと統合。Auto ScalingやEC2との統合ではない。
 - ALBやAutoScalingなどを組み合わせてリクエストを捌き切る
 - CloudWatchメトリックスでDDoSを検知する
