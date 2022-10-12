@@ -548,3 +548,26 @@ AWSの各種ストレージサービスとのデータ転送を簡単に、自�
     - WAFはCloudFrontとALBと統合。Auto ScalingやEC2との統合ではない。
 - ALBやAutoScalingなどを組み合わせてリクエストを捌き切る
 - CloudWatchメトリックスでDDoSを検知する
+
+# [AWS Systems Manager](https://www.slideshare.net/AmazonWebServicesJapan/20200212-aws-black-belt-online-seminar-aws-systems-manager)
+
+機能概要
+
+- パラメータストア
+    - 設定パラメータの集中管理用データストア
+- Run Command
+    - サーバ群の上でコマンドを実行する
+- Session Manager
+    - SSMを使ったサーバへリモートアクセスする
+- Patch Manager
+    - サーバ群に指定ルールに基づきパッチを適用する
+- Maintenance Windows
+    - 自動化処理のスケジュールと順序の管理
+
+まずはマネージドインスタンスにすることが必要。マネージドインスタンスにするには
+
+1. SSM Agentの導入
+2. SSM APIへの経路確保（SSM Agentからのアウトバウンド経路を確保する）
+3. IAMロール付与
+    - 必須としてAmazonSSMManagedInstanceCore
+    
