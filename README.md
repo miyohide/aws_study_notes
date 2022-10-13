@@ -375,7 +375,7 @@ VPCエンドポイントを使うことで、インターネットゲートウ�
 
 ## インターフェースエンドポイント
 
-上記二つ以外と覚えれば良い。料金は発生する。
+対象サービスはさまざま。S3にも適用可能。
 
 # [EC2で自分のIPアドレスを使用する（BYOIP）](https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/ec2-byoip.html)
 
@@ -570,4 +570,3 @@ AWSの各種ストレージサービスとのデータ転送を簡単に、自�
 2. SSM APIへの経路確保（SSM Agentからのアウトバウンド経路を確保する）
 3. IAMロール付与
     - 必須としてAmazonSSMManagedInstanceCore
-    
