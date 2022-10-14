@@ -570,3 +570,9 @@ AWSの各種ストレージサービスとのデータ転送を簡単に、自�
 2. SSM APIへの経路確保（SSM Agentからのアウトバウンド経路を確保する）
 3. IAMロール付与
     - 必須としてAmazonSSMManagedInstanceCore
+
+# AwS Control Tower
+
+Organizations機能やOrganizationsと連携できるサービスを用いてAWSのベストプラクティスに基づいたルールを設定し、各アカウントの統制を制御するサービス。マルチアカウント管理に向いている。
+
+クラスメソッドさんの[「「AWS Control Towerを利用したマルチアカウント管理とセキュリティ統制」JAWS DAYS 2021登壇資料 #jawsug #jawsdays #jawsdays2021 #jawsdays2021_C」](https://dev.classmethod.jp/articles/jaws-days-2021-control-tower/)をみて理解を深める。
