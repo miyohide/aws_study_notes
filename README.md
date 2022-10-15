@@ -576,3 +576,12 @@ AWSの各種ストレージサービスとのデータ転送を簡単に、自�
 Organizations機能やOrganizationsと連携できるサービスを用いてAWSのベストプラクティスに基づいたルールを設定し、各アカウントの統制を制御するサービス。マルチアカウント管理に向いている。
 
 クラスメソッドさんの[「「AWS Control Towerを利用したマルチアカウント管理とセキュリティ統制」JAWS DAYS 2021登壇資料 #jawsug #jawsdays #jawsdays2021 #jawsdays2021_C」](https://dev.classmethod.jp/articles/jaws-days-2021-control-tower/)をみて理解を深める。
+
+
+# AWS SWF（Simple Workflow Service）
+
+視覚的ワークフローを使用して分散アプリやマイクロサービスのコンポーネントをコーディネートするサービス。よく似たものにStep Functionsがあるが、SWFは、以下の場合に使用する。
+
+- プロセスにおいて介入する外部信号が必要な場合
+- 結果を親に返す子プロセスを起動する場合
+- Amazon Mechanical Turkを使う場合
