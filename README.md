@@ -321,6 +321,13 @@ API Gatewayのタイムアウトの上限は29秒。引き上げできない。
 
 # [Direct Connect](https://dev.classmethod.jp/articles/re-introduction-2020-direct-connect/)
 
+- プライベート仮想インターフェイス
+    - プライベートIPを使ってVPCにアクセスする
+- パブリック仮想インターフェイス
+    - パブリックIPアドレスを使用してすべてのAWSパブリックサービスにアクセスする
+- トランジット仮想インターフェイス
+    - Direct Connectゲートウェイに関連づけられた1つまたは複数のVPCトランジットゲートウェイにアクセスする
+
 ## Direct Connect Gateway
 
 Direct Connectの構成のうち、仮想インターフェース（VIF）とVPCの仮装プライベートゲートウェイ（VGW）の間に追加するコンポーネントで、以下の特徴を持ち、VIFとVGWは同一リージョンに1対1で設定するという制限を緩和することができる。
