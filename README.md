@@ -76,6 +76,10 @@ S3の特徴。
 - Glacier Deep Archive
     - 長期アーカイブデータ向け。取得時間は12時間
 
+## Amazon S3 Transfer Acceleration
+
+アップロードのパフォーマンスの向上に役立つ。クライアントとS3バケットの間で長距離にわたるファイル転送を高速、簡単、安全に行えるようになる。CloudFrontの世界中に分散したエッジロケーションを利用。
+
 # [VPCとサブネットでIPv6を有効化する](https://docs.aws.amazon.com/ja_jp/vpc/latest/userguide/get-started-ipv6.html)
 
 1. IPv6 CIDRブロックをVPCとサブネットに紐づける
