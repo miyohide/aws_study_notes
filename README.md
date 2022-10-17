@@ -46,6 +46,10 @@ S3の特徴。
     - 抽出、変換、ロード（ETL）を行う完全マネージド型のサービス。分析用データの準備とロードを簡単にする。
 - [Amazon EMR](https://dev.classmethod.jp/articles/cm-advent-calendar-2015-getting-started-again-aws-emr/)
     - Amazon Elastic MapReduceの略。Apache Hadoop/Sparkなどの分析やデータ加工処理用のOSSをマネージドサービスとして提供
+    - EC2インスタンスでクラスターを生成する。クラスターには以下の３種類がある。タスクノードはオプション扱いのため、スポットインスタンスで割り当て、そのほかはオンデマンドインスタンスで割り当てる。
+        - マスターノード
+        - コアノード
+        - タスクノード
 - Amazon Redshift
     - マネージドデータウェアハウスサービス
     - シングルAZ配置のみをサポート
