@@ -625,3 +625,7 @@ Organizations機能やOrganizationsと連携できるサービスを用いてAWS
 - アプリの保護
 
 詳細はクラスメソッドさんのブログ記事[「AWS再入門ブログリレー2022 AWS Global Accelerator 編」](https://dev.classmethod.jp/articles/re-introduction-2022-globalaccelerator/)を参照。
+
+# [Amazon Data Lifecycle Manager](https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/snapshot-lifecycle.html)
+
+EBSスナップショットとEBS-backed AMIの作成、保持、削除を自動化できる。リソースタグを使用してバックアップするEBSボリュームを識別する。
