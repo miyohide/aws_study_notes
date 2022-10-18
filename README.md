@@ -445,6 +445,10 @@ AuroraのオンデマンドのAuto Scaling設定。アプリのニーズに応�
 - 開発およびテスト用データベース
 - マルチテナントアプリ
 
+# Amazon Aurora Global Database
+
+単一のAmazon Auroraデータベースを複数のAWSリージョンにまたあgって運用できる。パフォーマンスに影響を与えずにデータをレプリケートし、各リージョンでレイテンシーを提言してローカル読み取りを高速化し、リージョン規模の停止からの災害復旧を実現する。
+
 # CloudFrontのOrigin Access Identity（OAI）
 
 S3を公開状態にすることなく、S3へのアクセスをCloudFrontからのリクエストに絞るための仕組み。CloudFrontに署名付きURLまたは署名付きCookieを作成してS3バケット内のファイルへのアクセスを制限してからOAIという特別なCloudFrontユーザーを作成してS3バケットポリシーに設定する。
