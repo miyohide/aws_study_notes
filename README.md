@@ -633,3 +633,7 @@ Organizations機能やOrganizationsと連携できるサービスを用いてAWS
 # [Amazon Data Lifecycle Manager](https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/snapshot-lifecycle.html)
 
 EBSスナップショットとEBS-backed AMIの作成、保持、削除を自動化できる。リソースタグを使用してバックアップするEBSボリュームを識別する。
+
+# EC2のインスタンスがimpaired
+
+インスタンスが動いているホストマシンで何らかの問題が発生している状態をimpairedと呼ぶ。この時は、該当のインスタンスを停止・起動して、ホストを移動する必要がある。
