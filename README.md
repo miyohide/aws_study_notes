@@ -222,6 +222,8 @@ Systems Managerパラメータストアと同じような機能だが、Secrets 
         - AWS::RDS::DBInstance
         - AWS::Redshift::Cluster
 
+サポートしていないリソースをプロビジョニングするためにはカスタムリソース機能を使う。スタックを作成、更新、削除するたびにCloudFormationがそれを実行する。SNSトピックにサブスクライブするか、Lambdaにロジックを実装することでリソースの作成が可能。
+
 # 移行パス。7つのR
 
 | 名称 | 概要 |
