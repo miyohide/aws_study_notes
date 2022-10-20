@@ -662,3 +662,12 @@ EBSスナップショットとEBS-backed AMIの作成、保持、削除を自動
 ## レイヤー
 
 特定の目的を果たす一連のEC2インスタンスを表す。
+
+# CloudFrontエッジキャッシュから提供されるキャッシュヒット率の向上策
+
+CloudFrontとApplication Load Balancer間のSSL/TLSハンドシェイクを失敗させることなく改善させるためには、以下のことを実施する。
+
+- オリジンを静的コンテンツと動的コンテンツに分割させる
+    - 動的コンテンツはCookieとAuthrozationヘッダーが必須
+    - 静的コンテンツはCookieとAuthorzationヘッダーは不要
+- CloudFrontとApplication Load Balancerが同じSSL証明書を利用しているため、Hostヘッダーを保持する必要がある。
