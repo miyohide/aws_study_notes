@@ -671,3 +671,7 @@ CloudFrontとApplication Load Balancer間のSSL/TLSハンドシェイクを失�
     - 動的コンテンツはCookieとAuthrozationヘッダーが必須
     - 静的コンテンツはCookieとAuthorzationヘッダーは不要
 - CloudFrontとApplication Load Balancerが同じSSL証明書を利用しているため、Hostヘッダーを保持する必要がある。
+
+# AppStream 2.0
+
+フルマネージドなアプリケーションストリーミングサービス。WorkSpacesは仮想デスクトップという形でユーザーに仮想マシン全体を公開するが、AppStream 2.0は特定のアプリケーションのみを公開する。
