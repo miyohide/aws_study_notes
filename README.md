@@ -675,3 +675,7 @@ CloudFrontとApplication Load Balancer間のSSL/TLSハンドシェイクを失�
 # AppStream 2.0
 
 フルマネージドなアプリケーションストリーミングサービス。WorkSpacesは仮想デスクトップという形でユーザーに仮想マシン全体を公開するが、AppStream 2.0は特定のアプリケーションのみを公開する。
+
+# AppSync
+
+GraphQL APIの開発を容易にするフルマネージド型サービス。マネージド型のGraphQLサブスクリプションによりAppSyncではWebsocketsを介してデータの更新をリアルタイムでプッシュできる。
