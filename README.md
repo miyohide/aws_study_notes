@@ -601,6 +601,8 @@ Organizations機能やOrganizationsと連携できるサービスを用いてAWS
 
 クラスメソッドさんの[「「AWS Control Towerを利用したマルチアカウント管理とセキュリティ統制」JAWS DAYS 2021登壇資料 #jawsug #jawsdays #jawsdays2021 #jawsdays2021_C」](https://dev.classmethod.jp/articles/jaws-days-2021-control-tower/)をみて理解を深める。
 
+ランディングゾーンと呼ばれる、Well-ArchitectedによるマルチアカウントのAWS環境でセキュリティとコンプライアンスのベストプラクティス集。ランディングゾーンを設定すると、必須のガードレールが有効化される。強く推奨されるガードレールというものもあるが、これはデフォルトは無効化。
+
 
 # AWS SWF（Simple Workflow Service）
 
