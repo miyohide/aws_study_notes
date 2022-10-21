@@ -605,7 +605,7 @@ AWSの各種ストレージサービスとのデータ転送を簡単に、自�
 3. IAMロール付与
     - 必須としてAmazonSSMManagedInstanceCore
 
-# AwS Control Tower
+# AWS Control Tower
 
 Organizations機能やOrganizationsと連携できるサービスを用いてAWSのベストプラクティスに基づいたルールを設定し、各アカウントの統制を制御するサービス。マルチアカウント管理に向いている。
 
