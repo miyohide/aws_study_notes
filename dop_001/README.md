@@ -20,3 +20,7 @@ see. https://aws.amazon.com/jp/premiumsupport/knowledge-center/auto-scaling-dela
 # CloudFormationにてオブジェクトを含むバケットを削除する方法
 
 カスタムリソース利用して削除がトリガーされる前にバケットを空にする。
+
+# CloudFormationのカスタムリソース
+
+CloudFormationが対応していないリソースの作成などにおいて、CloudFormationのテンプレートにカスタムのプロビジョニングロジックを記述することで、削除・更新・作成をサポートする仕組み。`AWS::CloudFormation::CustomResource`または`Custom::MyCustomResourceTypeName`リソースタイプを使用する。
