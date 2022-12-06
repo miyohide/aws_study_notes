@@ -14,3 +14,5 @@ AWS上で発生しているログを自動的に収集し、機械学習や脅�
 # 異常のあるEC2インスタンスのAuto Scalingの終了を遅らせてトラブルシュートする
 
 Auto Scalingフックを使用してインスタンスの状態を「Terminating:Wait」にして削除を一時停止する。その後、CloudWatchイベントを使用してログをバックアップする。
+
+see. https://aws.amazon.com/jp/premiumsupport/knowledge-center/auto-scaling-delay-termination/
