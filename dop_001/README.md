@@ -24,3 +24,10 @@ see. https://aws.amazon.com/jp/premiumsupport/knowledge-center/auto-scaling-dela
 # CloudFormationのカスタムリソース
 
 CloudFormationが対応していないリソースの作成などにおいて、CloudFormationのテンプレートにカスタムのプロビジョニングロジックを記述することで、削除・更新・作成をサポートする仕組み。`AWS::CloudFormation::CustomResource`または`Custom::MyCustomResourceTypeName`リソースタイプを使用する。
+
+# Elastic Beanstalkのコマンドとコンテナコマンド
+
+- コマンド
+    - アプリとウェブサーバーがセットアップされ、アプリバージョンファイルが抽出される前に実行するコマンドを記述する
+- コンテナコマンド
+    - アプリとウェブサーバーがセットアップされ、アプリバージョンファイルが抽出された後、デプロイされる前に実行するコマンドを記述する
