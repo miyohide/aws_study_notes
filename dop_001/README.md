@@ -16,3 +16,7 @@ AWS上で発生しているログを自動的に収集し、機械学習や脅�
 Auto Scalingフックを使用してインスタンスの状態を「Terminating:Wait」にして削除を一時停止する。その後、CloudWatchイベントを使用してログをバックアップする。
 
 see. https://aws.amazon.com/jp/premiumsupport/knowledge-center/auto-scaling-delay-termination/
+
+# CloudFormationにてオブジェクトを含むバケットを削除する方法
+
+カスタムリソース利用して削除がトリガーされる前にバケットを空にする。
