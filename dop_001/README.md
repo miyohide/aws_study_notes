@@ -35,3 +35,14 @@ CloudFormationが対応していないリソースの作成などにおいて、
     - アプリとウェブサーバーがセットアップされ、アプリバージョンファイルが抽出される前に実行するコマンドを記述する
 - コンテナコマンド
     - アプリとウェブサーバーがセットアップされ、アプリバージョンファイルが抽出された後、デプロイされる前に実行するコマンドを記述する
+
+# Elastic Beanstalkの優先順位
+
+設定は以下の順で設定される。参考情報は、[Elastic Beanstalkの優先順位のドキュメント](https://docs.aws.amazon.com/ja_jp/elasticbeanstalk/latest/dg/command-options.html#configuration-options-precedence)を参照。
+
+1. 環境に直接適用される設定
+    - 環境の作成時または更新時にコンソール、EB CLI、CSKなどのクライアントによってElastic Beanstalk APIで指定された設定
+2. 保存済み設定
+3. 設定ファイル（.ebextensions）
+4. デフォルト値
+
