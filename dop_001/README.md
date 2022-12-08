@@ -51,3 +51,7 @@ CloudFormationが対応していないリソースの作成などにおいて、
 Chef 11.10スタックにおいてBerkshelfを使用することで複数のリポジトリからクックブックを管理およびインストールすることができる。
 
 参考情報は、[OpsWorksのBerkshelfの使用のドキュメント](https://docs.aws.amazon.com/ja_jp/opsworks/latest/userguide/workingcookbook-chef11-10.html#workingcookbook-chef11-10-berkshelf)を参照。
+
+# Elastic Beanstalkで使えるデプロイポリシー
+
+see. [AWS Elastic Beanstalkで使えるデプロイポリシーを理解する](https://dev.classmethod.jp/articles/elastic-beanstalk-deploy-policy/)
