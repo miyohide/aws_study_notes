@@ -55,3 +55,7 @@ Chef 11.10スタックにおいてBerkshelfを使用することで複数のリ�
 # Elastic Beanstalkで使えるデプロイポリシー
 
 see. [AWS Elastic Beanstalkで使えるデプロイポリシーを理解する](https://dev.classmethod.jp/articles/elastic-beanstalk-deploy-policy/)
+
+# Elastic Load Balancingのアクセスログはオプションであり、デフォルトはオフとなっている
+
+see. [Access logs for your Classic Load Balancer](https://docs.aws.amazon.com/ja_jp/elasticloadbalancing/latest/classic/access-log-collection.html)
