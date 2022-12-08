@@ -59,3 +59,13 @@ see. [AWS Elastic Beanstalkで使えるデプロイポリシーを理解する](
 # Elastic Load Balancingのアクセスログはオプションであり、デフォルトはオフとなっている
 
 see. [Access logs for your Classic Load Balancer](https://docs.aws.amazon.com/ja_jp/elasticloadbalancing/latest/classic/access-log-collection.html)
+
+# Elastic Beanstalkのローリング更新の設定
+
+以下の3つの中から選択。
+
+- Rolling based on Health
+    - 現在のバッチのインスタンスが正常な状態になるまで待ってからインスタンスを実行状態にし、次のバッチを処理する
+- Rolling based on Time
+    - 新しいインスタンスを開始して実行状態にし、次のバッチを処理するまでの待機時間を指定する
+- Immutable
