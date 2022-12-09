@@ -69,3 +69,13 @@ see. [Access logs for your Classic Load Balancer](https://docs.aws.amazon.com/ja
 - Rolling based on Time
     - 新しいインスタンスを開始して実行状態にし、次のバッチを処理するまでの待機時間を指定する
 - Immutable
+
+# EC2 AutoScalingのライフサイクルフックを使用してスケールイン時にEC2のログを退避させる
+
+1. AutoScalingグループにライフサイクルフックを設定
+2. AutoScalingのターミネートイベントでEventBridgeにトリガー
+3. EventBridgeトリガーでLambdaを起動
+4. SSM Run Commandでコマンドを実行
+5. 必要なログをS3に退避
+
+詳細は[AutoScallingのライフサイクルフックを使用してスケールイン時にEC2インスタンス内のログを退避させる](https://dev.classmethod.jp/articles/autoscalling-terminating-log-upload/)を参照。
