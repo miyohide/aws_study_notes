@@ -83,3 +83,18 @@ see. [Access logs for your Classic Load Balancer](https://docs.aws.amazon.com/ja
 # EC2 describe-security-groups
 
 セキュリティグループの詳細を取得するコマンド。各リージョンでのでキュリティグループを解析する。詳細は[AWS CLI Command Reference](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-security-groups.html)を参照。
+
+# CloudFormation UpdatePolicy
+
+[CloudFormation UpdatePolicyを使用してAuto Scaling Groupの更新を処理する](https://dev.classmethod.jp/articles/autoscalinggroup-cloudformation-updatepolicy/)の記述が詳しい。
+
+AWS::AutoScaling::AutoScalingGroupリソースにおける更新ポリシーは以下のものがある。
+
+- AutoScalingReplacingUpdate
+    - Auto ScalingグループまたはAuto Scalingグループのインスタンスが更新時に置き換えられる。
+    - 新しいAuto Scalingグループの作成が完了するまでCloudFormationが古いAuto Scalingグループを保持する。
+- AutoScalingRollingUpdate
+    - Auto Scalingグループのインスタンスをバッチで更新する。更新するサイズやPauseTimeを指定する必要がある。
+    - 古いLaunch Configurationはバッチで更新した後で削除される
+- AutoScalingScheduledAction
+    - スケジュールされたアクションが関連づけられているAuto Scalingグループを更新する
