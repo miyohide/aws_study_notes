@@ -79,3 +79,7 @@ see. [Access logs for your Classic Load Balancer](https://docs.aws.amazon.com/ja
 5. 必要なログをS3に退避
 
 詳細は[AutoScallingのライフサイクルフックを使用してスケールイン時にEC2インスタンス内のログを退避させる](https://dev.classmethod.jp/articles/autoscalling-terminating-log-upload/)を参照。
+
+# EC2 describe-security-groups
+
+セキュリティグループの詳細を取得するコマンド。詳細は[AWS CLI Command Reference](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-security-groups.html)を参照。
