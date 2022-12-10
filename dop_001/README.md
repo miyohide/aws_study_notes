@@ -98,3 +98,14 @@ AWS::AutoScaling::AutoScalingGroupリソースにおける更新ポリシーは�
     - 古いLaunch Configurationはバッチで更新した後で削除される
 - AutoScalingScheduledAction
     - スケジュールされたアクションが関連づけられているAuto Scalingグループを更新する
+
+# CloudFormationでLambdaのバージョンアップ
+
+CloudFormationでLambdaをデプロイしたあと、バージョンアップをやる場合は、以下の点で設定する。
+
+- バージョン
+    - 既存のS3バケットでバージョニングを有効にする。その後、CloudFormationにてs3ObjectVersionプロパティにD3オブジェクトのバージョンIDを指定する
+- コードの場所
+    - バージョンアップ時には別のバケットの場所を指すようにする。
+- オブジェクト名
+    - CloudFormationにてS3Keyプロパティを更新して、別の場所とzipファイルの名前を示すようにする
