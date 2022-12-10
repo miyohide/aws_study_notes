@@ -82,4 +82,4 @@ see. [Access logs for your Classic Load Balancer](https://docs.aws.amazon.com/ja
 
 # EC2 describe-security-groups
 
-セキュリティグループの詳細を取得するコマンド。詳細は[AWS CLI Command Reference](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-security-groups.html)を参照。
+セキュリティグループの詳細を取得するコマンド。各リージョンでのでキュリティグループを解析する。詳細は[AWS CLI Command Reference](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-security-groups.html)を参照。
