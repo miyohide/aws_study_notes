@@ -109,3 +109,13 @@ CloudFormationでLambdaをデプロイしたあと、バージョンアップを
     - バージョンアップ時には別のバケットの場所を指すようにする。
 - オブジェクト名
     - CloudFormationにてS3Keyプロパティを更新して、別の場所とzipファイルの名前を示すようにする
+
+# CloudFormationでDeletinPolicyでSnapshotをサポートするリソース
+
+- AWS::EC2::Volume
+- AWS::ElastiCache::CacheCluster
+- AWS::ElastiCache::ReplicationGroup
+- AWS::Neptune::DBCluster
+- AWS::RDS::DBCluster
+- AWS::RDS::DBInstance
+- AWS::Redshift::Cluster
