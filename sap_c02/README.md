@@ -90,6 +90,10 @@ S3のレプリケーション機能の一つ。レプリケーション時間の
 
 see. https://docs.aws.amazon.com/ja_jp/AmazonS3/latest/userguide/replication-time-control.html
 
+## S3 Access Point
+
+S3バケット内のデータへのアクセスを簡単にかつ安全に管理するための機能。複数のアプリやユーザーが異なるアクセス権限ポリシーを持つ場合に便利。
+
 # [VPCとサブネットでIPv6を有効化する](https://docs.aws.amazon.com/ja_jp/vpc/latest/userguide/get-started-ipv6.html)
 
 1. IPv6 CIDRブロックをVPCとサブネットに紐づける
