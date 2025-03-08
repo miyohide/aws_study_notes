@@ -84,6 +84,12 @@ S3の特徴。
 
 アップロードのパフォーマンスの向上に役立つ。クライアントとS3バケットの間で長距離にわたるファイル転送を高速、簡単、安全に行えるようになる。CloudFrontの世界中に分散したエッジロケーションを利用。
 
+## S3 Replication Time Control（S3 RTC）
+
+S3のレプリケーション機能の一つ。レプリケーション時間のSLAを提供する。通常はオブジェクトのコピーが非同期で行われどのくらいの時間で完了するかは保証されていないが、S3 Replication Time Controlは99.99％の確率で15分以内にレプリケーションを完了することを保証する。
+
+see. https://docs.aws.amazon.com/ja_jp/AmazonS3/latest/userguide/replication-time-control.html
+
 # [VPCとサブネットでIPv6を有効化する](https://docs.aws.amazon.com/ja_jp/vpc/latest/userguide/get-started-ipv6.html)
 
 1. IPv6 CIDRブロックをVPCとサブネットに紐づける
