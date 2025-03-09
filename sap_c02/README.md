@@ -14,7 +14,7 @@ AWS Certified Solutions Architect - Professionalを受験するに伴い、学�
     - シャードが不十分な場合にはシャードを分割するか、インスタンスサイズの増強を実施する。
 - Amazon Kinesis Data Firehose
     - ストリームデータをS3やRedshift、Elasticserarch Serviceなどへ配信
-- Amazon Kinesis Data Analytics
+- Amazon Managed Service for Apache Flink（旧Amazon Kinesis Data Analytics）
     - Kinesis Data Streams, Kinesis Data FirehoseのストリーミングデータをSQLクエリーやApache Flinkなどを使用して分析できる。
 
 Kinesisにデータを送信する側をプロデューサー、Kinesisのデータを受信して処理する側をコンシューマーと呼ぶ。
