@@ -403,6 +403,12 @@ Direct Connectの構成のうち、仮想インターフェース（VIF）とVPC
 - LAGでは最大４個の接続を行うことができる
 - LAGのすべての接続は同じDirect Connectエンドポイントで終了する必要がある
 
+## Direct Connect接続を介して暗号化された接続を確立する
+
+see. https://repost.aws/ja/knowledge-center/create-vpn-direct-connect
+
+デフォルトではDirect Connect接続は暗号化しない。MACsecを利用するか、AWS Site-to-Site VPNを作成するか。
+
 # [Storage Gateway](https://pages.awscloud.com/rs/112-TZM-766/images/20170125_AWS-BlackBelt-StorageGateway_20170223Update.pdf)
 
 | 種類 | サービス概要 |
