@@ -868,3 +868,22 @@ Savings Plansは、以下の3つの支払い方法を選択できます。
 | Fargate/Lambda対応 | **○（Compute Savings Plansのみ）** | **×** |
 | 柔軟性 | 高い（インスタンスタイプ変更OK） | 低い（特定のインスタンスに固定） |
 | 支払い方法 | 3種類（全額前払い / 一部前払い / 前払いなし） | 3種類（全額前払い / 一部前払い / 前払いなし） |
+
+# OrganizationAccountAccessRole
+
+AWS Organizationsによって自動的に作成されるIAMロールで、組織の管理アカウント（旧称: マスターアカウント）からメンバーアカウントへアクセスするために使用される。
+
+## **`OrganizationAccountAccessRole`の主な役割**
+
+1. **管理アカウントからメンバーアカウントへスイッチロール**できる
+   - AWS Organizationsで新しいメンバーアカウントを作成すると、自動的にこのIAMロールが作成されます。
+   - 管理アカウントのIAMユーザー（またはIAMロール）は、このロールを使ってメンバーアカウントへスイッチして管理操作を行うことができます。
+
+2. **メンバーアカウントへのフル管理権限（AdministratorAccess）を持つ**
+
+   - `OrganizationAccountAccessRole`は、`AdministratorAccess`ポリシーを持っており、対象のメンバーアカウント内のすべてのAWSリソースを管理できます。
+
+3. **AWS CLIやAWS SDKを使用した自動化に活用可能**
+
+   - 管理アカウントからメンバーアカウントに対して、AWS CLIを使ったスイッチロール操作が可能。
+   - 一括設定スクリプトや運用自動化の際に便利。
