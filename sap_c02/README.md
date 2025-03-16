@@ -228,10 +228,8 @@ Systems Managerパラメータストアと同じような機能だが、Secrets 
 
 # AWS Snowファミリー
 
-| 項目 | Snowcone | Snowball edge storage optimized | Snowball edge compute optimized | Snowmobile |
-| ---- | ---- | ---- | ---- | ---- |
-| HDDストレージ | 8TB | 80TB | 42TB | 100PB |
-| SSDストレージ | 14TB | 1TB | 7.68TB | なし |
+- AWS Snowball Edge Storage Optimized 210TB
+- AWS Snowball Edge Compute Optimized with 104 vCPUs
 
 データ転送の高速化のためには以下の方法がある。
 
