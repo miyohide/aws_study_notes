@@ -870,3 +870,31 @@ AWS Organizationsによって自動的に作成されるIAMロールで、組織
 
    - 管理アカウントからメンバーアカウントに対して、AWS CLIを使ったスイッチロール操作が可能。
    - 一括設定スクリプトや運用自動化の際に便利。
+
+# AWSの移行サービスまとめ
+
+| カテゴリ | サービス名 | 概要 |
+|----------|-----------|------|
+| **移行管理 & 評価** | **AWS Migration Hub** | 移行プロジェクトの統合管理ツール（進捗可視化 & サービス統合） |
+|  | **AWS Application Discovery Service** | オンプレ環境のアプリ & インフラを分析し、移行計画を支援 |
+|  | **Migration Evaluator** | コスト・パフォーマンス分析を行い、最適なAWS移行戦略を提案 |
+| **サーバー & アプリ移行** | **AWS Server Migration Service (SMS)** | 仮想マシン (VM) のイメージをAWSに自動転送 |
+|  | **CloudEndure Migration** | OSレベルでリアルタイムレプリケーションを行い、最小ダウンタイムで移行 |
+| **データベース移行** | **AWS Database Migration Service (DMS)** | 異種DB間（オンプレ→AWS）も対応したデータベース移行ツール |
+| **ストレージ & データ移行** | **AWS Storage Gateway** | オンプレとAWS間のストレージを統合するハイブリッドストレージサービス |
+|  | **AWS Transfer Family** | SFTP/FTPS/FTP を使ってAWS S3にデータ転送 |
+|  | **AWS DataSync** | オンプレ/NAS/S3/EFS などの間でデータを効率的に同期 |
+| **物理デバイスを使った移行** | **AWS Snowball** | 80TB～210TBのデータをAWSへ物理デバイスで転送 |
+|  | **AWS Snowball Edge** | 計算機能付きのSnowball、エッジコンピューティングも可能 |
+| **ネットワーク経由の移行** | **AWS Direct Connect** | AWSとの専用ネットワーク回線を提供し、大容量データ転送を最適化 |
+
+| 移行の種類 | 推奨サービス |
+|------------|------------|
+| **全体の進捗管理** | AWS Migration Hub |
+| **オンプレのインフラ調査** | AWS Application Discovery Service |
+| **移行コスト評価** | Migration Evaluator |
+| **仮想マシンの移行** | AWS Server Migration Service (SMS), CloudEndure |
+| **データベース移行** | AWS Database Migration Service (DMS) |
+| **ストレージ移行** | AWS Storage Gateway, AWS Transfer Family, AWS DataSync |
+| **大量データを物理デバイスで移行** | AWS Snowball, AWS Snowball Edge |
+| **ネットワーク経由での大規模データ移行** | AWS Direct Connect |
