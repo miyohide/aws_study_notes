@@ -17,18 +17,6 @@ Auto Scalingフックを使用してインスタンスの状態を「Terminating
 
 see. https://aws.amazon.com/jp/premiumsupport/knowledge-center/auto-scaling-delay-termination/
 
-# CloudFormationにてオブジェクトを含むバケットを削除する方法
-
-カスタムリソース利用して削除がトリガーされる前にバケットを空にする。
-
-# CloudFormationのカスタムリソース
-
-CloudFormationが対応していないリソースの作成などにおいて、CloudFormationのテンプレートにカスタムのプロビジョニングロジックを記述することで、削除・更新・作成をサポートする仕組み。`AWS::CloudFormation::CustomResource`または`Custom::MyCustomResourceTypeName`リソースタイプを使用する。
-
-# CloudFormationにてOpsWorksを呼び出す
-
-リソースタイプに`AWS::OpsWorks::Stack`を指定する。
-
 # Elastic Beanstalkのコマンドとコンテナコマンド
 
 - コマンド
@@ -84,7 +72,21 @@ see. [Access logs for your Classic Load Balancer](https://docs.aws.amazon.com/ja
 
 セキュリティグループの詳細を取得するコマンド。各リージョンでのでキュリティグループを解析する。詳細は[AWS CLI Command Reference](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-security-groups.html)を参照。
 
-# CloudFormation UpdatePolicy
+# CloudFormation
+
+## CloudFormationにてオブジェクトを含むバケットを削除する方法
+
+カスタムリソース利用して削除がトリガーされる前にバケットを空にする。
+
+## CloudFormationのカスタムリソース
+
+CloudFormationが対応していないリソースの作成などにおいて、CloudFormationのテンプレートにカスタムのプロビジョニングロジックを記述することで、削除・更新・作成をサポートする仕組み。`AWS::CloudFormation::CustomResource`または`Custom::MyCustomResourceTypeName`リソースタイプを使用する。
+
+## CloudFormationにてOpsWorksを呼び出す
+
+リソースタイプに`AWS::OpsWorks::Stack`を指定する。
+
+## CloudFormation UpdatePolicy
 
 [CloudFormation UpdatePolicyを使用してAuto Scaling Groupの更新を処理する](https://dev.classmethod.jp/articles/autoscalinggroup-cloudformation-updatepolicy/)の記述が詳しい。
 
@@ -99,7 +101,7 @@ AWS::AutoScaling::AutoScalingGroupリソースにおける更新ポリシーは�
 - AutoScalingScheduledAction
     - スケジュールされたアクションが関連づけられているAuto Scalingグループを更新する
 
-# CloudFormationでLambdaのバージョンアップ
+## CloudFormationでLambdaのバージョンアップ
 
 CloudFormationでLambdaをデプロイしたあと、バージョンアップをやる場合は、以下の点で設定する。
 
@@ -110,7 +112,7 @@ CloudFormationでLambdaをデプロイしたあと、バージョンアップを
 - オブジェクト名
     - CloudFormationにてS3Keyプロパティを更新して、別の場所とzipファイルの名前を示すようにする
 
-# CloudFormationでDeletinPolicyでSnapshotをサポートするリソース
+## CloudFormationでDeletinPolicyでSnapshotをサポートするリソース
 
 - AWS::EC2::Volume
 - AWS::ElastiCache::CacheCluster
