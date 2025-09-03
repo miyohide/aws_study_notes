@@ -130,3 +130,17 @@ CloudFormationでLambdaをデプロイしたあと、バージョンアップを
 | ApproximateNumberOfMessagesNotVisible | 処理中（まだ削除されていない）メッセージの数 |
 | ApproximateNumberOfMessagesDelayed | DelaySeconds により遅延中のメッセージ数 |
 | ApproximateNumberOfMessages | SQSキュー属性の一つ。Visible、Delayed、NotVisibleをまとめた情報をAPIで取得可能 |
+
+# Organizations
+
+## 委任管理者アカウント
+
+管理アカウント (Management Account) が持つ管理権限の一部を、特定のサービスについて他のメンバーアカウントに委任できる仕組み。
+
+管理アカウントに運用権限を集中させすぎるとセキュリティリスクや運用負荷が高まるため、特定のサービスの管理を別のアカウントに任せられる仕組みが「委任管理者」。AWS ConfigやAWS Security Hub、AWS Service Catalogなどで活用。
+
+# AWS Config
+
+## AWS Config アグリゲーター
+
+複数のアカウントやリージョンに分散している AWS Config の設定データやコンプライアンス情報を一元的に集約 する仕組み。
