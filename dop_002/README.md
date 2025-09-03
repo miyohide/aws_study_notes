@@ -119,3 +119,14 @@ CloudFormationでLambdaをデプロイしたあと、バージョンアップを
 - AWS::RDS::DBCluster
 - AWS::RDS::DBInstance
 - AWS::Redshift::Cluster
+
+# Amazon SQS
+
+## Amazon SQSで利用可能なCloudWatchメトリクス
+
+| メトリクス名 | 説明 |
+| ---------- | ---- |
+| ApproximateNumberOfMessagesVisible |　すぐに受信可能な（キューに残っている）メッセージ数。キューの滞留状況を把握するのに重要 |
+| ApproximateNumberOfMessagesNotVisible | 処理中（まだ削除されていない）メッセージの数 |
+| ApproximateNumberOfMessagesDelayed | DelaySeconds により遅延中のメッセージ数 |
+| ApproximateNumberOfMessages | SQSキュー属性の一つ。Visible、Delayed、NotVisibleをまとめた情報をAPIで取得可能 |
