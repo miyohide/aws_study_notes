@@ -144,3 +144,9 @@ CloudFormationでLambdaをデプロイしたあと、バージョンアップを
 ## AWS Config アグリゲーター
 
 複数のアカウントやリージョンに分散している AWS Config の設定データやコンプライアンス情報を一元的に集約 する仕組み。
+
+# AWS Security Hub
+
+## 信頼されたアクセス
+
+OrganizationsとSecurity Hubを統合するための仕組み。有効化することでOrganizations経由でSecurity Hubを有効化しセキュリティ検出結果（Findings）を委任管理者アカウントに集約可能。
