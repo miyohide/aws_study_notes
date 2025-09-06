@@ -145,6 +145,20 @@ AWS CloudFormation で EC2 インスタンスを起動するときに、その�
 
 管理アカウントに運用権限を集中させすぎるとセキュリティリスクや運用負荷が高まるため、特定のサービスの管理を別のアカウントに任せられる仕組みが「委任管理者」。AWS ConfigやAWS Security Hub、AWS Service Catalogなどで活用。
 
+## SCP
+
+### EC2インスタンスの認証情報に関する各種条件キー
+
+| 条件キー | 説明 |
+| aws:EC2InstanceSourceVPC | EC2インスタンスが配置されているVPCの識別子 |
+| aws:SourceVpc | リクエストが発生したVPCの識別子 |
+| aws:EC2InstanceSourcePrivateIPv4 | EC2インスタンスに割り当てられたプライベートIPv4アドレス |
+| aws:VpcSourceIp | VPC内からのリクエストのソースIPアドレス |
+
+### 指定したリージョン以外は使わせないようにする方法
+
+`aws:RequestedRegion`条件キーを使い、拒否タイプのSCCPを組織ルートにアタッチする。
+
 # AWS Config
 
 ## AWS Config アグリゲーター
