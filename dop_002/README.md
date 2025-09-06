@@ -126,6 +126,13 @@ CloudFormationでLambdaをデプロイしたあと、バージョンアップを
 
 AWS CloudFormation で EC2 インスタンスを起動するときに、その中でソフトウェアや設定を自動的に初期化・設定するための仕組み。CloudFormation テンプレートの AWS::CloudFormation::Init メタデータに、インスタンス起動時に適用する設定を記述する。EC2 インスタンスの UserData などで cfn-init ヘルパースクリプトを呼び出す。
 
+## UPDATE_ROLLBACK_FAILEDからの復旧
+
+- ContinueUpdateRollbackコマンドの実行
+    - see. https://repost.aws/ja/knowledge-center/cloudformation-update-rollback-failed
+- DeleteStackアクションを使用してスタックを削除
+- スタックの期待値と一致するようにリソースを手動で修正する
+
 # Amazon SQS
 
 ## Amazon SQSで利用可能なCloudWatchメトリクス
