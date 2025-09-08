@@ -176,6 +176,10 @@ AWS CloudFormation で EC2 インスタンスを起動するときに、その�
 
 AWS Configが管理対象のリソースについて「どの種類のリソースを記録するか」を制御するコンポーネント。
 
+## ec2-instance-profile-attached
+
+EC2インスタンスにIAMプロファイルがアタッチされているかどうかを確認するルール。
+
 # AWS Security Hub
 
 ## 信頼されたアクセス
