@@ -188,6 +188,14 @@ EC2インスタンスのメタデータのバージョンがIMDSv2で設定さ�
 
 CloudFormationスタックの実際の設定が、予想される設定と異なるか、ドリフトしたかどうかを確認するルール。
 
+## s3-bucket-server-side-encryption-enabled
+
+S3のデフォルトの暗号化が有効になっていること、またはS3バケットポリシーが AES-256またはput-objectを使用するサーバー側の暗号化を使用していないAWS Key Management Serviceリクエストを明示的に拒否することを確認するルール。
+
+## cmk-backing-key-rotation-enabled
+
+KMSのカスタマーマネージドキーに対して、自動キーのローテーションが有効になっているかどうかをチェックするルール。
+
 # AWS Security Hub
 
 ## 信頼されたアクセス
