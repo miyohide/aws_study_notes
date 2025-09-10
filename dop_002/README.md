@@ -184,6 +184,10 @@ EC2インスタンスにIAMプロファイルがアタッチされているか�
 
 EC2インスタンスのメタデータのバージョンがIMDSv2で設定さているかどうかを確認するルール。
 
+## cloudformation-stack-drift-detection-check
+
+CloudFormationスタックの実際の設定が、予想される設定と異なるか、ドリフトしたかどうかを確認するルール。
+
 # AWS Security Hub
 
 ## 信頼されたアクセス
