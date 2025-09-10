@@ -133,6 +133,25 @@ AWS CloudFormation で EC2 インスタンスを起動するときに、その�
 - DeleteStackアクションを使用してスタックを削除
 - スタックの期待値と一致するようにリソースを手動で修正する
 
+## スタックポリシー
+
+スタックの更新時に特定のリソースが誤って変更・削除されるのを防ぐための保護ルール。重要なデータベースやS3バケットなどが意図せず置き換えられたり削除されたりすると、業務停止やデータ消失のリスクがある。そこでスタックポリシーを設定することで、どのリソースを更新可能にするか／更新禁止にするかを制御する。
+
+以下の例は、`MyDBInstance`を更新することを防止する。
+
+```json
+{
+  "Statement": [
+    {
+      "Effect": "Deny",
+      "Action": "Update:*",
+      "Principal": "*",
+      "Resource": "LogicalResourceId/MyDBInstance"
+    }
+  ]
+}
+```
+
 # Amazon SQS
 
 ## Amazon SQSで利用可能なCloudWatchメトリクス
