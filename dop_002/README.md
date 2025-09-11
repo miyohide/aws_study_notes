@@ -130,6 +130,7 @@ AWS CloudFormation で EC2 インスタンスを起動するときに、その�
 
 - ContinueUpdateRollbackコマンドの実行
     - see. https://repost.aws/ja/knowledge-center/cloudformation-update-rollback-failed
+    - 要アクセス許可の変更
 - DeleteStackアクションを使用してスタックを削除
 - スタックの期待値と一致するようにリソースを手動で修正する
 
