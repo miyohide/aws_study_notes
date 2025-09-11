@@ -322,3 +322,9 @@ AWSアカウントや組織内の複数のアカウント間でAWSリソース�
 | | **Outposts リソース** | AWS Outposts のサブネットなどを共有可能 |
 | | **Cloud WAN** | グローバルネットワーク構成を共有 |
 | | **容量予約 (Capacity Reservation)** | EC2のオンデマンド容量予約を共有 |
+
+# S3
+
+## SubmitMultiRegionAccessPointRoutes
+
+Amazon S3 Multi-Region Access Points（MRAP）用の APIのひとつ。MRAP では、クライアントからのリクエストをどのリージョンの S3 バケットにルーティングするかを制御できる。この API を使って、ルート構成（ルーティングテーブル）を AWS に反映させることができる。
