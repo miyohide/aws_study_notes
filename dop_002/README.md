@@ -338,3 +338,10 @@ AWSアカウントや組織内の複数のアカウント間でAWSリソース�
 ## SubmitMultiRegionAccessPointRoutes
 
 Amazon S3 Multi-Region Access Points（MRAP）用の APIのひとつ。MRAP では、クライアントからのリクエストをどのリージョンの S3 バケットにルーティングするかを制御できる。この API を使って、ルート構成（ルーティングテーブル）を AWS に反映させることができる。
+
+## 整合性チェック
+
+1. ETag（MD5ハッシュ）
+2. Content-MD5ヘッダー
+3. Checksum(`x-amz-checksum-*`ヘッダー）
+
