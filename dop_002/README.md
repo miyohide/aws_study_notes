@@ -346,3 +346,13 @@ Amazon S3 Multi-Region Access Points（MRAP）用の APIのひとつ。MRAP で�
 2. Content-MD5ヘッダー
 3. Checksum(`x-amz-checksum-*`ヘッダー）
 
+# GuardDuty / Inspector
+
+## 役割まとめ
+
+| サービス        | 主な目的       | 主な対象                           | 検出方法                                      | 利用シーン                                |
+|-----------------|----------------|------------------------------------|-----------------------------------------------|-------------------------------------------|
+| **GuardDuty**   | 脅威検知       | AWSアカウント全体<br>(VPC Flow Logs, CloudTrail, DNS Logs) | 機械学習＋脅威インテリジェンスによるログ解析 | 不正アクセス・マルウェア感染の兆候検知     |
+| **Inspector**   | 脆弱性管理     | EC2 / ECR / Lambda                 | SSM Agent やスキャンによる脆弱性診断          | 未修正CVEや設定不備を発見し修正に活用      |
+| **Security Hub**| 統合管理・可視化| GuardDuty / Inspector / 他サービス | 各サービスの検出結果を集約・標準化            | セキュリティ状態の全体把握、監査・準拠対応 |
+
