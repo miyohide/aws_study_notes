@@ -177,6 +177,7 @@ AWS CloudFormation で EC2 インスタンスを起動するときに、その�
 ### EC2インスタンスの認証情報に関する各種条件キー
 
 | 条件キー | 説明 |
+| ------- | ---- |
 | aws:EC2InstanceSourceVPC | EC2インスタンスが配置されているVPCの識別子 |
 | aws:SourceVpc | リクエストが発生したVPCの識別子 |
 | aws:EC2InstanceSourcePrivateIPv4 | EC2インスタンスに割り当てられたプライベートIPv4アドレス |
