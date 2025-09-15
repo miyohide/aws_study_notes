@@ -159,7 +159,7 @@ AWS CloudFormation で EC2 インスタンスを起動するときに、その�
 
 | メトリクス名 | 説明 |
 | ---------- | ---- |
-| ApproximateNumberOfMessagesVisible |　すぐに受信可能な（キューに残っている）メッセージ数。キューの滞留状況を把握するのに重要 |
+| ApproximateNumberOfMessagesVisible | すぐに受信可能な（キューに残っている）メッセージ数。キューの滞留状況を把握するのに重要 |
 | ApproximateNumberOfMessagesNotVisible | 処理中（まだ削除されていない）メッセージの数 |
 | ApproximateNumberOfMessagesDelayed | DelaySeconds により遅延中のメッセージ数 |
 | ApproximateNumberOfMessages | SQSキュー属性の一つ。Visible、Delayed、NotVisibleをまとめた情報をAPIで取得可能 |
