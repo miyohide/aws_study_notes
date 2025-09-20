@@ -428,3 +428,10 @@ Amazon S3 Multi-Region Access Points（MRAP）用の APIのひとつ。MRAP で�
 - ビルド済みイメージの配布ルール を定義する仕組み
 - 配布先リージョン、アカウント、AMI名、暗号化キー、ライセンス適用などを管理できる
 - 組織内での 標準化イメージの横展開 を効率化するために使う
+
+# Identity Center
+
+## AWSSSOMemberAccountAdministrator
+
+- IAM Identity Center を有効化した管理アカウント とは別に、特定のメンバーアカウントに運用管理を委任する仕組みがある（委任管理アカウント）。
+- このとき、その委任先のアカウントで IAM Identity Center を正しく動作・管理するために必要な権限がまとめられているのが`AWSSSOMemberAccountAdministrator`ポリシー
