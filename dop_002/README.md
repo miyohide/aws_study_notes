@@ -266,6 +266,10 @@ AWS アカウント内で発生する API コールや管理アクションを�
 | **データイベント**| データプレーン操作    | ❌（無効）     | S3 オブジェクト操作, Lambda 呼び出し   | 有料（イベント数課金）    |
 | **インサイトイベント** | 異常検知           | ❌（無効）     | API 呼び出し頻度の急増                 | 有料（有効化時）          |
 
+## CloudTrailを無効化させない方法
+
+OrganizationsのすべてのOUにSCPを適用し、`cloudtrail:StopLogging`と`cloudtrail:DeleteTrail`を拒否する
+
 # CodeDeploy
 
 ## AWS CodeDeploy ライフサイクルイベント詳細まとめ
