@@ -1,0 +1,66 @@
+## 1. VPCの基本と基盤
+*   **VPCコンポーネント**: サブネット、ルートテーブル、インターネットゲートウェイ(IGW)の役割を理解すること。
+*   **IPアドレス**: プライベート、パブリック、Elastic IPの違い。特に、VPC外の通信におけるNATゲートウェイとNATインスタンスの使い分け。
+*   **ENI (Elastic Network Interface)**: インスタンスにアタッチされる仮想ネットワークインターフェース。
+*   **セキュリティ**:
+    *   **Security Groups**: インスタンスレベルのステートフルなファイアウォール。
+    *   **Network ACLs**: サブネットレベルのステートレスなファイアウォール。
+
+## 2. DNS と DHCP (Amazon Route 53)
+*   **Amazon Route 53 Resolver**:
+    *   VPCのベースアドレスに「+2」したIP（または `169.254.169.253`）で動作する。
+    *   PHZ（プライベートホストゾーン）、VPC内部DNS、パブリックDNSの名前解決を処理する。
+*   **VPC DNS 属性**:
+    *   `enableDnsSupport`: AWS提供のDNSサーバーへのクエリを有効にする。
+    *   `enableDnsHostname`: インスタンスにパブリックホスト名を割り当てる。PHZを使用するには両方の属性を `true` にする必要がある。
+*   **DHCPオプションセット**:
+    *   ドメイン名、ネームサーバー、NTPサーバーなどを定義する。
+    *   **一度作成すると編集不可**。変更には新規作成とVPCへの再関連付けが必要。
+*   **Route 53 Resolver Endpoints**:
+    *   **Inbound**: オンプレミスからAWS内の名前解決を行う。
+    *   **Outbound**: AWSからオンプレミスのDNSサーバーへ条件付き転送（Conditional Forwarding）を行う。
+    *   VPNやDirect Connect経由で通信し、VPC内のENIとして実装される。
+
+## 3. 負荷分散 (Elastic Load Balancing)
+*   **Application Load Balancer (ALB)**:
+    *   レイヤー7（HTTP/HTTPS）で作動。パスベースやホストベースのルーティングをサポート。
+    *   **SNI (Server Name Indication)** を使用して、1つのリスナーで複数のSSL証明書を管理可能。
+*   **Network Load Balancer (NLB)**:
+    *   レイヤー4（TCP/UDP/TLS）で作動。数百万リクエスト/秒の超高性能。
+    *   **各AZに1つの固定IP（またはEIP）**を持ち、ホワイトリスト登録に適している。
+    *   **Zonal DNS**: 各AZのノードごとに特定のDNS名を持つ。
+*   **Gateway Load Balancer (GWLB)**:
+    *   レイヤー3で作動し、サードパーティ製仮想アプライアンスを透明に挿入する。
+    *   **GENEVEプロトコル**（UDP 6081）を使用してトラフィックをカプセル化する。
+*   **交差ゾーン負荷分散 (Cross-Zone Load Balancing)**:
+    *   ALBはデフォルトで有効（無料）、NLB/GWLBはデフォルトで無効（有効化にはAZ間データ転送料金が発生）。
+*   **Proxy Protocol**: ロードバランサーが接続を終了する場合に、送信元/送信先のIP情報を保持するために使用（NLB/CLBで利用可能）。
+
+## 4. Route 53 高度な機能
+*   **エイリアスレコード (Alias Records)**:
+    *   CNAMEと違い、**Zone Apex（ドメイン名そのもの）に使用可能**。
+    *   AWSリソース（ELB, S3, CloudFront等）のIP変更を自動認識する。
+*   **ルーティングポリシー**:
+    *   **Weighted（加重）**: 割合（%）で分散。A/Bテスト等に利用。
+    *   **Latency-based（レイテンシー）**: 遅延が最小のリージョンへ誘導。
+    *   **Failover（フェイルオーバー）**: アクティブ/パッシブ構成。正常なリソースへ切り替える。
+    *   **Geolocation（位置情報）**: ユーザーの場所（大陸・国）に基づく。
+    *   **Geoproximity（近接地域）**: ユーザーとリソースの物理的距離に基づく。バイアス値で範囲調整が可能。
+*   **ヘルスチェック**:
+    *   パブリックリソースにはHTTP/HTTPS/TCPチェックを使用。
+    *   **プライベートリソース**: CloudWatchアラームと連携したヘルスチェックを使用する。
+
+## 5. ハイブリッド接続とネットワーク拡張
+*   **AWS Direct Connect (DX)**:
+    *   1/10/100 Gbpsの専用線、または1Gbps未満のホスト接続。
+    *   **BGP**プロトコルでルート交換。802.1Q VLANタグでトラフィックを分離。
+    *   **Public VIF**: パブリックリソースへの接続。**Private VIF**: VPC内部への接続。**Transit VIF**: Transit Gatewayへの接続。
+*   **VPCエンドポイント**:
+    *   **Gateway Endpoints**: S3とDynamoDB用。ルートテーブルのターゲットとして設定。
+    *   **Interface Endpoints (PrivateLink)**: 多くのAWSサービス用。ENIとして実装され、**プライベートDNS**を有効にすることでデフォルトDNS名を解決可能。
+*   **VPC Lattice**: サービス間通信の簡素化。複雑なピアリングやTGWなしでサービスを公開・発見できる。
+*   **AWS Cloud WAN**: 複数のリージョンにまたがるグローバルネットワークをNetwork Managerで一元管理・可視化する。
+
+## 6. パフォーマンスと最適化
+*   **AZ間データ転送**: 同一AZ内は無料だが、AZをまたぐと料金が発生する（NLBの交差ゾーン負荷分散など）。
+*   **コスト最適化**: Spoke VPCからHub VPCへのインターフェースエンドポイントへのアクセス時、 inter-AZデータ転送料を避けるためにAZ固有のDNSエンドポイントを使用する戦略。
