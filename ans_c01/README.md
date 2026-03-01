@@ -20,11 +20,15 @@
     *   **Inbound**: オンプレミスからAWS内の名前解決を行う。
     *   **Outbound**: AWSからオンプレミスのDNSサーバーへ条件付き転送（Conditional Forwarding）を行う。
     *   VPNやDirect Connect経由で通信し、VPC内のENIとして実装される。
-
+*  **Route 53 Resolver DNS Firewall**
+    * VPCのアウトバウンドDNSトラフィックをフィルタリングおよび規制することができる
+*  **サブドメインのトラフィックのルーティング**
+    * 親ドメインにサブドメインのNSレコードを作成する
 ## 3. 負荷分散 (Elastic Load Balancing)
 *   **Application Load Balancer (ALB)**:
     *   レイヤー7（HTTP/HTTPS）で作動。パスベースやホストベースのルーティングをサポート。
     *   **SNI (Server Name Indication)** を使用して、1つのリスナーで複数のSSL証明書を管理可能。
+    *   アクセスログはS3にしか出力できない
 *   **Network Load Balancer (NLB)**:
     *   レイヤー4（TCP/UDP/TLS）で作動。数百万リクエスト/秒の超高性能。
     *   **各AZに1つの固定IP（またはEIP）**を持ち、ホワイトリスト登録に適している。
@@ -126,5 +130,6 @@
     * VPC愛のIPトラフィックのメタデータを記録する
 * **Traffic Mirroring**
     * ENIのトラフィックをコピーして別のインスタンスへ送信
+    * NLBのみサポート。ALBは未サポート
 * **Reachability Analyzer**
     * AWS内部ルーティングの論理的な到達可否を解析。通信は実際には流さない。
