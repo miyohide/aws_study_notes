@@ -54,7 +54,38 @@
 *   **AWS Direct Connect (DX)**:
     *   1/10/100 Gbpsの専用線、または1Gbps未満のホスト接続。
     *   **BGP**プロトコルでルート交換。802.1Q VLANタグでトラフィックを分離。
-    *   **Public VIF**: パブリックリソースへの接続。**Private VIF**: VPC内部への接続。**Transit VIF**: Transit Gatewayへの接続。
+    *   **接続タイプ**:
+        *   **専用接続 (Dedicated Connection)**: 1, 10, 100 Gbps のポート速度を提供し、ユーザーが物理ポートを占有します。
+        *   **ホスト接続 (Hosted Connection)**: 50 Mbps から最大 10 Gbps の速度をAWSパートナー経由で提供します。
+    *   **仮想インターフェイス (VIF) の種類**:
+        *   **Public VIF**: S3やDynamoDBなどのAWSパブリックサービスへのグローバルな接続を可能にします。BGPセッションで最大1000個のプレフィックスを受信可能です。
+        *   **Private VIF**: VPC内部のリソース（EC2, RDS等）への接続用です。1つのVIFで最大100個のプレフィックスをAWS側にアドバタイズできます。
+        *   **Transit VIF**: **Transit Gatewayと接続するために必須**のVIFです。
+    *   **Direct Connect Gateway (DXGW)**:
+        *   複数のリージョンや複数のAWSアカウントにまたがるVPC/TGWへの接続を統合するグローバルなリソースです。
+        *   **Public VIFとの統合はできません**。VPC（Private VIF経由）またはTGW（Transit VIF経由）への接続にのみ使用されます。
+    *   **SiteLink**: Direct Connectのロケーション間をAWSネットワーク経由で直接通信させ、オンプレミス拠点間を接続する機能です。
+*   **Transit Gateway**
+    *   **主なアタッチメント**:
+        *   VPC、VPN、Direct Connect Gateway、Transit Gateway間のピアリング接続などが含まれます。
+    *   **ルート制御**:
+        *   **ルートテーブル**: 各アタッチメントは1つのルートテーブルに関連付けられ、トラフィックの転送先を決定します。
+        *   **ルート伝播 (Propagation)**: VPCなどの接続先から自動的にルートをTGWルートテーブルに学習させることができます。
+    *   **Transit Gateway Connect**:
+        *   SD-WANなどのサードパーティ製仮想アプライアンスとTGWを接続するためのアタッチメントです。
+        *   **GREトンネルプロトコル**をサポートし、トンネルあたり最大5 Gbpsの帯域幅を提供します（複数トンネルで拡張可能）。
+        *   動的ルーティングのために**BGP**が必須要件となります。
+    *   **Appliance Mode**: TGWにおいて、ステートフルなセキュリティアプライアンス（GWLB経由など）を通るトラフィックの非対称ルーティングを防ぐために有効化します。
+* **DX と Transit Gateway の統合**
+    *   **接続フロー**: **Transit VIF** → **Direct Connect Gateway** → **Transit Gateway** の順に接続されます。
+    *   **ASN (自治システム番号) の制限**:
+        *   DX Gateway と Transit Gateway の **ASNは必ず異なるものである必要があります**。両方にデフォルトの `64512` を使用すると関連付けに失敗します。
+    *   **拡張性**:
+        *   1つの専用接続 (Dedicated Connection) で最大4つの Transit VIF をサポートします。
+        *   1つの Direct Connect Gateway に最大 **6つの Transit Gateway** をアタッチできます。
+    *   **パフォーマンス**:
+        *   Transit VIF では、MTU 1500 および **8500 (ジャンボフレーム)** をサポートしています。
+        *   高速な障害検知のために **BFD (Bidirectional Forwarding Detection)** を使用でき、約1秒でのフェイルオーバーが可能です。
 *   **VPCエンドポイント**:
     *   **Gateway Endpoints**: S3とDynamoDB用。ルートテーブルのターゲットとして設定。
     *   **Interface Endpoints (PrivateLink)**: 多くのAWSサービス用。ENIとして実装され、**プライベートDNS**を有効にすることでデフォルトDNS名を解決可能。
