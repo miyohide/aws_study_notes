@@ -91,7 +91,36 @@
     *   **Interface Endpoints (PrivateLink)**: 多くのAWSサービス用。ENIとして実装され、**プライベートDNS**を有効にすることでデフォルトDNS名を解決可能。
 *   **VPC Lattice**: サービス間通信の簡素化。複雑なピアリングやTGWなしでサービスを公開・発見できる。
 *   **AWS Cloud WAN**: 複数のリージョンにまたがるグローバルネットワークをNetwork Managerで一元管理・可視化する。
-
+* **Site-to-Site VPN**
+    * オンプレミスとAWS VPCをIPSecで安全に接続するサービス。接続先はVirtual Private GatewayかAWS Transit Gateway
+        * 最近はTransit Gatewayが主流（1 VPC = 1 Virtual Private Gatewayなので）
+    * AWSは自動で2本のトンネルを提供。冗長性確保のため。オンプレ側も2つのPeer設定が必要。
+    * BGP（動的ルーティング）を推奨。
+* **ルーティングとBGP**
+    * **BGP経路選択アルゴリズム**
+        1. 最長一致
+        2. Local Preference高い
+        3. AS_PATH短い
+        4. MED低い
+        5. eBGP > iBGP
 ## 6. パフォーマンスと最適化
 *   **AZ間データ転送**: 同一AZ内は無料だが、AZをまたぐと料金が発生する（NLBの交差ゾーン負荷分散など）。
 *   **コスト最適化**: Spoke VPCからHub VPCへのインターフェースエンドポイントへのアクセス時、 inter-AZデータ転送料を避けるためにAZ固有のDNSエンドポイントを使用する戦略。
+
+## 7. セキュリティとトラフィック制御
+* **AWS Network Firewall**
+    * フルマネージド型のL3〜L7対応ステートフルファイアウォール
+* **AWS WAF**
+    * L7フィルタリング
+
+## 8. マルチリージョン設計
+* **AWS Global Accelerator**
+    * AWSのグローバルAnycastネットワークを利用して、世界中のユーザー、複数リージョンのアプリケーションへ最適経路でルーティングするL4サービス
+    * 固定IPが必要な場合によく選択される。（2つの固定IPアドレスが提供される）
+## 9. モニタリング・トラブルシュート
+* **VPC Flow Logs**
+    * VPC愛のIPトラフィックのメタデータを記録する
+* **Traffic Mirroring**
+    * ENIのトラフィックをコピーして別のインスタンスへ送信
+* **Reachability Analyzer**
+    * AWS内部ルーティングの論理的な到達可否を解析。通信は実際には流さない。
