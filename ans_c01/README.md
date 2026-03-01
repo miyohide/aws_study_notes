@@ -65,6 +65,10 @@
         *   複数のリージョンや複数のAWSアカウントにまたがるVPC/TGWへの接続を統合するグローバルなリソースです。
         *   **Public VIFとの統合はできません**。VPC（Private VIF経由）またはTGW（Transit VIF経由）への接続にのみ使用されます。
     *   **SiteLink**: Direct Connectのロケーション間をAWSネットワーク経由で直接通信させ、オンプレミス拠点間を接続する機能です。
+    *   **MACSec**
+        * L2で通信を暗号化する技術。
+        * 専用接続のみ使用が可能
+        * CKN/CAKペアを接続に関連づけた後にMACSec暗号化モードをmust_encryptに更新
 *   **Transit Gateway**
     *   **主なアタッチメント**:
         *   VPC、VPN、Direct Connect Gateway、Transit Gateway間のピアリング接続などが含まれます。
