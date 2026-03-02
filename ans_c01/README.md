@@ -115,7 +115,8 @@
     * オンプレミスとAWS VPCをIPSecで安全に接続するサービス。接続先はVirtual Private GatewayかAWS Transit Gateway
         * 最近はTransit Gatewayが主流（1 VPC = 1 Virtual Private Gatewayなので）
     * AWSは自動で2本のトンネルを提供。冗長性確保のため。オンプレ側も2つのPeer設定が必要。
-    * BGP（動的ルーティング）を推奨。
+    * BGP（動的ルーティング）を推奨
+    * アクセラレーションは、Transit GatewayにアタッチされているSite-to-Site VPN接続のみサポート
 * **ルーティングとBGP**
     * **BGP経路選択アルゴリズム**
         1. 最長一致
