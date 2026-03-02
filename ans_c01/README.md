@@ -64,21 +64,22 @@
     *   **プライベートリソース**: CloudWatchアラームと連携したヘルスチェックを使用する。
 
 ## 5. ハイブリッド接続とネットワーク拡張
-*   **AWS Direct Connect (DX)**:
-    *   1/10/100 Gbpsの専用線、または1Gbps未満のホスト接続。
-    *   **BGP**プロトコルでルート交換。802.1Q VLANタグでトラフィックを分離。
-    *   **接続タイプ**:
-        *   **専用接続 (Dedicated Connection)**: 1, 10, 100 Gbps のポート速度を提供し、ユーザーが物理ポートを占有します。
-        *   **ホスト接続 (Hosted Connection)**: 50 Mbps から最大 10 Gbps の速度をAWSパートナー経由で提供します。
-    *   **仮想インターフェイス (VIF) の種類**:
-        *   **Public VIF**: S3やDynamoDBなどのAWSパブリックサービスへのグローバルな接続を可能にします。BGPセッションで最大1000個のプレフィックスを受信可能です。
-        *   **Private VIF**: VPC内部のリソース（EC2, RDS等）への接続用です。1つのVIFで最大100個のプレフィックスをAWS側にアドバタイズできます。
-        *   **Transit VIF**: **Transit Gatewayと接続するために必須**のVIFです。
-    *   **Direct Connect Gateway (DXGW)**:
-        *   複数のリージョンや複数のAWSアカウントにまたがるVPC/TGWへの接続を統合するグローバルなリソースです。
-        *   **Public VIFとの統合はできません**。VPC（Private VIF経由）またはTGW（Transit VIF経由）への接続にのみ使用されます。
-    *   **SiteLink**: Direct Connectのロケーション間をAWSネットワーク経由で直接通信させ、オンプレミス拠点間を接続する機能です。
-    *   **MACSec**
+* **AWS Direct Connect (DX)**:
+    * 1/10/100 Gbpsの専用線、または1Gbps未満のホスト接続。
+    * **BGP**プロトコルでルート交換。802.1Q VLANタグでトラフィックを分離。
+    * **接続タイプ**:
+        * **専用接続 (Dedicated Connection)**: 1, 10, 100 Gbps のポート速度を提供し、ユーザーが物理ポートを占有します。
+            * 回線速度を上げたい場合は、新しいものを追加で用意する必要がある
+        * **ホスト接続 (Hosted Connection)**: 50 Mbps から最大 10 Gbps の速度をAWSパートナー経由で提供します。
+    * **仮想インターフェイス (VIF) の種類**:
+        * **Public VIF**: S3やDynamoDBなどのAWSパブリックサービスへのグローバルな接続を可能にします。BGPセッションで最大1000個のプレフィックスを受信可能です。
+        * **Private VIF**: VPC内部のリソース（EC2, RDS等）への接続用です。1つのVIFで最大100個のプレフィックスをAWS側にアドバタイズできます。
+        * **Transit VIF**: **Transit Gatewayと接続するために必須**のVIFです。
+    * **Direct Connect Gateway (DXGW)**:
+        * 複数のリージョンや複数のAWSアカウントにまたがるVPC/TGWへの接続を統合するグローバルなリソースです。
+        * **Public VIFとの統合はできません**。VPC（Private VIF経由）またはTGW（Transit VIF経由）への接続にのみ使用されます。
+    * **SiteLink**: Direct Connectのロケーション間をAWSネットワーク経由で直接通信させ、オンプレミス拠点間を接続する機能です。
+    * **MACSec**
         * L2で通信を暗号化する技術。
         * 専用接続のみ使用が可能
         * CKN/CAKペアを接続に関連づけた後にMACSec暗号化モードをmust_encryptに更新
