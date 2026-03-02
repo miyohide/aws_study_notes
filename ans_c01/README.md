@@ -37,7 +37,7 @@
         * PFSをON/OFFという設定はなく、TLSセキュリティポリシーによってPFSの有無が決まる
 *   **Network Load Balancer (NLB)**:
     *   レイヤー4（TCP/UDP/TLS）で作動。数百万リクエスト/秒の超高性能。
-    *   **各AZに1つの固定IP（またはEIP）**を持ち、ホワイトリスト登録に適している。
+    *   **各AZに1つの固定IP（またはEIP）** を持ち、ホワイトリスト登録に適している。
     *   **Zonal DNS**: 各AZのノードごとに特定のDNS名を持つ。
     * 異なるVPCに存在するEC2インスタンスをNLBのターゲットとして登録するにはインスタンスのIPアドレスを指定する必要あり
 *   **Gateway Load Balancer (GWLB)**:
