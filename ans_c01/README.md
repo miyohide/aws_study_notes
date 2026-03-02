@@ -120,6 +120,15 @@
     * フルマネージド型のL3〜L7対応ステートフルファイアウォール
 * **AWS WAF**
     * L7フィルタリング
+* **AWS Certificate Manager(ACM)**
+    * **AWS Certificate Manager (ACM)** はSSL/TLS証明書の発行・管理・自動更新を行うマネージドサービス。
+    * ACMは「公開証明書」と「プライベート証明書」を扱える
+    * ACM証明書はリージョンリソース
+        - **ALB / NLB / API Gateway → 同一リージョンのACM証明書のみ使用可能**
+        - **CloudFront → us-east-1のACM証明書のみ使用可能**
+    * EC2へ直接インストールは不可（ACM証明書はエクスポート不可）
+    * ACM証明書は基本的にアカウント間共有不可。
+        * 例外：AWS RAMでPrivate CA共有可能
 
 ## 8. マルチリージョン設計
 * **AWS Global Accelerator**
