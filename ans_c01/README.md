@@ -7,23 +7,25 @@
     *   **Network ACLs**: サブネットレベルのステートレスなファイアウォール。
 
 ## 2. DNS と DHCP (Amazon Route 53)
-*   **Amazon Route 53 Resolver**:
-    *   VPCのベースアドレスに「+2」したIP（または `169.254.169.253`）で動作する。
-    *   PHZ（プライベートホストゾーン）、VPC内部DNS、パブリックDNSの名前解決を処理する。
-*   **VPC DNS 属性**:
-    *   `enableDnsSupport`: AWS提供のDNSサーバーへのクエリを有効にする。
-    *   `enableDnsHostname`: インスタンスにパブリックホスト名を割り当てる。PHZを使用するには両方の属性を `true` にする必要がある。
-*   **DHCPオプションセット**:
-    *   ドメイン名、ネームサーバー、NTPサーバーなどを定義する。
-    *   **一度作成すると編集不可**。変更には新規作成とVPCへの再関連付けが必要。
-*   **Route 53 Resolver Endpoints**:
-    *   **Inbound**: オンプレミスからAWS内の名前解決を行う。
-    *   **Outbound**: AWSからオンプレミスのDNSサーバーへ条件付き転送（Conditional Forwarding）を行う。
-    *   VPNやDirect Connect経由で通信し、VPC内のENIとして実装される。
-*  **Route 53 Resolver DNS Firewall**
+* **Amazon Route 53 Resolver**:
+    * VPCのベースアドレスに「+2」したIP（または `169.254.169.253`）で動作する。
+    * PHZ（プライベートホストゾーン）、VPC内部DNS、パブリックDNSの名前解決を処理する。
+* **VPC DNS 属性**:
+    * `enableDnsSupport`: AWS提供のDNSサーバーへのクエリを有効にする。
+    * `enableDnsHostname`: インスタンスにパブリックホスト名を割り当てる。PHZを使用するには両方の属性を `true` にする必要がある。
+* **DHCPオプションセット**:
+    * ドメイン名、ネームサーバー、NTPサーバーなどを定義する。
+    * **一度作成すると編集不可**。変更には新規作成とVPCへの再関連付けが必要。
+* **Route 53 Resolver Endpoints**:
+    * **Inbound**: オンプレミスからAWS内の名前解決を行う。
+    * **Outbound**: AWSからオンプレミスのDNSサーバーへ条件付き転送（Conditional Forwarding）を行う。
+    * VPNやDirect Connect経由で通信し、VPC内のENIとして実装される。
+* **Route 53 Resolver DNS Firewall**
     * VPCのアウトバウンドDNSトラフィックをフィルタリングおよび規制することができる
-*  **サブドメインのトラフィックのルーティング**
+* **サブドメインのトラフィックのルーティング**
     * 親ドメインにサブドメインのNSレコードを作成する
+* **スプリットビュー DNS**
+    * 内部使用とパブリックウェブサイトなどの外部使用で同じドメイン名を使用。内部および外部で同じサブドメイン名を使用したいが、内部ユーザーと外部ユーザーに対して、異なるコンテンツを供給したり、異なる認証を要求したりする場合もある
 * **DNS Security Extensions(DNSSEC)**
     * DNS応答にデジタル署名を付与し、そのデータが「正しい送信元からのもので、改ざんされていないこと」を検証するセキュリティ拡張機能
     * Route 53がキー署名キー（KSK）を生成し、DNSレコードを安全に署名する
