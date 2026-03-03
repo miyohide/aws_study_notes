@@ -37,11 +37,12 @@
     *   アクセスログはS3にしか出力できない
     * **Perfect Forward Secrecy(PFS)** を使用して、セッションごとに独立したランダムなキーを生成し、暗号化されたデータを保護するための追加手段を提供
         * PFSをON/OFFという設定はなく、TLSセキュリティポリシーによってPFSの有無が決まる
-*   **Network Load Balancer (NLB)**:
-    *   レイヤー4（TCP/UDP/TLS）で作動。数百万リクエスト/秒の超高性能。
-    *   **各AZに1つの固定IP（またはEIP）** を持ち、ホワイトリスト登録に適している。
-    *   **Zonal DNS**: 各AZのノードごとに特定のDNS名を持つ。
+* **Network Load Balancer (NLB)**:
+    * レイヤー4（TCP/UDP/TLS）で作動。数百万リクエスト/秒の超高性能。
+    * **各AZに1つの固定IP（またはEIP）** を持ち、ホワイトリスト登録に適している。
+    * **Zonal DNS**: 各AZのノードごとに特定のDNS名を持つ。
     * 異なるVPCに存在するEC2インスタンスをNLBのターゲットとして登録するにはインスタンスのIPアドレスを指定する必要あり
+    * EKSにおいて、送信元IPアドレスをPodに伝える場合は、ターゲットタイプをinstanceに指定し、`externalTrafficPolicy`属性を`Local`に設定する必要がある
 *   **Gateway Load Balancer (GWLB)**:
     *   レイヤー3で作動し、サードパーティ製仮想アプライアンスを透明に挿入する。
     *   **GENEVEプロトコル**（UDP 6081）を使用してトラフィックをカプセル化する。
