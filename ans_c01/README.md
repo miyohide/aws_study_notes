@@ -90,6 +90,9 @@
         * L2で通信を暗号化する技術。
         * 専用接続のみ使用が可能
         * CKN/CAKペアを接続に関連づけた後にMACSec暗号化モードをmust_encryptに更新
+    * **双方向転送検出（BFD）**
+        * ネットワークの障害を非常に高速に検出するプロトコル
+        * Direct Connect接続のBFDを有効にすることで、障害を素早く検出することが可能
 *   **Transit Gateway**
     *   **主なアタッチメント**:
         *   VPC、VPN、Direct Connect Gateway、Transit Gateway間のピアリング接続などが含まれます。
