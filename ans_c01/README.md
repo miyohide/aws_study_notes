@@ -160,3 +160,7 @@
 * **AWS Transit Gateway Network Manager**
     * Transit Gatewayに接続された複数のVPCの可視性を向上させるためのツール
     * GloudWatchとEventBridgeと組み合わせることで、ルート変更の通知を提供することができる
+## 10. IPv6
+* **DNS64**
+    * IPv6のみを利用する環境から、IPv4のみに対応しているネットワーク（インターネット等）へ通信できるようにするための橋渡し機能
+    * IPv6クライアントが名前解決を行う際に、IPv4しか持たないサービスに対して`AAAA`レコードの応答を生成する
