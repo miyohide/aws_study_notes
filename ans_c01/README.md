@@ -157,3 +157,6 @@
     * NLBのみサポート。ALBは未サポート
 * **Reachability Analyzer**
     * AWS内部ルーティングの論理的な到達可否を解析。通信は実際には流さない。
+* **AWS Transit Gateway Network Manager**
+    * Transit Gatewayに接続された複数のVPCの可視性を向上させるためのツール
+    * GloudWatchとEventBridgeと組み合わせることで、ルート変更の通知を提供することができる
