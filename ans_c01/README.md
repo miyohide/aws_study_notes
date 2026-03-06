@@ -169,7 +169,7 @@
     * AWS内部ルーティングの論理的な到達可否を解析。通信は実際には流さない。
 * **AWS Transit Gateway Network Manager**
     * Transit Gatewayに接続された複数のVPCの可視性を向上させるためのツール
-    * GloudWatchとEventBridgeと組み合わせることで、ルート変更の通知を提供することができる
+    * CloudWatchとEventBridgeと組み合わせることで、ルート変更の通知を提供することができる
 ## 10. IPv6
 * **DNS64**
     * IPv6のみを利用する環境から、IPv4のみに対応しているネットワーク（インターネット等）へ通信できるようにするための橋渡し機能
