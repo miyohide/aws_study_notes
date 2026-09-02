@@ -1,5 +1,70 @@
 # SageMaker AI
 
+## 各サービスと機能
+
+### Amazon SageMaker Data Wrangler
+
+- 目的：データの視覚化、クレンジング、変換
+
+[https://aws.amazon.com/jp/sagemaker-ai/data-wrangler/:embed:cite]
+
+### SageMaker Ground Truth
+
+- 目的：トレーニングデータに対してラベリング作業を提供する。自動的にやることも人がやることもできる。
+
+- キーワード
+    - プライベートワークフォース
+        - 選択したワーカーのグループ。特定のタスクに対して知識が豊富なメンバーで構成するようにすることができる
+    - 精度向上のために、以下の機能がある
+        - 注釈統合
+        - 注釈インターフェイス
+
+[https://aws.amazon.com/jp/sagemaker-ai/groundtruth/:embed:cite]
+
+### SageMaker Feature Store
+
+- 目的：特徴量のフルマネージドサービス
+
+- キーワード
+    - オンライン推論
+    - オフラインモデルのトレーニング
+    - GetRecord API
+        - 特定の特徴量を取得。リアルタイム推論での利用に最適
+    - PutRecord API
+        - 新しい特徴量を即座に登録
+
+[https://aws.amazon.com/jp/sagemaker-ai/feature-store/:embed:cite]
+
+### SageMaker Pipeline
+
+- 目的：ワークフロー全体を構築
+
+[https://aws.amazon.com/jp/sagemaker-ai/pipelines/:embed:cite]
+
+### SageMaker Model Monitor
+
+- 目的：デプロイ済みのモデルのパフォーマンスを継続的に監視し、異常検出時にアラートを出す
+
+- キーワード
+    - データドリフト監視
+        - 入力データの特徴がトレーニングデータと異なる場合に通知する
+
+### SageMaker Clarify
+
+- 目的：データセットやモデルのバイアス検知、予測の説明可能性を提供
+
+[https://aws.amazon.com/jp/sagemaker-ai/clarify/:embed:cite]
+
+### AWS Glue DataBrew
+
+- 目的：ビジュアルデータ準備ツール。データのクリーニングと正規化をGUI操作（ノーコード）で実装可能
+
+[https://aws.amazon.com/jp/glue/features/databrew/:embed:cite]
+
+### SageMaker Debugger
+
+- 目的：機械学習トレーニングジョブからのモデル出力をリアルタイムでデバッグし、収束しない問題を検出する
+
 ## アルゴリズム
 
 ### Factorization Machines
