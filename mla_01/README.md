@@ -1,79 +1,98 @@
-# SageMaker AI
+# AWS Certified Machine Learning Engineer - Associate 勉強メモ
 
-## 各サービスと機能
+わからなかった用語やサービスを整理したメモ。
 
-### Amazon SageMaker Data Wrangler
+## 目次
+
+- [SageMaker AI の各サービス・機能](#sagemaker-ai-の各サービス機能)
+  - [データ準備・ラベリング](#データ準備ラベリング)
+  - [特徴量管理](#特徴量管理)
+  - [トレーニング・デバッグ](#トレーニングデバッグ)
+  - [ワークフロー構築](#ワークフロー構築)
+  - [モデルの監視・説明可能性](#モデルの監視説明可能性)
+- [アルゴリズム](#アルゴリズム)
+- [ハイパーパラメータチューニング](#ハイパーパラメータチューニング)
+- [データ前処理](#データ前処理)
+- [学習のテクニック](#学習のテクニック)
+- [公平性・バイアスの指標](#公平性バイアスの指標)
+
+---
+
+## SageMaker AI の各サービス・機能
+
+### データ準備・ラベリング
+
+#### Amazon SageMaker Data Wrangler
 
 - 目的：データの視覚化、クレンジング、変換
+- 参考：[Amazon SageMaker Data Wrangler](https://aws.amazon.com/jp/sagemaker-ai/data-wrangler/)
 
-[https://aws.amazon.com/jp/sagemaker-ai/data-wrangler/:embed:cite]
+#### SageMaker Ground Truth
 
-### AWS Glue Studio
-
-- ETLジョブの作成・実行をGUIで組み立てることが可能
-
-### SageMaker Ground Truth
-
-- 目的：トレーニングデータに対してラベリング作業を提供する。自動的にやることも人がやることもできる。
-
+- 目的：トレーニングデータに対してラベリング作業を提供する。自動でも人手でも実施できる
 - キーワード
-    - プライベートワークフォース
-        - 選択したワーカーのグループ。特定のタスクに対して知識が豊富なメンバーで構成するようにすることができる
-    - 精度向上のために、以下の機能がある
-        - 注釈統合
-        - 注釈インターフェイス
+  - プライベートワークフォース：選択したワーカーのグループ。特定のタスクに知識が豊富なメンバーで構成できる
+  - 精度向上のための機能
+    - 注釈統合
+    - 注釈インターフェイス
+- 参考：[Amazon SageMaker Ground Truth](https://aws.amazon.com/jp/sagemaker-ai/groundtruth/)
 
-[https://aws.amazon.com/jp/sagemaker-ai/groundtruth/:embed:cite]
+#### AWS Glue DataBrew
 
-### SageMaker Feature Store
+- 目的：ビジュアルデータ準備ツール。データのクリーニングと正規化をGUI操作（ノーコード）で実装できる
+- 参考：[AWS Glue DataBrew](https://aws.amazon.com/jp/glue/features/databrew/)
+
+#### AWS Glue Studio
+
+- 目的：ETLジョブの作成・実行をGUIで組み立てられる
+
+### 特徴量管理
+
+#### SageMaker Feature Store
 
 - 目的：特徴量のフルマネージドサービス
-
 - キーワード
-    - オンライン推論
-    - オフラインモデルのトレーニング
-    - GetRecord API
-        - 特定の特徴量を取得。リアルタイム推論での利用に最適
-    - PutRecord API
-        - 新しい特徴量を即座に登録
+  - オンライン推論：リアルタイム推論向け
+  - オフラインモデルのトレーニング：バッチでの学習向け
+  - GetRecord API：特定の特徴量を取得。リアルタイム推論での利用に最適
+  - PutRecord API：新しい特徴量を即座に登録
+- 参考：[Amazon SageMaker Feature Store](https://aws.amazon.com/jp/sagemaker-ai/feature-store/)
 
-[https://aws.amazon.com/jp/sagemaker-ai/feature-store/:embed:cite]
+### トレーニング・デバッグ
 
-### SageMaker Pipeline
-
-- 目的：ワークフロー全体を構築
-
-[https://aws.amazon.com/jp/sagemaker-ai/pipelines/:embed:cite]
-
-### SageMaker Model Monitor
-
-- 目的：デプロイ済みのモデルのパフォーマンスを継続的に監視し、異常検出時にアラートを出す
-
-- キーワード
-    - データドリフト監視
-        - 入力データの特徴がトレーニングデータと異なる場合に通知する
-
-### SageMaker Clarify
-
-- 目的：データセットやモデルのバイアス検知、予測の説明可能性を提供
-
-[https://aws.amazon.com/jp/sagemaker-ai/clarify/:embed:cite]
-
-### AWS Glue DataBrew
-
-- 目的：ビジュアルデータ準備ツール。データのクリーニングと正規化をGUI操作（ノーコード）で実装可能
-
-[https://aws.amazon.com/jp/glue/features/databrew/:embed:cite]
-
-### SageMaker Debugger
+#### SageMaker Debugger
 
 - 目的：機械学習トレーニングジョブからのモデル出力をリアルタイムでデバッグし、収束しない問題を検出する
+
+### ワークフロー構築
+
+#### SageMaker Pipeline
+
+- 目的：ワークフロー全体を構築
+- 参考：[Amazon SageMaker Pipelines](https://aws.amazon.com/jp/sagemaker-ai/pipelines/)
+
+### モデルの監視・説明可能性
+
+#### SageMaker Model Monitor
+
+- 目的：デプロイ済みのモデルのパフォーマンスを継続的に監視し、異常検出時にアラートを出す
+- キーワード
+  - データドリフト監視：入力データの特徴がトレーニングデータと異なる場合に通知する
+
+#### SageMaker Clarify
+
+- 目的：データセットやモデルのバイアス検知、予測の説明可能性を提供
+- 参考：[Amazon SageMaker Clarify](https://aws.amazon.com/jp/sagemaker-ai/clarify/)
+
+---
 
 ## アルゴリズム
 
 ### Factorization Machines
 
-主に 「ユーザーと商品」「ユーザーと広告」など、複数の特徴量の組み合わせから予測する機械学習アルゴリズムです。特に、データが疎（sparse）になりやすい推薦システムでよく使われます。
+主に「ユーザーと商品」「ユーザーと広告」など、複数の特徴量の組み合わせから予測する機械学習アルゴリズム。特に、データが疎（sparse）になりやすい推薦システムでよく使われる。
+
+---
 
 ## ハイパーパラメータチューニング
 
@@ -84,9 +103,13 @@
 | **Bayesian Optimization** | 過去の結果から「良さそうな場所」を予測 |      **○** |     △ | 過去の結果を利用して次の候補を賢く選ぶ    | 学習コストが高く、効率的に探索したい |
 | **Hyperband**             | 成績の悪い試行を早期終了        |          ○ | **◎** | 有望なモデルに計算リソースを集中       | 学習に時間がかかるモデル       |
 
-# One-hot encoding
+---
 
-機械学習で扱いにくいカテゴリデータを、0と1の数値に変換する方法です。例えば、曜日というカテゴリデータをカテゴリごとに列を作ること。以下のような感じ。
+## データ前処理
+
+### One-hot encoding
+
+機械学習で扱いにくいカテゴリデータを、0と1の数値に変換する方法。例えば曜日というカテゴリデータを、カテゴリごとに列を作る。以下のような感じ。
 
 | 曜日 | 月 | 火 | 水 |
 | --- | --- | --- | --- |
@@ -94,10 +117,18 @@
 | 火曜日 | 0 | 1 | 0 |
 | 水曜日 | 0 | 0 | 1 |
 
-# 深層学習モデルの学習を安定させたい
+---
 
-学習率を小さく、ミニバッチを大きくする
+## 学習のテクニック
 
-# DLP（ラベルの比率の差）
+### 深層学習モデルの学習を安定させたい
 
-予測されたラベルの割合の差を測る公平性を評価するための指標。異なるグループ間で、ポジティブな予測が出る割合にどれくらい差があるか。
+学習率を小さく、ミニバッチを大きくする。
+
+---
+
+## 公平性・バイアスの指標
+
+### DLP（ラベルの比率の差）
+
+予測されたラベルの割合の差を測る、公平性を評価するための指標。異なるグループ間で、ポジティブな予測が出る割合にどれくらい差があるかを表す。
