@@ -85,6 +85,14 @@
 - 目的：データセットやモデルのバイアス検知、予測の説明可能性を提供
 - 参考：[Amazon SageMaker Clarify](https://aws.amazon.com/jp/sagemaker-ai/clarify/)
 
+#### SageMaker ML Lineage Tracking
+
+- 目的：機械学習ワークフローの各ステップ（データ、処理ジョブ、トレーニング、モデル、エンドポイントなど）のつながりを自動で記録・追跡する
+- ポイント
+  - どのデータからどのモデルが作られ、どこにデプロイされたかという来歴（リネージ）をたどれる
+  - モデルの再現性の確保、監査対応、ガバナンスに役立つ
+- 参考：[Amazon SageMaker ML Lineage Tracking](https://docs.aws.amazon.com/sagemaker/latest/dg/lineage-tracking.html)
+
 ---
 
 ## 推論エンドポイント
