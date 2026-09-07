@@ -72,6 +72,21 @@
 - 目的：ワークフロー全体を構築
 - 参考：[Amazon SageMaker Pipelines](https://aws.amazon.com/jp/sagemaker-ai/pipelines/)
 
+##### Lambda step と Callback step の違い
+
+パイプラインにカスタム処理を組み込むためのステップ。実行方式が異なる。
+
+| 項目 | Lambda step | Callback step |
+| --- | --- | --- |
+| 実行対象 | AWS Lambda 関数を同期実行する | パイプライン外の処理（SageMakerが直接対応しない処理）を組み込む |
+| 動作 | Lambda を呼び出し、結果が返るまで待つ。返り値を後続ステップで使える | メッセージをSQSキューに送り、パイプラインは一時停止して待機する |
+| 再開方法 | Lambda の処理が終われば自動で次へ進む | 外部システムが処理後に `SendPipelineExecutionStepSuccess` / `Failure` API を呼んで再開させる |
+| 実行時間 | Lambda の上限（最大15分）に収まる短い処理向け | 時間のかかる処理や非同期処理も待てる |
+| 向いているケース | 軽量な前後処理、条件分岐用の値の算出、簡単なデプロイなど | SageMaker外のカスタム処理を任せ、完了通知を待ちたいとき |
+
+- Lambda step：短くその場で完結する処理向け。
+- Callback step：時間のかかる処理や外部システムに任せる処理向け。SQS経由で連携し、完了通知（API呼び出し）を待つ。
+
 ### モデルの監視・説明可能性
 
 #### SageMaker Model Monitor
