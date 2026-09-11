@@ -108,6 +108,25 @@
   - モデルの再現性の確保、監査対応、ガバナンスに役立つ
 - 参考：[Amazon SageMaker ML Lineage Tracking](https://docs.aws.amazon.com/sagemaker/latest/dg/lineage-tracking.html)
 
+### その他の設定
+
+#### メタデータ収集のオプトアウト（OPT_OUT_TRACKING=1）
+
+- 概要：SageMaker AI はデフォルトで利用状況などのメタデータ（テレメトリ）を収集する。これを無効化したい場合は、環境変数 `OPT_OUT_TRACKING` に `1` を設定する
+- 設定方法：トレーニングジョブ（create-training-job など）の環境変数に指定する
+
+  ```json
+  {
+    "Environment": {
+      "OPT_OUT_TRACKING": "1"
+    }
+  }
+  ```
+
+- ポイント
+  - データのプライバシー要件が厳しい環境で、メタデータ送信を止めたいときに利用する
+- 参考：[Data Privacy in Amazon SageMaker AI](https://docs.aws.amazon.com/sagemaker/latest/dg/data-privacy.html)
+
 ---
 
 ## 推論エンドポイント
